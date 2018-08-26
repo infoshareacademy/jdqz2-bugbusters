@@ -32,35 +32,25 @@ public class UserDataApp {
     private static String prepareUserName() {
         String userName[] = { "Karol", "Wojtek", "Dorota", "Marian", "Krzysiek", "Jan" };
         String randomUserName = userName[new Random().nextInt(userName.length)];
-        System.out.println(userName);}
+        System.out.println(randomUserName);
+    }
+
 
         private static String prepareFirstName() {
             String[] firstName = {"Aneta", "Joanna", "Tomek", "WOjtek", "Czarek"};
-            String randomfirstName = firstName[new Random().nextInt(userName.length)];
+            String randomfirstName = firstName[new Random().nextInt(firstName.length)];
             System.out.println(randomfirstName);
+            return randomfirstName;
         }
-        String []lastName = {"Aneta","Joanna","Tomek","WOjtek","Czarek"};
-        String randomlastName = lastName [new Random().nextInt(userName.length)];
-        System.out.println(randomlastName);
 
+        private static  String prepareLastName() {
+            String[] lastName = {"Aneta", "Joanna", "Tomek", "WOjtek", "Czarek"};
+            String randomlastName = lastName[new Random().nextInt(lastName.length)];
+        }
 
-
-
-
-
-        String randomElement = userName[new Random().nextInt(userName.length)];
-
-        String randomfirstName = firstName[new Random().nextInt(userName.length)];
-        return randomElement;
-
-
-
-
-
-
-
-
-
+    private static  String prepareEmail () {
+        String[] email = {"test", "test1", "test2", "test3", "test4"};
+        String randomEmail = email[new Random().nextInt(email.length)];
 
 
     }
