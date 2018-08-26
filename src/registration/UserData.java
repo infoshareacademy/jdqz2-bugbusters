@@ -1,4 +1,4 @@
-package registration;
+package src.registration;
 
 public class UserData {
 
@@ -15,7 +15,6 @@ public class UserData {
         this.email = email;
         this.password = password;
     }
-
 
 
 }
