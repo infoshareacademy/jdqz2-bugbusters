@@ -26,8 +26,10 @@ public class UserDataGenerator {
         String email = prepareEmail();
         String password = preparePassword();
 
+       UserData nowy = new UserData(userName,firstName,lastName,email,password);
 
 
+       System.out.println(nowy);
     }
 
     private static String prepareUserName() {
