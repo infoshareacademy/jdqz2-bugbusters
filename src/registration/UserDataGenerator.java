@@ -14,18 +14,20 @@ public class UserDataGenerator {
 
         for (int i = 0; i < numberOfUsers; i++) {
             prepareUser();
+            System.out.println("..............................");
         }
 
     }
-+
+
     private static void prepareUser() {
         String userName = prepareUserName(); //"Karol"
         String firstName = prepareFirstName();
-        String lastName=prepareLastName() ;
-        String email=prepareEmail();
-        String password=preparePassword();
+        String lastName = prepareLastName() ;
+        String email = prepareEmail();
+        String password = preparePassword();
 
-        UserData nowy = new UserData(userName,firstName,lastName,email,password);
+
+
     }
 
     private static String prepareUserName() {
@@ -46,6 +48,7 @@ public class UserDataGenerator {
     private static  String prepareLastName() {
         String[] lastName = {"Aneta", "Joanna", "Tomek", "WOjtek", "Czarek"};
         String randomlastName = lastName[new Random().nextInt(lastName.length)];
+        System.out.println(randomlastName);
         return randomlastName;
 
     }
@@ -53,13 +56,15 @@ public class UserDataGenerator {
     private static  String prepareEmail () {
         String[] email = {"test", "test1", "test2", "test3", "test4"};
         String randomEmail = email[new Random().nextInt(email.length)];
+        System.out.println(randomEmail);
         return  randomEmail;
 
     }
     private static  String preparePassword () {
         String[] password = {"test", "test1", "test2", "test3", "test4"};
         String randompasssword = password[new Random().nextInt(password.length)];
-        return preparePassword();
+        System.out.println(randompasssword);
+        return randompasssword;
 
 
     }
