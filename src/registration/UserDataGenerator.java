@@ -13,9 +13,10 @@ public class UserDataGenerator {
         List<UserData> users = new ArrayList<>();
 
         for (int i = 0; i < numberOfUsers; i++) {
-            prepareUser();
 
+            users.add(prepareUser());
             System.out.println("Prepared user: " + prepareUser());
+
 
             System.out.println("..............................");
         }
