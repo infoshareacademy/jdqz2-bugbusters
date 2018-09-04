@@ -1,5 +1,7 @@
 package registration;
 
+import java.util.Random;
+
 public class UserData {
 
     private String userName;
@@ -15,6 +17,9 @@ public class UserData {
         this.email = email;
         this.password = password;
 
+        //return new UserData(userName,firstName,lastName,email,password);
+
+
     }
 
 public static void main (String[]args){
@@ -28,9 +33,9 @@ public static void main (String[]args){
     String lastName [] = {"Kowalski", "Nowak", "Turecki", "Jankowski", "Sobieski"};
     String randomlastName = lastName[new Random().nextInt(lastName.length)];
     System.out.println(randomlastName);
-    String mail [] = {"test1@mail", "test2@mail", "test3@mail", "test4@mail", "test5@mail"};
-    String randommail = mail[new Random().nextInt(mail.length)];
-    System.out.println(randommail);
+    String email [] = {"test1@mail", "test2@mail", "test3@mail", "test4@mail", "test5@mail"};
+    String randomemail = email[new Random().nextInt(email.length)];
+    System.out.println(randomemail);
     String password [] = {"Password1", "Password2", "Password3", "Password4", "Password5"};
     String randompassword = password[new Random().nextInt(password.length)];
     System.out.println(randompassword);
