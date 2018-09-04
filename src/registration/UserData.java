@@ -28,6 +28,13 @@ public static void main (String[]args){
     String lastName [] = {"Kowalski", "Nowak", "Turecki", "Jankowski", "Sobieski"};
     String randomlastName = lastName[new Random().nextInt(lastName.length)];
     System.out.println(randomlastName);
+    String mail [] = {"test1@mail", "test2@mail", "test3@mail", "test4@mail", "test5@mail"};
+    String randommail = mail[new Random().nextInt(mail.length)];
+    System.out.println(randommail);
+    String password [] = {"Password1", "Password2", "Password3", "Password4", "Password5"};
+    String randompassword = password[new Random().nextInt(password.length)];
+    System.out.println(randompassword);
+
 }
 
 }
