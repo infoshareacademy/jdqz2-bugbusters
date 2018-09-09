@@ -8,9 +8,8 @@ public class PaymentGeneratorApp {
         public static void main(String[] args) {
 
             //Stworzenie Skaneru do pobrania ile danych ma być wyplutych
-        Integer iloscDanych;
-        Scanner scanner = new Scanner(System.in);
-        iloscDanych = scanner.nextInt();
+        Integer iloscDanych=10;
+
 
         //Kolekcja która przetrzymuje te dane
         List<ListPayment> paymentsData = new ArrayList<>();

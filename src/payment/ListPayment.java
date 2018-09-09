@@ -1,5 +1,7 @@
 package payment;
 
+import random.RandomDataGenerator;
+
 public class ListPayment {
     //Troche skjopiowane ale zatwierdzenie typu danych dla preprarePayments
     private String cardNumber;
@@ -12,21 +14,16 @@ public class ListPayment {
         this.CCV=CCV;
     }
 
-    //Główna metoda zwracająca losowe dane z metod CCV, Expires, numerKarty
+    //Główna metoda zwracająca losowe dane
     public static ListPayment preparePayments() {
 
-        //Skąd ma czerpać metody dla losowych danych
-        CCV ccv = new CCV();
-        Expires expires = new Expires();
-        numerKarty nowyNumer = new numerKarty();
-
         //najprawdopodobnie niepotrzebne boolean ale zostawiam
-        String wygasa = expires.losowanieWygasania(true);
-        String numer = ccv.losowanie(true);
-        String nowyNumerKarty = nowyNumer.losowanieKarty(true);
+        String CardRandomString = RandomDataGenerator.CardNumberRandom();
+        String CardExpiresString = RandomDataGenerator.Expires();
+        String randomCCVString = RandomDataGenerator.RandomCCV();
 
         //Co i jak ma zwracać
-        return new ListPayment(nowyNumerKarty,wygasa,numer);
+        return new ListPayment(CardRandomString,CardExpiresString,randomCCVString);
 
     }
     //zamienienie Hashcodu na coś czytelnego
