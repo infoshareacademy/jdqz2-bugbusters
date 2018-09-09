@@ -1,8 +1,9 @@
-package payment;
+package main.java.com.infoshare.bug_busters.payment;
+
+import main.java.com.infoshare.bug_busters.payment.ListPayment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class PaymentGeneratorApp {
         public static void main(String[] args) {

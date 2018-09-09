@@ -1,6 +1,7 @@
-package payment;
+package main.java.com.infoshare.bug_busters.payment;
 
-import random.RandomDataGenerator;
+
+import com.infoshare.bug_busters.random.RandomDataGenerator;
 
 public class ListPayment {
     //Troche skjopiowane ale zatwierdzenie typu danych dla preprarePayments
