@@ -16,6 +16,14 @@ public class UserData {
         this.password = password;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "userName='" + userName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
