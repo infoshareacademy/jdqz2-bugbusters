@@ -1,4 +1,4 @@
-package src.registration;
+package registration;
 
 public class UserData {
 
