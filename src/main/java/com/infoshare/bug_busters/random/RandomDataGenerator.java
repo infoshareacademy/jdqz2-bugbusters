@@ -1,4 +1,4 @@
-package random;
+package com.infoshare.bug_busters.random;
 
 import java.util.Random;
 
@@ -61,6 +61,6 @@ public class RandomDataGenerator {
     public static  String prepareCountry() {
         String country[] = {"Polska", "Wlochy", "Niemcy", "Litwa", "Czechy"};
         String randomCountry = country[new Random().nextInt(country.length)];
-        return randomCountry
+        return randomCountry;
     }
 }

@@ -1,5 +1,5 @@
-package registration;
-import random.RandomDataGenerator;
+package com.infoshare.bug_busters.registration;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
 
 public class UserDataGenerator {
 

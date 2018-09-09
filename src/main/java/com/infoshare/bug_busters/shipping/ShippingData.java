@@ -1,4 +1,4 @@
-package shipping;
+package com.infoshare.bug_busters.shipping;
 
 public class ShippingData {
 
