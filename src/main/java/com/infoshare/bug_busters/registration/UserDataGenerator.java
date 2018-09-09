@@ -1,10 +1,13 @@
 package com.infoshare.bug_busters.registration;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDataGenerator {
 
 
-    private static UserData prepareUser() {
+    public static UserData prepareUser() {
         String userName = RandomDataGenerator.prepareUserName(); //"Karol"
         String firstName = RandomDataGenerator.prepareFirstName();
         String lastName = RandomDataGenerator.prepareLastName() ;
@@ -14,6 +17,12 @@ public class UserDataGenerator {
        return new UserData(userName,firstName,lastName,email,password);
     }
 
+    public static List<UserData> prepareUsers(int listSize){
 
+        List<UserData> users = new ArrayList<>();
+        for (int i = 0; i < listSize; i++) ;
+        UserDataGenerator.prepareUser();
+        return users;
+    }
 
 }
