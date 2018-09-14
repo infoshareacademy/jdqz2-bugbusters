@@ -1,11 +1,13 @@
 package com.infoshare.bug_busters.registration;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 
+import java.io.IOException;
+
 public class UserDataGenerator {
 
 
-    private static UserData prepareUser() {
-        String userName = RandomDataGenerator.prepareUserName(); //"Karol"
+    public static UserData prepareUserData() throws IOException {
+        String userName = RandomDataGenerator.prepareUserName();
         String firstName = RandomDataGenerator.prepareFirstName();
         String lastName = RandomDataGenerator.prepareLastName() ;
         String email = RandomDataGenerator.prepareEmail();
