@@ -32,6 +32,7 @@ public class RandomDataGenerator {
         String[] password = {"test", "test1", "test2", "test3", "test4"};
         String randompasssword = password[new Random().nextInt(password.length)];
         return randompasssword;
+
     }
 
     public static Integer prepareHouseNumber(){
