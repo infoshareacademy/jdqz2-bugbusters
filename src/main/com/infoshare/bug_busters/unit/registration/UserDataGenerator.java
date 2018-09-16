@@ -5,13 +5,19 @@ import java.io.IOException;
 
 public class UserDataGenerator {
 
+    private final RandomDataGenerator dataGenerator;
 
-    public static UserData prepareUserData() throws IOException {
-        String userName = RandomDataGenerator.prepareUserName();
-        String firstName = RandomDataGenerator.prepareFirstName();
-        String lastName = RandomDataGenerator.prepareLastName() ;
-        String email = RandomDataGenerator.prepareEmail();
-        String password = RandomDataGenerator.preparePassword();
+    public UserDataGenerator(RandomDataGenerator dataGenerator) {
+        this.dataGenerator = dataGenerator;
+    }
+
+
+    public UserData prepareUserData() throws IOException {
+        String userName = dataGenerator.prepareUserName();
+        String firstName = dataGenerator.prepareFirstName();
+        String lastName = dataGenerator.prepareLastName() ;
+        String email = dataGenerator.prepareEmail();
+        String password = dataGenerator.preparePassword();
 
        return new UserData(userName,firstName,lastName,email,password);
     }

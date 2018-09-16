@@ -16,6 +16,26 @@ public class UserData {
         this.password = password;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     @Override
     public String toString() {
         return "UserData{" +

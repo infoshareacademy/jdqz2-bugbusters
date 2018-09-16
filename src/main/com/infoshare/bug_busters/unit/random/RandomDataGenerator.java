@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class RandomDataGenerator {
 
-    public static String prepareUserName() throws IOException {
+    public String prepareUserName() throws IOException {
         //String userName[] = { "Karol", "Wojtek", "Dorota", "Marian", "Krzysiek", "Jan" }; //pierwsze podejscie z tablica
 
         String allUserNames = new String(Files.readAllLines(Paths.get("testData.txt")).get(0)); //get(0) - pobiera pierwsza linie
