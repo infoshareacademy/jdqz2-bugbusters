@@ -1,5 +1,5 @@
-package com.infoshare.bug_busters.registration;
-import com.infoshare.bug_busters.random.RandomDataGenerator;
+package com.infoshare.bug_busters.unit.registration;
+import com.infoshare.bug_busters.unit.random.RandomDataGenerator;
 
 import java.io.IOException;
 
