@@ -12,15 +12,17 @@ import static org.mockito.Mockito.when;
 public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazdej metody w tej klasie
     @Test
     public void createsCorrectUser() throws IOException {
-        RandomDataGenerator generatorMock = mock(RandomDataGenerator.class);
+        RandomDataGenerator generatorMock = mock(RandomDataGenerator.class); //tworzy moka z klasy RandomDataGenerator czyli ma dostep do pol i metod tej klasy
 
-        when(generatorMock.prepareUserName()).thenReturn("ola_test");
+        when(generatorMock.prepareUserName()).thenReturn("login_ola"); //na moku wykonuje metode prepareUserName() z klasy RandomDataGenerator i mowie jej co ma zwocic
+        //dzieki temu metoda prepareUserName() zwroci tylko "login_ola"
 
-        UserDataGenerator underTest = new UserDataGenerator(generatorMock);
+        UserDataGenerator underTest = new UserDataGenerator(generatorMock); // stworzenie nowego obiektu bedacego instancja klasy UserDataGenerator ktorej metoda jest testowana
+        // tworzona z konstruktora klasy UserDataGenerator ale wstrzykuje do niego zmienna mock dzieki temu obchodze wywolanie prawdziwej klasy RandomDataGenerator
 
         UserData result = underTest.prepareUserData();
 
-        Assertions.assertThat(result.getUserName())
-                .isEqualTo("ola_test");
+        Assertions.assertThat(result.getUserName()) //asercja assertJa
+                .isEqualTo("login_ola");
     }
 }
