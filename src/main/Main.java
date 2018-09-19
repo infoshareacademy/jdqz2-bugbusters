@@ -1,6 +1,6 @@
-import com.infoshare.bug_busters.unit.random.RandomDataGenerator;
-import com.infoshare.bug_busters.unit.registration.UserDataGenerator;
-import com.infoshare.bug_busters.unit.shipping.ShippingDataGenerator;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.registration.UserDataGenerator;
+import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 
 import java.io.IOException;
 

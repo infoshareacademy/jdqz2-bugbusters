@@ -1,4 +1,4 @@
-package com.infoshare.bug_busters.unit.registration;
+package com.infoshare.bug_busters.registration;
 
 public class UserData {
 

@@ -1,6 +1,6 @@
-package com.infoshare.bug_busters.unit.registration;
+package com.infoshare.bug_busters.registration;
 
-import com.infoshare.bug_busters.unit.random.RandomDataGenerator;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

@@ -1,12 +1,13 @@
-package main.java.com.infoshare.bug_busters.payment;
+package com.infoshare.bug_busters.payment;
 
-public class ListPayment {
+public class PaymentData {
+
     //Troche skjopiowane ale zatwierdzenie typu danych dla preprarePayments
     private String cardNumber;
     private String expires;
     private String ccv;
     //Jak się mają zapisywać dane
-    public ListPayment(String cardNumber, String expires, String CCV){
+    public PaymentData(String cardNumber, String expires, String CCV){
         this.cardNumber=cardNumber;
         this.expires=expires;
         this.ccv=CCV;
