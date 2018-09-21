@@ -19,7 +19,7 @@ public class PaymentDataGenerator {
 
     }
 
-    public void safeToCollection() {
+    public List<PaymentData> safeToCollection() {
 
         //Stworzenie Skaneru do pobrania ile danych ma być wyplutych
         Integer iloscDanych = 10;
@@ -33,7 +33,7 @@ public class PaymentDataGenerator {
             paymentsData.add(preparePayments());
 
         }
-
+        return paymentsData;
     }
 
 }
