@@ -2,16 +2,23 @@ package com.infoshare.bug_busters.registration;
 
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Random;
 
+import static javafx.beans.binding.Bindings.when;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazdej metody w tej klasie
+    @Before
+    //tutaj mozna wyciagnac tworzenie mocka 21 linijka
+
     @Test
-    public void createsCorrectUser() throws IOException {
+    public void createsCorrectUserName() throws IOException {
         RandomDataGenerator generatorMock = mock(RandomDataGenerator.class); //tworzy moka z klasy RandomDataGenerator czyli ma dostep do pol i metod tej klasy
 
         when(generatorMock.prepareUserName()).thenReturn("login_ola"); //na moku wykonuje metode prepareUserName() z klasy RandomDataGenerator i mowie jej co ma zwocic
@@ -24,5 +31,18 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
 
         Assertions.assertThat(result.getUserName()) //asercja assertJa
                 .isEqualTo("login_ola");
+    }
+
+    @Test
+    public void createsCorrectFirstName() throws IOException {
+        RandomDataGenerator generatorMock = mock(RandomDataGenerator.class);
+
+        when(generatorMock.prepareFirstName()).thenReturn("Ola");
+
+        UserDataGenerator underTest = new UserDataGenerator(generatorMock);
+
+        UserData result = underTest.prepareUserData();
+
+        Assertions.assertThat(result.getFirstName()).isEqualTo("Ola");
     }
 }
