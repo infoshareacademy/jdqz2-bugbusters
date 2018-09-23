@@ -73,50 +73,42 @@ public class RandomDataGenerator {
 
     public static String CardNumberRandom() {
 
-        //Zatwierdzenie typów oraz wykorzystanie Random
-        String numerkarty = "";
-        Integer Liczba;
+        String CardNumber = "";
+        Integer Digital;
         Random random = new Random();
 
-        //Dodawanie kolejnych liczb do numeru karty ... lepiej niż losowac mega dużą liczbe, po drugie bałem się że liczba przekroczy granice 32bitów
         for (int i = 0; i < 16; i++) {
-            Liczba = random.nextInt(9);
-            numerkarty = numerkarty + Liczba.toString();
+            Digital = random.nextInt(9);
+            CardNumber = CardNumber + Digital.toString();
         }
-        return numerkarty;
+        return CardNumber;
     }
 
     public static String Expires() {
 
-        //wykorzystanie metody Random
-        Random losowanie = new Random();
+        Random random = new Random();
 
-        //Wyznaczenie granic losowania, integer rok jest wpisany taki ... bo tak. Do zmiany najprawdopodobniej !!!
-        Integer miesiac = losowanie.nextInt(11) + 1;
-        Integer rok = losowanie.nextInt(30);
+        Integer month = random.nextInt(11) + 1;
+        Integer year = random.nextInt(30);
 
-        //Format Daty ma ../.. więc zabezpieczyłem go przed przypadkowym przycinaniem cyfr
-        if (miesiac < 10 && rok < 10) {
-            return "0" + miesiac + "/" + "0" + rok;
+        if (month < 10 && year < 10) {
+            return "0" + month + "/" + "0" + year;
         }
-        if (miesiac < 10) {
-            return "0" + miesiac + "/" + rok;
+        if (month < 10) {
+            return "0" + month + "/" + year;
         }
-        if (rok < 10) {
-            return miesiac + "/" + "0" + rok;
+        if (year < 10) {
+            return month + "/" + "0" + year;
         }
-        return miesiac + "/" + rok;
+        return month + "/" + year;
     }
 
     public static String RandomCCV() {
 
-        //dodanie metody Random
-        Random generator = new Random();
+        Random random = new Random();
 
-        //tak to napisane zostało bo kod CCV msui być 3 cyfrowy
-        Integer ccv = generator.nextInt(899) + 100;
+        Integer ccv = random.nextInt(899) + 100;
 
-        //Sprytne zamienienie na Stringa, bez "" nie działa
         return "" + ccv;
     }
 
