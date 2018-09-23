@@ -37,12 +37,12 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
     public void createsCorrectFirstName() throws IOException {
         RandomDataGenerator generatorMock = mock(RandomDataGenerator.class);
 
-        when(generatorMock.prepareFirstName()).thenReturn("Ola");
+        when(generatorMock.prepareFirstName()).thenReturn("Karol");
 
         UserDataGenerator underTest = new UserDataGenerator(generatorMock);
 
-        UserData result = underTest.prepareUserData();
+        UserData result = underTest.prepareUserData(); //nie rozumiem
 
-        Assertions.assertThat(result.getFirstName()).isEqualTo("Ola");
+        Assertions.assertThat(result.getFirstName()).isEqualTo("Karol");
     }
 }
