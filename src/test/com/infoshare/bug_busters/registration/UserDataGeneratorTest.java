@@ -41,8 +41,9 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
 
         UserDataGenerator underTest = new UserDataGenerator(generatorMock);
 
-        UserData result = underTest.prepareUserData(); //nie rozumiem
+        UserData result = underTest.prepareUserData();
 
         Assertions.assertThat(result.getFirstName()).isEqualTo("Karol");
     }
+
 }

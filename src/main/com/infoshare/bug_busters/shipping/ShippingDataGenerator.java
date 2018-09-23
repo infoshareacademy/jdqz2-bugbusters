@@ -9,13 +9,15 @@ public class ShippingDataGenerator {
 
     private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
 
-    public ShippingDataGenerator(RandomDataGenerator dataGenerator) {
+    public ShippingDataGenerator(RandomDataGenerator dataGenerator) { // konstruktor z wstrzyknieta klasa RandomDataGenerator??? co tu sie dziej
         this.dataGenerator = dataGenerator;
     }
 
+    //ShippingDataGenerator(){}
+
     public ShippingData prepareShippingData() throws IOException {
 
-        Integer houseNumber = dataGenerator.prepareHouseNumber();
+        String houseNumber = dataGenerator.prepareHouseNumber();
         String streetName = dataGenerator.prepareStreetName();
         String city = dataGenerator.prepareCity() ;
         String postCode = dataGenerator.preparePostCode();

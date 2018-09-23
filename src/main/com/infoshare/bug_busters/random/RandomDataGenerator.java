@@ -14,7 +14,7 @@ public class RandomDataGenerator {
         return randomUserName;
     }
 
-    public static String prepareFirstName() throws IOException {
+    public String prepareFirstName() throws IOException {
         String randomFirstName = choiceRandomDataFromTextFile(1);
         return randomFirstName;
     }
@@ -36,9 +36,9 @@ public class RandomDataGenerator {
 
     }
 
-    public static Integer prepareHouseNumber() throws IOException {
+    public String prepareHouseNumber() throws IOException {
         String randomHouseNumber = choiceRandomDataFromTextFile(5);
-        return Integer.valueOf(randomHouseNumber);
+        return randomHouseNumber;
     }
 
     public static String prepareStreetName() throws IOException {
