@@ -1,6 +1,8 @@
-package com.infoshare.bug_busters.registration;
+package com.infoshare.bug_busters.unit.registration;
 
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.registration.UserData;
+import com.infoshare.bug_busters.registration.UserDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
@@ -8,6 +10,7 @@ import java.io.IOException;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
 
 public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazdej metody w tej klasie
     @Test

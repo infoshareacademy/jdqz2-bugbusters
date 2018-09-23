@@ -1,5 +1,7 @@
-package com.infoshare.bug_busters.payment;
+package com.infoshare.bug_busters.unit.payment;
 
+import com.infoshare.bug_busters.payment.PaymentData;
+import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import org.junit.Test;
 
 import java.util.List;
