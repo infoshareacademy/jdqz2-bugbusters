@@ -1,6 +1,7 @@
-package java.com.infoshare.bug_busters.payment;
+package com.infoshare.bug_busters.payment;
 
-import java.com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 

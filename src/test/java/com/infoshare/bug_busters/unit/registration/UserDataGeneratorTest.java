@@ -1,17 +1,13 @@
-package java.com.infoshare.bug_busters.unit.registration;
+package com.infoshare.bug_busters.unit.registration;
 
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.registration.UserData;
+import com.infoshare.bug_busters.registration.UserDataGenerator;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.com.infoshare.bug_busters.random.RandomDataGenerator;
-import java.com.infoshare.bug_busters.registration.UserData;
-import java.com.infoshare.bug_busters.registration.UserDataGenerator;
 import java.io.IOException;
-import java.util.Random;
-
-import static javafx.beans.binding.Bindings.when;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

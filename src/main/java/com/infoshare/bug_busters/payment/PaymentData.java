@@ -1,4 +1,4 @@
-package java.com.infoshare.bug_busters.payment;
+package com.infoshare.bug_busters.payment;
 
 public class PaymentData {
 

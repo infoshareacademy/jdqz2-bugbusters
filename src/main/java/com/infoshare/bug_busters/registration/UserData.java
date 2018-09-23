@@ -1,4 +1,4 @@
-package java.com.infoshare.bug_busters.registration;
+package com.infoshare.bug_busters.registration;
 
 public class UserData {
 

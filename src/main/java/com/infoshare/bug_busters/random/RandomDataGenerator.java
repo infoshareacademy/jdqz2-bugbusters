@@ -1,4 +1,4 @@
-package java.com.infoshare.bug_busters.random;
+package com.infoshare.bug_busters.random;
 
 import java.io.IOException;
 import java.nio.file.Files;

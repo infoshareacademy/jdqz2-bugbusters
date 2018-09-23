@@ -1,8 +1,8 @@
-package java.com.infoshare.bug_busters.unit.payment;
+package com.infoshare.bug_busters.unit.payment;
 
+import com.infoshare.bug_busters.payment.PaymentData;
+import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import org.junit.Test;
-import java.com.infoshare.bug_busters.payment.PaymentData;
-import java.com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import java.util.List;
 import java.util.regex.Pattern;
 import static org.junit.Assert.assertEquals;

@@ -1,7 +1,11 @@
-package java.com.infoshare.bug_busters.shipping;
+package com.infoshare.bug_busters.shipping;
 
-import java.com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class ShippingDataGenerator {
 
@@ -23,6 +27,18 @@ public class ShippingDataGenerator {
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }
 
-    // stworzyc liste z paroma obiektami ShippingData, ilosc obiektow bedzie podawana przez uzytkownika
+    public List<ShippingData> createListWithMuchAsYouWantObjectsWithRandomChoiceDate() throws IOException {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Ile chcesz stworzyc obiektow typu ShippingData: ");
+        int numberOfShippingDataObjects = Integer.parseInt(input.nextLine());
+
+        List<ShippingData> shippingData = new ArrayList<>();
+
+        for (int i = 1; i <= numberOfShippingDataObjects; i++) {
+            shippingData.add(prepareShippingData());
+        }
+        return shippingData;
+    }
 }
 

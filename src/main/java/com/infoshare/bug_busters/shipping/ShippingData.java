@@ -1,4 +1,4 @@
-package java.com.infoshare.bug_busters.shipping;
+package com.infoshare.bug_busters.shipping;
 
 public class ShippingData {
 
@@ -44,6 +44,6 @@ public class ShippingData {
                 ", city='" + city + '\'' +
                 ", postCode='" + postCode + '\'' +
                 ", country='" + country + '\'' +
-                '}';
+                '}' + "\n";
     }
 }

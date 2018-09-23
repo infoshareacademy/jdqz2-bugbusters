@@ -1,6 +1,6 @@
-package java.com.infoshare.bug_busters.registration;
+package com.infoshare.bug_busters.registration;
 
-import java.com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
 import java.io.IOException;
 
 public class UserDataGenerator {

@@ -1,12 +1,11 @@
-package java.com.infoshare.bug_busters.unit.shipping;
+package com.infoshare.bug_busters.unit.shipping;
 
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.shipping.ShippingData;
+import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.com.infoshare.bug_busters.random.RandomDataGenerator;
-import java.com.infoshare.bug_busters.shipping.ShippingData;
-import java.com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
@@ -30,7 +29,7 @@ public class ShippingDataGeneratorIntegrationTest {
 
         ShippingData checkingValueNotNull = shippingDataGenerator.prepareShippingData();
 
-        assertNotNull("House number is null", checkingValueNotNull.getHouseNumber()); // testy integracyjne
+        assertNotNull("House number is null", checkingValueNotNull.getHouseNumber());
         assertNotNull("Street is null", checkingValueNotNull.getStreetName());
         assertNotNull("City is null", checkingValueNotNull.getCity());
         assertNotNull("Post code is null", checkingValueNotNull.getPostCode());

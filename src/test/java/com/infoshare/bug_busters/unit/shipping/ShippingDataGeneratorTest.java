@@ -1,11 +1,10 @@
-package java.com.infoshare.bug_busters.unit.shipping;
+package com.infoshare.bug_busters.unit.shipping;
 
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.shipping.ShippingData;
+import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-
-import java.com.infoshare.bug_busters.random.RandomDataGenerator;
-import java.com.infoshare.bug_busters.shipping.ShippingData;
-import java.com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import java.io.IOException;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
