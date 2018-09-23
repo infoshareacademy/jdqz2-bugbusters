@@ -1,5 +1,6 @@
-package com.infoshare.bug_busters.random;
+package com.infoshare.bug_busters.unit.random;
 
+import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
