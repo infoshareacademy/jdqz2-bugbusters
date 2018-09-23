@@ -8,7 +8,7 @@ class DriverExecutor {
         try {
             Runtime.getRuntime().exec("chmod 777 " + driverPath);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
