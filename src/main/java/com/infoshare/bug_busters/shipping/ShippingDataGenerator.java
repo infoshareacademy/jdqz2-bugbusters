@@ -11,9 +11,8 @@ public class ShippingDataGenerator {
 
     public ShippingDataGenerator(RandomDataGenerator dataGenerator) { // konstruktor z wstrzyknieta klasa RandomDataGenerator??? co tu sie dziej
         this.dataGenerator = dataGenerator;
+        //dependency enjection
     }
-
-    //ShippingDataGenerator(){}
 
     public ShippingData prepareShippingData() throws IOException {
 
@@ -25,5 +24,7 @@ public class ShippingDataGenerator {
 
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }
+
+    // stworzyc liste z paroma obiektami ShippingData, ilosc obiektow bedzie podawana przez uzytkownika
 }
 

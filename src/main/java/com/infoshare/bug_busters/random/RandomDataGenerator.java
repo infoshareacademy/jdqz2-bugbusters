@@ -19,18 +19,18 @@ public class RandomDataGenerator {
         return randomFirstName;
     }
 
-    public static String prepareLastName() throws IOException {
+    public String prepareLastName() throws IOException {
         String randomLastName = choiceRandomDataFromTextFile(2);
         return randomLastName;
     }
 
-    public static String prepareEmail() throws IOException {
+    public String prepareEmail() throws IOException {
         String randomEmail = choiceRandomDataFromTextFile(3);
         return randomEmail;
 
     }
 
-    public static String preparePassword() throws IOException {
+    public String preparePassword() throws IOException {
         String randomPassword = choiceRandomDataFromTextFile(4);
         return randomPassword;
 
@@ -41,22 +41,22 @@ public class RandomDataGenerator {
         return randomHouseNumber;
     }
 
-    public static String prepareStreetName() throws IOException {
+    public String prepareStreetName() throws IOException {
         String randomStreetName = choiceRandomDataFromTextFile(6);
         return randomStreetName;
     }
 
-    public static String prepareCity() throws IOException {
+    public String prepareCity() throws IOException {
         String randomCity = choiceRandomDataFromTextFile(7);
         return randomCity;
     }
 
-    public static String preparePostCode() throws IOException {
+    public String preparePostCode() throws IOException {
         String randomPostCode = choiceRandomDataFromTextFile(8);
         return randomPostCode;
     }
 
-    public static String prepareCountry() throws IOException {
+    public String prepareCountry() throws IOException {
         String randomCountry = choiceRandomDataFromTextFile(9);
         return randomCountry;
     }

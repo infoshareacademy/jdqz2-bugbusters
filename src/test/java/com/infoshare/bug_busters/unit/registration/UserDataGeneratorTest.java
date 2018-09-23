@@ -39,13 +39,9 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
     @Test
     public void createsCorrectFirstName() throws IOException {
         RandomDataGenerator generatorMock = mock(RandomDataGenerator.class);
-
-        when(generatorMock.prepareFirstName()).thenReturn("Karol");
-
+        when(generatorMock.prepareFirstName()).thenReturn("Karol"); // prepareFirstName to nie moze byc statyczna metoda bo wykona sie szybciej niz wstrzykniecie moka
         UserDataGenerator underTest = new UserDataGenerator(generatorMock);
-
         UserData result = underTest.prepareUserData();
-
         Assertions.assertThat(result.getFirstName()).isEqualTo("Karol");
     }
 
