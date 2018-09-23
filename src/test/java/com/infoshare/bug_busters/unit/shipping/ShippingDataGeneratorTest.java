@@ -1,18 +1,12 @@
-package com.infoshare.bug_busters.unit.shipping;
+package java.com.infoshare.bug_busters.unit.shipping;
 
-import com.infoshare.bug_busters.random.RandomDataGenerator;
-import com.infoshare.bug_busters.registration.UserData;
-import com.infoshare.bug_busters.registration.UserDataGenerator;
-import com.infoshare.bug_busters.shipping.ShippingData;
-import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import java.com.infoshare.bug_busters.random.RandomDataGenerator;
+import java.com.infoshare.bug_busters.shipping.ShippingData;
+import java.com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import java.io.IOException;
-import java.util.regex.Pattern;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

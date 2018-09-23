@@ -1,8 +1,6 @@
-package com.infoshare.bug_busters.shipping;
+package java.com.infoshare.bug_busters.shipping;
 
-
-import com.infoshare.bug_busters.random.RandomDataGenerator;
-
+import java.com.infoshare.bug_busters.random.RandomDataGenerator;
 import java.io.IOException;
 
 public class ShippingDataGenerator {
