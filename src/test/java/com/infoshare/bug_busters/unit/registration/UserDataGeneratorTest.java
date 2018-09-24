@@ -7,7 +7,10 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -50,6 +53,37 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
                 .isEqualTo("Test");
     }
 
+    UserDataGenerator userdataGeneratoApp = new UserDataGenerator(new RandomDataGenerator());
+
+    @Test
+    public void checkifisnotnull() throws IOException {
+        UserData checkingValuesNotNull = userdataGeneratoApp.prepareUserData();
+
+
+        assertNotNull( "Username is not null",checkingValuesNotNull.getUserName());
+        assertNotNull( "FirstName is not null",checkingValuesNotNull.getFirstName());
+        assertNotNull( "LastName is not null",checkingValuesNotNull.getLastName());
+        assertNotNull( "Email is not null",checkingValuesNotNull.getEmail());
+        assertNotNull( "Password is not null",checkingValuesNotNull.getPassword());
+
+    }
+
+
+
+    @Test
+    public void addingToColection() throws Exception {
+
+        int sizeTest = userdataGeneratoApp.collectionOfUsers().size();
+        List<UserData> checkingTenValuesNotNullAndCorrectToPattern = userdataGeneratoApp.collectionOfUsers();
+
+        assertEquals("Wielkość listy nie wynosi 10", 10, sizeTest);
+
+        for (int i = 0; i < sizeTest; i++) {
+
+
+        }
+
+    }
 
 
 }

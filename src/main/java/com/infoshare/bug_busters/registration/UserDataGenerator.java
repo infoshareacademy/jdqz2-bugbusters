@@ -28,7 +28,7 @@ public class UserDataGenerator {
 
 
 
-    public List<UserData> collectionofusers () throws IOException {
+    public List<UserData> collectionOfUsers () throws IOException {
 
         Integer iloscDanych = 10;
 
