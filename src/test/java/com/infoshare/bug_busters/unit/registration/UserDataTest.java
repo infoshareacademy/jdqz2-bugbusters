@@ -24,9 +24,15 @@ public class UserDataTest {  // napisac testy jednostkowe czyli do kazdej metody
         assertNotNull( "Username is not null",checkingValuesNotNull.getUserName());
         assertNotNull( "FirstName is not null",checkingValuesNotNull.getFirstName());
         assertNotNull( "LastName is not null",checkingValuesNotNull.getLastName());
-        assertNotNull( "Emailis not null",checkingValuesNotNull.getEmail());
+        assertNotNull( "Email is not null",checkingValuesNotNull.getEmail());
         assertNotNull( "Password is not null",checkingValuesNotNull.getPassword());
 
     }
+
+
+
+
+
+
 
 }
