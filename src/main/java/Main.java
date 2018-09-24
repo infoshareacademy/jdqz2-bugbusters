@@ -21,8 +21,8 @@ public class Main {
 
         System.out.println(paymentDataGenerator.preparePayments());
 
-        System.out.println(userDataGenerator.prepareUserData().toString());
+        System.out.println(userDataGenerator.prepareUserData());
 
-        System.out.println(shippingDataGenerator.createListWithMuchAsYouWantObjectsWithRandomChoiceDate());
+        System.out.println(shippingDataGenerator.createListWithObjectsWithRandomChoiceDate(5));
     }
 }

@@ -11,7 +11,7 @@ public class ShippingDataGenerator {
 
     private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
 
-    public ShippingDataGenerator(RandomDataGenerator dataGenerator) { // konstruktor z wstrzyknieta klasa RandomDataGenerator??? co tu sie dziej
+    public ShippingDataGenerator(RandomDataGenerator dataGenerator) { // konstruktor z wstrzyknieta klasa RandomDataGenerator
         this.dataGenerator = dataGenerator;
         //dependency enjection
     }
@@ -27,11 +27,7 @@ public class ShippingDataGenerator {
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }
 
-    public List<ShippingData> createListWithMuchAsYouWantObjectsWithRandomChoiceDate() throws IOException {
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("Ile chcesz stworzyc obiektow typu ShippingData: ");
-        int numberOfShippingDataObjects = Integer.parseInt(input.nextLine());
+    public List<ShippingData> createListWithObjectsWithRandomChoiceDate(int numberOfShippingDataObjects) throws IOException {
 
         List<ShippingData> shippingData = new ArrayList<>();
 

@@ -6,11 +6,16 @@ import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 import java.util.regex.Pattern;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static sun.awt.X11.XConstants.InputOutput;
 
 public class ShippingDataGeneratorIntegrationTest {
 
@@ -48,5 +53,12 @@ public class ShippingDataGeneratorIntegrationTest {
         assertTrue("Country name contains numbers", Pattern.matches("\\D+", checkingCorrectnessOfData.getCountry()));
     }
 
-    // dodac testy na liste
+    @Test
+    public void checkCorrectNumberOfObjectInList() throws IOException {
+
+        Integer sizeOfList = shippingDataGenerator.createListWithObjectsWithRandomChoiceDate(5).size();
+
+        assertEquals("List does not have 5 objects", "5", sizeOfList.toString());
+
+    }
 }

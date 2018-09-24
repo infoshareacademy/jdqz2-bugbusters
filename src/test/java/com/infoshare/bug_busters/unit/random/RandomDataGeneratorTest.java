@@ -58,6 +58,4 @@ public class RandomDataGeneratorTest {
         Assertions.assertThat(checkingEquality[0]).isNotEqualTo(checkingEquality[1]);
 
     }
-
-    // stworzyc testy do moich metod w klasie RandomDataGenerator
 }
