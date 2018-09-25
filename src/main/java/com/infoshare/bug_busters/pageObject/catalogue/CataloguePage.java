@@ -34,6 +34,8 @@ public class CataloguePage {
     private WebElement product9;
     @FindBy(xpath ="//div[@id='totalProducts']" )
     private WebElement showingNineOfNine;
+    @FindBy(xpath = "//a[contains(text(),'Holy')]" )
+    private WebElement choosingHolyProducts;
 
 
 
@@ -65,7 +67,7 @@ public class CataloguePage {
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
-        waits.waitForElementToBeVisible(labelShow);
+        waits.waitForElementToBeVisible(product6);
         product6.click();
         showingSixOfNine.getText();
 
@@ -77,9 +79,17 @@ public class CataloguePage {
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
+        waits.waitForElementToBeVisible(product9);
         product9.click();
 
             assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
+    }
+    public void ChooseProducts(){
+        choosingHolyProducts.click();
+
+
+
+
     }
 
 
