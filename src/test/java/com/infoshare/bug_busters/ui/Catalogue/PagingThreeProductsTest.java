@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PagingProductsTest {
+public class PagingThreeProductsTest {
 
     private WebDriver driver;
     private WebDriverWait waits;
@@ -23,6 +23,7 @@ public class PagingProductsTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver_Linux64");
         driver = new ChromeDriver();
+
 
         catalogueHomePage = new CatalogueHomePage(driver);
         cataloguePage = new CataloguePage(driver);
@@ -37,8 +38,8 @@ public class PagingProductsTest {
        catalogueHomePage.chooseCatalogue();
 
       cataloguePage.CheckingThreeElementsOnCatalogue();
-//       cataloguePage.CheckingSixElementsOnCatalogue();
-//       cataloguePage.CheckingNineElementsOnCatalogue();
+
+
 
     }
 

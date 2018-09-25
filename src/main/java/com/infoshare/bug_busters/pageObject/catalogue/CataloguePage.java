@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Instant;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CataloguePage {
 
@@ -21,15 +22,15 @@ public class CataloguePage {
     private WebElement confirmCatalogue;
     @FindBy(xpath = "//div[@id='products-number']")
     private WebElement labelShow;
-    @FindBy(xpath = "//a[@class='btn btn-default btn-sm' and text()='3']")
+    @FindBy(xpath = "//a[contains(text(),'3')]")
     private WebElement product3;
     @FindBy(xpath = "//div[@id='totalProducts']")
     private WebElement showingThreeOfNine;
-    @FindBy(xpath = "//a[@class='btn btn-default btn-sm' and text()='6']")
+    @FindBy(xpath = "//a[contains(text(),'6')]")
     private WebElement product6;
     @FindBy(xpath = "//div[@id='totalProducts']")
     private WebElement showingSixOfNine;
-    @FindBy (xpath = "//a[@class='btn btn-default btn-sm' and text()='9']")
+    @FindBy (xpath = "//a[contains(text(),'9')]")
     private WebElement product9;
     @FindBy(xpath ="//div[@id='totalProducts']" )
     private WebElement showingNineOfNine;
@@ -47,27 +48,38 @@ public class CataloguePage {
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
+        waits.waitForElementToBeVisible(product3);
 
         product3.click();
+        showingThreeOfNine.getText();
 
-        assertTrue("Showing 3 of 9 products is not selected", showingThreeOfNine.isSelected());
+
+
+    assertThat("Showing 3 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 3 of 9 products"));
     }
+
+
+
     public void CheckingSixElementsOnCatalogue() {
 
         confirmCatalogue.isDisplayed();
+        waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
+        waits.waitForElementToBeVisible(labelShow);
         product6.click();
+        showingSixOfNine.getText();
 
-        assertTrue("Showing 6 of 9 products is not selected", showingSixOfNine.isSelected());
+        assertThat("Showing 6 of 9 products is not selected", showingSixOfNine.getText().contains("Showing 6 of 9 products"));
     }
 
     public void CheckingNineElementsOnCatalogue() {
 
         confirmCatalogue.isDisplayed();
+        waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
         product9.click();
 
-        assertTrue("Showing 9 of 9 products is not selected", showingNineOfNine.isSelected());
+            assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
     }
 
 
