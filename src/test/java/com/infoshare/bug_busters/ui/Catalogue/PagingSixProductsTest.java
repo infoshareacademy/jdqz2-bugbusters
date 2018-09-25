@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PagingSixProductsTest {
-    public class PagingThreeProductsTest {
+
 
         private WebDriver driver;
         private WebDriverWait waits;
@@ -50,4 +50,4 @@ public class PagingSixProductsTest {
 
     }
 
-}
+
