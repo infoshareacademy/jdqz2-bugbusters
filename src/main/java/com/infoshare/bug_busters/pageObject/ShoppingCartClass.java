@@ -6,32 +6,22 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AccountPage {
-
-
-
+public class ShoppingCartClass {
     private WebDriver driver;
     private WebDriverWait waits;
 
-    @FindBy(xpath = "///a[contains(text(),'Account')]")
-    private WebElement labelAccount;
-    @FindBy(xpath ="//h1[contains(text(),'My orders')]")
-    private WebElement myOrdersLabel;
+    @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
+    private WebElement shoppingCartConfirmatonLabel;
+    @FindBy(xpath ="//span[@id='numItemsInCart']")
+    private WebElement itemsInCartButton;
     @FindBy(xpath ="//a[contains(text(),'contact us')]")
     private WebElement contactUsEmailLink;
 
-
-
-
-    public AccountPage(WebDriver driver){
+    public ShoppingCartClass(WebDriver driver) {
 
         this.driver = driver;
         PageFactory.initElements(driver, this);
+
     }
-
-
-
-
-
 
 }
