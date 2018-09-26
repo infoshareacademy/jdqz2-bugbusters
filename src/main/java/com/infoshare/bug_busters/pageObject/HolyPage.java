@@ -8,6 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HolyPage {
 
+    //gdzie umiescic przyciski i metody ktore sa wspolne dla paru klas np. HolyPage i ColorfulPage
+
+
+
     @FindBy(xpath = "//a[@id='buttonCart']")
     WebElement buttonAddToCart;
 
