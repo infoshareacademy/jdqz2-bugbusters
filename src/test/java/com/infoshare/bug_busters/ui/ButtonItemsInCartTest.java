@@ -1,5 +1,6 @@
 package com.infoshare.bug_busters.ui;
 
+import com.infoshare.bug_busters.pageObject.HolyPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
@@ -18,6 +19,7 @@ public class ButtonItemsInCartTest {
 
     private ShoppingCartPage shoppingCartPage;
     private HomePage homePage;
+    private HolyPage holyPage;
 
     @Before
     public void setUp() {
@@ -26,28 +28,38 @@ public class ButtonItemsInCartTest {
 
         shoppingCartPage = new ShoppingCartPage(driver);
         homePage = new HomePage(driver);
+        holyPage = new HolyPage(driver);
 
         driver.get("http://localhost:4180/");
     }
 
 
     @Test
-    public void buttonItemsInCartTest() {
-
+    public void buttonItemsInCart() {
         homePage.clickOnButtonItemsInCart();
         assertThat(shoppingCartPage.getTextShippingCart())
                 .as("Button was not click").isEqualTo("Shopping cart");
     }
 
     @Test
-    public void linkLoginTest(){
+    public void linkLogin(){
         homePage.clickOnLinkLogin();
         assertTrue("Login link on the bottom of the page doesn't work", homePage.checkEnableLoginButton());
     }
 
-   /* @After
+    @Test
+    public void addingHollySocksFromHomePageToCart(){
+        homePage.clickOnLinkHoly();
+        holyPage.clickOnButtonAddToCart();
+        assertThat(homePage.getTextFromButtonItemsInCart())
+                .as("Item was not add to cart")
+                .isEqualTo("1 item(s) in cart");
+
+    }
+
+    @After
     public void tearDown() {
         driver.close();
-    }*/
+    }
 
 }

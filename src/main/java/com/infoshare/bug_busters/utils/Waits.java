@@ -20,4 +20,14 @@ public class Waits {
         WebElement waitForElement = wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitForElementToBeClickable(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
+        WebElement waitForElement = wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void waitForElementToBeRefreshed(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
+        WebElement waitForElement = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
+    }
+
 }

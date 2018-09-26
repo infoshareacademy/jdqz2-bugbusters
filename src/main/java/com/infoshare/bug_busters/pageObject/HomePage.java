@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
+    //@FindBy(css = "#numItemsInCart")
     @FindBy(xpath = "//span[@id='numItemsInCart']")
     private WebElement buttonItemsInCart;
 
@@ -52,7 +53,12 @@ public class HomePage {
     }
 
     public void clickOnPictureHoly(){
+        waits.waitForElementToBeClickable(pictureOfProductHoly);
         pictureOfProductHoly.click();
     }
 
+    public String getTextFromButtonItemsInCart() {
+        waits.waitForElementToBeRefreshed(buttonItemsInCart);
+        return buttonItemsInCart.getText();
+    }
 }
