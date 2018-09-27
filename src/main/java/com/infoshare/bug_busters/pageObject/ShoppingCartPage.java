@@ -80,6 +80,10 @@ public class ShoppingCartPage {
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
+    /*public String getTextFromButtonItemsInCart() {
+            waits.waitForElementToBeRefreshed(itemsInCartButton);
+            return itemsInCartButton.getText();*/
+
 
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
@@ -92,9 +96,7 @@ public class ShoppingCartPage {
         colorfulInscriptionOnShoppingCartWebsite.click();
     }
 
-    public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(itemsInCartButton);
-        return itemsInCartButton.getText();
+
 
 
 

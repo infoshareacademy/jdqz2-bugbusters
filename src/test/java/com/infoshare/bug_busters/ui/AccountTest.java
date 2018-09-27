@@ -67,9 +67,9 @@ public class AccountTest {
         shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod(shippingDataGenerator.prepareShippingData().getHouseNumber(), shippingDataGenerator.prepareShippingData().getStreetName(), shippingDataGenerator.prepareShippingData().getCity(), shippingDataGenerator.prepareShippingData().getPostCode(), shippingDataGenerator.prepareShippingData().getCountry());
         shoppingCartPage.fillingPaymentDatawithDataGenerator(paymentDataGenerator.preparePayments().getCardNumber(), paymentDataGenerator.preparePayments().getExpires(), paymentDataGenerator.preparePayments().getCcv());
         shoppingCartPage.clickoInscriptionCorolful();
+
         shoppingCartPage.clickOnIteamsInCartButton();
-        assertThat(shoppingCartPage.getTextShippingCart())
-                .as("Button was not click").isEqualTo("Shopping cart");
+
 
 
         shoppingCartPage.addIteamsToShoppingCartandCheckout();
