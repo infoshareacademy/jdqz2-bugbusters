@@ -9,6 +9,7 @@ import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
+import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +54,6 @@ public class AccountTest {
     public void tearDown() {
         driver.close();
 
-
     }*/
 
     @Test
@@ -67,24 +67,18 @@ public class AccountTest {
         shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod(shippingDataGenerator.prepareShippingData().getHouseNumber(), shippingDataGenerator.prepareShippingData().getStreetName(), shippingDataGenerator.prepareShippingData().getCity(), shippingDataGenerator.prepareShippingData().getPostCode(), shippingDataGenerator.prepareShippingData().getCountry());
         shoppingCartPage.fillingPaymentDatawithDataGenerator(paymentDataGenerator.preparePayments().getCardNumber(), paymentDataGenerator.preparePayments().getExpires(), paymentDataGenerator.preparePayments().getCcv());
         shoppingCartPage.clickoInscriptionCorolful();
-
+        shoppingCartPage.clickOnAddToCartButton();
         shoppingCartPage.clickOnIteamsInCartButton();
-
-
-
+        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item was not added to cart").isEqualTo("You currently have 1 item(s) in your cart.");
         shoppingCartPage.addIteamsToShoppingCartandCheckout();
         shoppingCartPage.clickOnLabelShipped();
-
-
-        String actualString = driver.findElement(By.xpath("//span[@class='label-success']")).getText();
+        String actualString = driver.findElement(By.linkText("Shipped")).getText();
         assertTrue("Product is visible", actualString.contains("Shipped"));
 
 
 
-
+        /*shoppingCartPage.clickOnIteamsInCartButton();*/
 
 
     }
-
-
 }

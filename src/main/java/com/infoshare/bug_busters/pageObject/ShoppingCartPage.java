@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 import java.io.IOException;
 
 
@@ -80,9 +81,7 @@ public class ShoppingCartPage {
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
-    /*public String getTextFromButtonItemsInCart() {
-            waits.waitForElementToBeRefreshed(itemsInCartButton);
-            return itemsInCartButton.getText();*/
+
 
 
     public ShoppingCartPage(WebDriver driver) {
@@ -99,6 +98,11 @@ public class ShoppingCartPage {
 
 
 
+    public String getTextFromButtonItemsInCart() {
+            waits.waitForElementToBeRefreshed(itemsInCartButton);
+            return itemsInCartButton.getText();}
+
+
 
     public void clickOnIteamsInCartButton() {
 
@@ -112,7 +116,8 @@ public class ShoppingCartPage {
     }
 
     public void clickOnAddToCartButton() {
-        itemsInCartButton.click();
+        waits.waitForElementToBeClickable(addToCartButton);
+        addToCartButton.click();
 
     }public void clickOnLabelShipped() {labelShipped.click();
     waits.waitForElementToBeVisible(labelShipped);
@@ -151,10 +156,10 @@ public class ShoppingCartPage {
     }
     public void addIteamsToShoppingCartandCheckout() {
 
-        addToCartButton.click();
+        /*addToCartButton.click();
         waits.waitForElementToBeVisible(itemsInCartButton);
         itemsInCartButton.click();
-        waits.waitForElementToBeVisible(itemsInCartButton);
+        waits.waitForElementToBeVisible(itemsInCartButton);*/
         proceedToCheckOutButton.click();
         waits.waitForElementToBeVisible(labelShipped);
     }
