@@ -57,7 +57,7 @@ public class AccountTest {
 
     @Test
 
-    public void testinIfOrdersAreVisibleInMyOrderPageInUserAccount() throws IOException {
+    public void testinIfOrdersAreVisibleInMyOrderPageInUserAccounAnd() throws IOException {
 
         driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
