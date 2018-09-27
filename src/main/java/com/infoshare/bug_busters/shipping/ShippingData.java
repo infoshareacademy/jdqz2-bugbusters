@@ -5,6 +5,27 @@ public class ShippingData {
     private Integer houseNumber;
     private String streetName;
     private String city;
+
+    public Integer getHouseNumber() {
+        return houseNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
     private String postCode;
     private String country;
 

@@ -6,6 +6,9 @@ import java.util.List;
 
 public class PaymentDataGenerator {
 
+    public PaymentDataGenerator(RandomDataGenerator randomDataGenerator) {
+    }
+
     public PaymentData preparePayments() {
 
         String CardRandomString = RandomDataGenerator.CardNumberRandom();

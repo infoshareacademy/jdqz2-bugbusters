@@ -7,7 +7,11 @@ import java.io.IOException;
 
 public class ShippingDataGenerator {
 
-    public static ShippingData prepareShippingData() throws IOException {
+    public ShippingDataGenerator(RandomDataGenerator randomDataGenerator) {
+
+    }
+
+    public static   ShippingData prepareShippingData() throws IOException {
 
         Integer houseNumber = RandomDataGenerator.prepareHouseNumber();
         String streetName = RandomDataGenerator.prepareStreetName();
