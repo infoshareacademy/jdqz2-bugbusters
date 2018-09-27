@@ -11,7 +11,7 @@ public class UserData {
     private String password;
 
     public UserData(String userName, String firstName, String lastName, String email, String password) {
-        this.userName = userName + UUID.randomUUID().toString();;
+        this.userName = userName + UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
