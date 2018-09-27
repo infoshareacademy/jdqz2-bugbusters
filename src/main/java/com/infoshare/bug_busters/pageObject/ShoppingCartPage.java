@@ -92,6 +92,12 @@ public class ShoppingCartPage {
         colorfulInscriptionOnShoppingCartWebsite.click();
     }
 
+    public String getTextFromButtonItemsInCart() {
+        waits.waitForElementToBeRefreshed(itemsInCartButton);
+        return itemsInCartButton.getText();
+
+
+
     public void clickOnIteamsInCartButton() {
 
         try { itemsInCartButton.click();
