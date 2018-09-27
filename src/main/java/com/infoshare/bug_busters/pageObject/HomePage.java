@@ -91,11 +91,7 @@ public class HomePage {
 
     public void registerUserWithDataGeneratorMethod() throws IOException {
 
-        UserData userData = new UserData(userDataGenerator.prepareUserData().getUserName(),
-                userDataGenerator.prepareUserData().getFirstName(),
-                userDataGenerator.prepareUserData().getLastName(),
-                userDataGenerator.prepareUserData().getEmail(),
-                userDataGenerator.prepareUserData().getPassword());
+        UserData userData = userDataGenerator.prepareUserData();
 
         registrationSteps(userData);
         waits.waitForElementToBeVisible(logoutButton);
@@ -104,11 +100,7 @@ public class HomePage {
 
     public void regiterUserTwiceWithTheSameData() throws IOException {
 
-        UserData userData = new UserData(userDataGenerator.prepareUserData().getUserName(),
-                userDataGenerator.prepareUserData().getFirstName(),
-                userDataGenerator.prepareUserData().getLastName(),
-                userDataGenerator.prepareUserData().getEmail(),
-                userDataGenerator.prepareUserData().getPassword());
+        UserData userData = userDataGenerator.prepareUserData();
 
         registrationSteps(userData);
         waitsWhenLogout();
@@ -118,11 +110,7 @@ public class HomePage {
 
     public void loginUserAfterRegistration() throws IOException {
 
-        UserData userData = new UserData(userDataGenerator.prepareUserData().getUserName(),
-                userDataGenerator.prepareUserData().getFirstName(),
-                userDataGenerator.prepareUserData().getLastName(),
-                userDataGenerator.prepareUserData().getEmail(),
-                userDataGenerator.prepareUserData().getPassword());
+        UserData userData = userDataGenerator.prepareUserData();
 
         registrationSteps(userData);
 
