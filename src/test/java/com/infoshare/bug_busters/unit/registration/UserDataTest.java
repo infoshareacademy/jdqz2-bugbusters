@@ -13,12 +13,9 @@ public class UserDataTest {  // napisac testy jednostkowe czyli do kazdej metody
 
 
     UserDataGenerator userinfo = new UserDataGenerator(new RandomDataGenerator());
-
-
     @Test
 
     public void username() throws IOException {
-
 
        assertTrue("Letter are not from A-Z", Pattern.matches("[a-zA-Z]+", userinfo.prepareUserData().getUserName()));
         assertTrue("Letter are not from A-Z", Pattern.matches("[a-zA-Z]+", userinfo.prepareUserData().getFirstName()));

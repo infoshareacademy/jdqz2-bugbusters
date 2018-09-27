@@ -58,8 +58,6 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
     @Test
     public void checkifisnotnull() throws IOException {
         UserData checkingValuesNotNull = userdataGeneratoApp.prepareUserData();
-
-
         assertNotNull( "Username is not null",checkingValuesNotNull.getUserName());
         assertNotNull( "FirstName is not null",checkingValuesNotNull.getFirstName());
         assertNotNull( "LastName is not null",checkingValuesNotNull.getLastName());
@@ -67,9 +65,6 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
         assertNotNull( "Password is not null",checkingValuesNotNull.getPassword());
 
     }
-
-
-
     @Test
     public void addingToColection() throws Exception {
 
@@ -77,15 +72,7 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
         List<UserData> checkingTenValuesNotNullAndCorrectToPattern = userdataGeneratoApp.collectionOfUsers();
 
         assertEquals("Wielkość listy nie wynosi 10", 10, sizeTest);
-
-        for (int i = 0; i < sizeTest; i++) {
-
-
-        }
-
     }
-
-
 }
 
 
