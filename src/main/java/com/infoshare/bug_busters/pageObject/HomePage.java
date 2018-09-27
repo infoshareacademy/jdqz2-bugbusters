@@ -3,20 +3,53 @@ package com.infoshare.bug_busters.pageObject;
 import com.infoshare.bug_busters.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
+
+    @FindBy(xpath = "//li[@id='login']//a[@href='#'][contains(text(),'Login')]")
+    private WebElement linkLogin;
+
+    @FindBy(xpath = "//div[@id='login-modal']//button[@class='btn btn-primary']")
+    private WebElement buttonLogin;
+
+    @FindBy (xpath ="//a[contains(text(),'Register')]")
+    private WebElement linkRegister;
+
+    @FindBy(xpath = "//div[@id='register-modal']//button[@class='btn btn-primary']")
+    private WebElement buttonRegister;
+
+    @FindBy(xpath = "//li[@id='tabCatalogue']")
+    private WebElement linkCatalogue;
+
+    @FindBy(xpath = "//li[contains(text(),'Catalogue')]")
+    private WebElement catalogueTextOnPageCatalogue;
+
+    @FindBy(xpath = "//a[contains(text(),'Blue')]")
+    private WebElement blueFromCatalogueDropDownMenu;
+
+
+
+
+
+    //dopisac reszte testow dla dropdown menu Catalogue
+    // sprawdzic czy slidebar przenosi w dobre miejsca bez kupowania
+    // napisac reszte testow z footera
+    // przeniesc wszystkie testy dopdown menu do odpowiedniej klasy
+
+
+
 
     //@FindBy(css = "#numItemsInCart")
     @FindBy(xpath = "//span[@id='numItemsInCart']")
     private WebElement buttonItemsInCart;
 
-    @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")
-    private WebElement linkLogin;
 
-    @FindBy(xpath = "//div[@id='login-modal']//button[@class='btn btn-primary']")
-    private WebElement buttonLogin;
+
 
     @FindBy(xpath = "//a[contains(text(),'Holy')]")
     private WebElement linkOfProductHoly;
@@ -53,28 +86,80 @@ public class HomePage {
 
 
 
+
+    @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")
+    private WebElement footerLinkLogin;
+
+
+
+
+
+
     private WebDriver driver;
     private Waits waits;
+    private Actions actions;
 
 
     public HomePage(WebDriver driver){
         this.driver = driver;
         waits = new Waits(driver);
+        actions = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public void clickOnButtonItemsInCart(){
-        buttonItemsInCart.click();
-    }
 
-    public void clickOnLinkLogin(){
-        linkLogin.click();
-    }
+
+
+
+    public void clickOnLinkLogin() {linkLogin.click();}
 
     public boolean checkEnableLoginButton(){
         waits.waitForElementToBeVisible(buttonLogin);
         return buttonLogin.isEnabled();
     }
+
+    public void clickOnLinkRegister() {linkRegister.click();}
+
+    public boolean checkEnableRegisterButton(){
+        waits.waitForElementToBeVisible(buttonRegister);
+        return buttonRegister.isEnabled();
+    }
+
+  /*  public void clickOnLinkCatalogue(){
+        linkCatalogue.click();
+    }*/
+
+    public String getTextFromCataloguePage(){
+        waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
+        return catalogueTextOnPageCatalogue.getText();
+    }
+
+
+    public void selectBlueFromDropDownMenuCatalogue(){
+        waits.waitForElementToBeVisible(linkCatalogue);
+        actions.moveToElement(linkCatalogue).perform();
+        waits.waitForElementToBeClickable(blueFromCatalogueDropDownMenu);
+        blueFromCatalogueDropDownMenu.click();
+    }
+
+
+
+
+
+
+
+    public void clickOnButtonItemsInCart(){
+        buttonItemsInCart.click();
+    }
+
+    public String getTextFromButtonItemsInCart() {
+        waits.waitForElementToBeRefreshed(buttonItemsInCart);
+        return buttonItemsInCart.getText();
+    }
+
+
+
+
 
     public void clickOnLinkHoly(){
         linkOfProductHoly.click();
@@ -84,10 +169,6 @@ public class HomePage {
         pictureOfProductHoly.click();
     }
 
-    public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(buttonItemsInCart);
-        return buttonItemsInCart.getText();
-    }
     public void clickOnLinkColorful(){
         linkOfProductColorful.click();
     }
@@ -119,6 +200,16 @@ public class HomePage {
     public void clickOnPictureFigueroa(){
         pictureOfProductFigueroa.click();
     }
+
+
+
+
+
+    public void clickOnFooterLinkLogin(){
+        footerLinkLogin.click();
+    }
+
+
 
 
     // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
