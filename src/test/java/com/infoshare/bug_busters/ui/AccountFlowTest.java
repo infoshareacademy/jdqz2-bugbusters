@@ -23,7 +23,7 @@ import java.io.IOException;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class AccountTest {
+public class AccountFlowTest {
 
 
     private WebDriver driver;
@@ -69,15 +69,21 @@ public class AccountTest {
         shoppingCartPage.clickoInscriptionCorolful();
         shoppingCartPage.clickOnAddToCartButton();
         shoppingCartPage.clickOnIteamsInCartButton();
-        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item was not added to cart").isEqualTo("You currently have 1 item(s) in your cart.");
-        shoppingCartPage.addIteamsToShoppingCartandCheckout();
-        shoppingCartPage.clickOnLabelShipped();
-        String actualString = driver.findElement(By.linkText("Shipped")).getText();
-        assertTrue("Product is visible", actualString.contains("Shipped"));
+        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item was not added to cart").isBetween("1 item(s) in cart","You currently have 1 item(s) in your cart.");
+        shoppingCartPage.clickdProcedToCheckout();
+        shoppingCartPage.clickOnViewButton();
+        String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
+        /*assertTrue("Product is visible", actualString.contains("View"));*/
+        Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders()).as("Item was not added to cart").isEqualTo("Colorful");
 
 
 
-        /*shoppingCartPage.clickOnIteamsInCartButton();*/
+        /* shoppingCartPage.clickOnViewButton();*/
+
+
+
+
+
 
 
     }

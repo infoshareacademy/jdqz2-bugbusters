@@ -74,6 +74,8 @@ public class ShoppingCartPage {
     @FindBy(xpath = "//span[@class='label-success']")
     private WebElement labelShipped;
 
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm']")
+    private WebElement  viewButton;
 
     private WebDriver driver;
     private Waits waits;
@@ -94,15 +96,9 @@ public class ShoppingCartPage {
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
         colorfulInscriptionOnShoppingCartWebsite.click();
     }
-
-
-
-
     public String getTextFromButtonItemsInCart() {
             waits.waitForElementToBeRefreshed(itemsInCartButton);
             return itemsInCartButton.getText();}
-
-
 
     public void clickOnIteamsInCartButton() {
 
@@ -123,6 +119,9 @@ public class ShoppingCartPage {
     waits.waitForElementToBeVisible(labelShipped);
     }
 
+    public void clickOnViewButton() {viewButton.click();
+    waits.waitForElementToBeVisible(viewButton);
+    }
 
     public void fillingShippingAddressInfowithDataGeneratorMethod(Integer houseNumber, String streetName, String city, String postCode, String country) throws IOException {
         changeButtonShippingAdress.click();
@@ -134,8 +133,6 @@ public class ShoppingCartPage {
         countryFieldShippingAddress.sendKeys(country);
         updateButtonShippingAddress.click();
         waits.waitForElementToBeVisible(changePaymentButton);
-
-
     }
 
     public void fillingPaymentDatawithDataGenerator(String cardNumber, String expires, String CCV) {
@@ -154,14 +151,9 @@ public class ShoppingCartPage {
         waits.waitForElementToBeVisible(itemsInCartButton);
         itemsInCartButton.click();
     }
-    public void addIteamsToShoppingCartandCheckout() {
-
-        /*addToCartButton.click();
-        waits.waitForElementToBeVisible(itemsInCartButton);
-        itemsInCartButton.click();
-        waits.waitForElementToBeVisible(itemsInCartButton);*/
+    public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
-        waits.waitForElementToBeVisible(labelShipped);
+       waits.waitForElementToBeClickable(viewButton);
     }
 
 

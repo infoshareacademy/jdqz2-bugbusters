@@ -19,10 +19,12 @@ public class AccountPage {
 
     @FindBy(xpath = "//a[contains(text(),'Account')]")
     private WebElement labelAccount;
-    @FindBy(xpath ="//h1[contains(text(),'My orders')]")
+    @FindBy(xpath = "//h1[contains(text(),'My orders')]")
     private WebElement myOrdersLabel;
-    @FindBy(xpath ="//a[@class='btn btn-primary btn-sm']")
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm']")
     private WebElement viewButtonInMyOrders;
+    @FindBy(xpath = "//a[contains(text(),'Colourful')]")
+    private WebElement colorFullLabelInMyOrders;
 
 
     public AccountPage(WebDriver driver) {
@@ -32,11 +34,20 @@ public class AccountPage {
 
     }
 
-    public void clickOnLabelAccount() {labelAccount.click(); }
-
-    public void clickOnViewButtonInMyOrders() { viewButtonInMyOrders.click(); }
-
+    public void clickOnLabelAccount() { labelAccount.click();
     }
 
+    public void clickOnViewButtonInMyOrders() {
+        viewButtonInMyOrders.click();}
+
+        public void clickOncolorFullLabelInMyOrders(){
+
+        colorFullLabelInMyOrders.click();
+    }
+
+    public String getTextFromColorFulLabelInMyOrders(){
+        waits.waitForElementToBeVisible(colorFullLabelInMyOrders);
+        return colorFullLabelInMyOrders.getText();}
+}
 
 
