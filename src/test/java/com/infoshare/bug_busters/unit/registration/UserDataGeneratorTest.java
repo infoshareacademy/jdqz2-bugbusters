@@ -31,6 +31,7 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
         // tworzona z konstruktora klasy UserDataGenerator ale wstrzykuje do niego zmienna mock dzieki temu obchodze wywolanie prawdziwej klasy RandomDataGenerator
         UserData result = underTest.prepareUserData();
 
+<<<<<<< HEAD
         Assertions.assertThat(result.getUserName()).isEqualTo("login_ola");
         Assertions.assertThat(result.getFirstName()).isEqualTo("Tomasz");
         Assertions.assertThat(result.getLastName()).isEqualTo("Nowak");
@@ -52,6 +53,10 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
         int sizeTest = userdataGeneratoApp.collectionOfUsers().size();
         List<UserData> checkingTenValuesNotNullAndCorrectToPattern = userdataGeneratoApp.collectionOfUsers();
         assertEquals("Wielkość listy nie wynosi 10", 10, sizeTest);
+=======
+        Assertions.assertThat(result.getUserName().substring(0,9)) //asercja assertJa
+                .isEqualTo("login_ola");
+>>>>>>> develop
     }
 }
 
