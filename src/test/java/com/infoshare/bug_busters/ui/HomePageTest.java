@@ -19,6 +19,8 @@ public class HomePageTest {
     private HomePage homePage;
     private HolyPage holyPage;
     private CataloguePage cataloguePage;
+    private ColorfulPage colorfulPage;
+    private ClassicPage classicPage;
 
     @Before
     public void setUp() {
@@ -29,6 +31,8 @@ public class HomePageTest {
         homePage = new HomePage(driver);
         holyPage = new HolyPage(driver);
         cataloguePage = new CataloguePage(driver);
+        colorfulPage = new ColorfulPage(driver);
+        classicPage = new ClassicPage(driver);
 
         driver.get("http://localhost:4180/");
     }
@@ -45,21 +49,12 @@ public class HomePageTest {
         assertTrue("Register link in the top menu of the page doesn't work", homePage.checkEnableRegisterButton());
     }
 
-/*    @Test
+    @Test
     public void transferToCataloguePage(){
-        homePage.clickOnLinkCatalogue(); //wykomentowalem ta metode !!!
+        homePage.clickOnLinkCatalogue();
         assertThat(homePage.getTextFromCataloguePage())
                 .as("Page Catalogue was not open").isEqualTo("Catalogue");
-    }*/
-
-
-    @Test
-    public void selectFromCatalogueBlue(){
-        homePage.selectBlueFromDropDownMenuCatalogue();
-        assertTrue("You do not see blue socks", cataloguePage.checkIfBlueCheckboxIsChecked());
     }
-
-
 
     @Test
     public void buttonItemsInCart() {
@@ -68,6 +63,35 @@ public class HomePageTest {
                 .as("Button was not click").isEqualTo("Shopping cart");
     }
 
+    @Test
+    public void transferToColorfulPageByClickOnLeftPictureOnSlider(){
+        homePage.selectLeftPictureFromMainSlider();
+        assertThat(colorfulPage.getTextConfirmationOfColorfulPage())
+                .as("Page Colorful was not open").isEqualTo("Colourful");
+        //test czesto przechodzi ale czasem daje fail wydaje mi sie, ze to zalezy od tego jak strona sie zaladuje
+        //czemu skoro sa waity??
+    }
+
+    @Test
+    public void transferToClassicPageByClickOnMiddlePictureOnSlider(){
+        homePage.selectMiddlePictureFromMainSlider();
+        assertThat(classicPage.getTextConfirmationOfClassicPage())
+                .as("Page Classic was not open").isEqualTo("Classic");
+        //test czesto przechodzi ale czasem daje fail wydaje mi sie, ze to zalezy od tego jak strona sie zaladuje
+        //czemu skoro sa waity??
+        //czesciej failuje niz ten wyzej i sie czasami sie zawiesza przy przylaczaniu elementu slidera
+    }
+
+    @Test
+    public void transferToHolyPageByClickOnMiddlePictureOnSlider(){
+        homePage.selectRightePictureFromMainSlider();
+        assertThat(holyPage.getTextConfirmationOfHolylPage())
+                .as("Page Holy was not open").isEqualTo("Holy");
+        //test czesto przechodzi ale czasem daje fail wydaje mi sie, ze to zalezy od tego jak strona sie zaladuje
+        //czemu skoro sa waity??
+        //ani razu poprawnie sie nie wykonal, zacina sie przy przlaczaniu obrazka i go nie klika
+        //jakie znaczniki z jakimi atrybutami ze strony  reaguja na metody selenium????
+    }
 
 
 
@@ -83,9 +107,9 @@ public class HomePageTest {
 
 
 
-    @After
+/*    @After
     public void tearDown() {
         driver.close();
-    }
+    }*/
 
 }

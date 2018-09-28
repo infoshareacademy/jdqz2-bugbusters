@@ -3,11 +3,9 @@ package com.infoshare.bug_busters.pageObject;
 import com.infoshare.bug_busters.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
@@ -32,23 +30,42 @@ public class HomePage {
     @FindBy(xpath = "//a[contains(text(),'Blue')]")
     private WebElement blueFromCatalogueDropDownMenu;
 
+    @FindBy (xpath = "//a[contains(text(),'Brown')]")
+    private WebElement brownFromCatalogueDropDownMenu;
 
+    @FindBy (xpath = "//a[contains(text(),'Green')]")
+    private WebElement greenFromCatalogueDropDownMenu;
 
+    @FindBy (xpath = "//div[@class='col-sm-3']//a[contains(text(),'Magic')]")
+    private WebElement magicFromCatalogueDropDownMenu;
 
-
-    //dopisac reszte testow dla dropdown menu Catalogue
-    // sprawdzic czy slidebar przenosi w dobre miejsca bez kupowania
-    // napisac reszte testow z footera
-    // przeniesc wszystkie testy dopdown menu do odpowiedniej klasy
-
-
-
+    @FindBy (xpath = "//a[contains(text(),'Formal')]")
+    private WebElement formalFromCatalogueDropDownMenu;
 
     //@FindBy(css = "#numItemsInCart")
     @FindBy(xpath = "//span[@id='numItemsInCart']")
     private WebElement buttonItemsInCart;
 
+    @FindBy(xpath = "//div[@class='col-md-12']//div[@class='owl-pagination']//div[1]//span[1]")
+    private WebElement leftDotonOnMainSlider;
 
+    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-wrapper-outer']//div[@class='owl-wrapper']//div[@class='owl-item']//div[@class='item']//a[@href='detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b']//img[@class='img-responsive']")
+    private WebElement leftPictureOnMainSlider;
+
+    @FindBy(xpath = "//div[@class='owl-pagination']//div[2]//span[1]")
+    private WebElement middleDotonOnMainSlider;
+
+    @FindBy(xpath = "//a[@href='detail.html?id=zzz4f044-b040-410d-8ead-4de0446aec7e']//img[@class='img-responsive']")
+    private WebElement middlePictureOnMainSlider;
+
+    @FindBy(xpath = "//div[@class='owl-pagination']//div[3]//span[1]")
+    private WebElement rightDotonOnMainSlider;
+
+    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-wrapper-outer']//div[@class='owl-wrapper']//div[@class='owl-item']//div[@class='item']//a[@href='detail.html?id=zzz4f044-b040-410d-8ead-4de0446aec7e']//img[@class='img-responsive']")
+    private WebElement rightPictureOnMainSlider;
+
+
+    // napisac reszte testow z footera
 
 
     @FindBy(xpath = "//a[contains(text(),'Holy')]")
@@ -125,22 +142,72 @@ public class HomePage {
         return buttonRegister.isEnabled();
     }
 
-  /*  public void clickOnLinkCatalogue(){
+    public void clickOnLinkCatalogue(){
         linkCatalogue.click();
-    }*/
+    }
 
     public String getTextFromCataloguePage(){
         waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
         return catalogueTextOnPageCatalogue.getText();
     }
 
+    public void moveMouseCursorOnCatalogue(){
+        waits.waitForElementToBeVisible(linkCatalogue);
+        actions.moveToElement(linkCatalogue).perform(); // najezdza myszka na wskazany webelement
+    }
 
     public void selectBlueFromDropDownMenuCatalogue(){
-        waits.waitForElementToBeVisible(linkCatalogue);
-        actions.moveToElement(linkCatalogue).perform();
+        moveMouseCursorOnCatalogue();
         waits.waitForElementToBeClickable(blueFromCatalogueDropDownMenu);
         blueFromCatalogueDropDownMenu.click();
     }
+
+    public void selectBrownFromDropDownMenuCatalogue(){
+        moveMouseCursorOnCatalogue();
+        waits.waitForElementToBeClickable(brownFromCatalogueDropDownMenu);
+        brownFromCatalogueDropDownMenu.click();
+    }
+
+    public void selectGreenFromDropDownMenuCatalogue(){
+        moveMouseCursorOnCatalogue();
+        waits.waitForElementToBeClickable(greenFromCatalogueDropDownMenu);
+        greenFromCatalogueDropDownMenu.click();
+    }
+
+    public void selectMagicFromDropDownMenuCatalogue(){
+        moveMouseCursorOnCatalogue();
+        waits.waitForElementToBeClickable(magicFromCatalogueDropDownMenu);
+        magicFromCatalogueDropDownMenu.click();
+    }
+
+    public void selectFormalFromDropDownMenuCatalogue(){
+        moveMouseCursorOnCatalogue();
+        waits.waitForElementToBeClickable(formalFromCatalogueDropDownMenu);
+        formalFromCatalogueDropDownMenu.click();
+    }
+
+    public void selectLeftPictureFromMainSlider(){
+        //waits.waitForElementToBeVisible(leftDotonOnMainSlider);
+        waits.waitForElementToBeClickable(leftDotonOnMainSlider);
+        leftDotonOnMainSlider.click();
+        waits.waitForElementToBeVisible(leftPictureOnMainSlider);
+        leftPictureOnMainSlider.click();
+    }
+
+    public void selectMiddlePictureFromMainSlider(){
+        waits.waitForElementToBeClickable(middleDotonOnMainSlider);
+        middleDotonOnMainSlider.click();
+        waits.waitForElementToBeVisible(middlePictureOnMainSlider);
+        middlePictureOnMainSlider.click();
+    }
+
+    public void selectRightePictureFromMainSlider(){
+        waits.waitForElementToBeClickable(rightDotonOnMainSlider);
+        rightDotonOnMainSlider.click();
+        waits.waitForElementToBeVisible(rightPictureOnMainSlider);
+        rightPictureOnMainSlider.click();
+    }
+
 
 
 
@@ -208,9 +275,4 @@ public class HomePage {
     public void clickOnFooterLinkLogin(){
         footerLinkLogin.click();
     }
-
-
-
-
-    // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
 }

@@ -6,23 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HolyPage {
-
-    //gdzie umiescic przyciski i metody ktore sa wspolne dla paru klas np. HolyPage i ColorfulPage
-
-
-    @FindBy(xpath = "//a[@id='buttonCart']")
-    WebElement buttonAddToCart;
+public class ClassicPage {
 
     //necessary for slider test
     @FindBy(xpath = "//h1[@id='title']")
-    WebElement textHolyOnProductSite;
+    private WebElement textClassicOnProductSite;
 
 
     private WebDriver driver;
     private Waits waits;
 
-    public HolyPage(WebDriver driver){
+    public ClassicPage(WebDriver driver){
         this.driver = driver;
         waits = new Waits(driver);
 
@@ -30,14 +24,8 @@ public class HolyPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickOnButtonAddToCart() {
-        waits.waitForElementToBeClickable(buttonAddToCart);
-        buttonAddToCart.click();
+    public String getTextConfirmationOfClassicPage(){
+        waits.waitForElementToBeVisible(textClassicOnProductSite);
+        return textClassicOnProductSite.getText();
     }
-
-    public String getTextConfirmationOfHolylPage(){
-        waits.waitForElementToBeVisible(textHolyOnProductSite);
-        return textHolyOnProductSite.getText();
-    }
-
 }
