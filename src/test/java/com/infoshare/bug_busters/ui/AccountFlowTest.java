@@ -50,11 +50,10 @@ public class AccountFlowTest {
 
     }
 
-   /*@After
+   @After
     public void tearDown() {
         driver.close();
-
-    }*/
+    }
 
     @Test
 
@@ -79,7 +78,7 @@ public class AccountFlowTest {
 
 
 
-        /* shoppingCartPage.clickOnViewButton();*/
+
 
 
 
