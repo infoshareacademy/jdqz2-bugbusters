@@ -48,6 +48,11 @@ public class AccountPage {
     public String getTextFromColorFulLabelInMyOrders(){
         waits.waitForElementToBeVisible(colorFullLabelInMyOrders);
         return colorFullLabelInMyOrders.getText();}
+
+
+
+
+
 }
 
 

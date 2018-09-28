@@ -100,6 +100,10 @@ public class ShoppingCartPage {
             waits.waitForElementToBeRefreshed(itemsInCartButton);
             return itemsInCartButton.getText();}
 
+            public String getTextFromViewButton() {
+            waits.waitForElementToBeRefreshed(viewButton);
+            return viewButton.getText();}
+
     public void clickOnIteamsInCartButton() {
 
         try { itemsInCartButton.click();
@@ -119,8 +123,9 @@ public class ShoppingCartPage {
     waits.waitForElementToBeVisible(labelShipped);
     }
 
-    public void clickOnViewButton() {viewButton.click();
+    public void clickOnViewButton() {;
     waits.waitForElementToBeVisible(viewButton);
+    viewButton.click();
     }
 
     public void fillingShippingAddressInfowithDataGeneratorMethod(Integer houseNumber, String streetName, String city, String postCode, String country) throws IOException {
@@ -154,6 +159,7 @@ public class ShoppingCartPage {
     public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
        waits.waitForElementToBeClickable(viewButton);
+       viewButton.click();
     }
 
 

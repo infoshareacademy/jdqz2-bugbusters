@@ -69,12 +69,13 @@ public class AccountFlowTest {
         shoppingCartPage.clickoInscriptionCorolful();
         shoppingCartPage.clickOnAddToCartButton();
         shoppingCartPage.clickOnIteamsInCartButton();
-        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item was not added to cart").isBetween("1 item(s) in cart","You currently have 1 item(s) in your cart.");
+        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart","You currently have 1 item(s) in your cart.");
         shoppingCartPage.clickdProcedToCheckout();
-        shoppingCartPage.clickOnViewButton();
-        String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
-        /*assertTrue("Product is visible", actualString.contains("View"));*/
-        Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders()).as("Item was not added to cart").isEqualTo("Colorful");
+        /*shoppingCartPage.clickOnViewButton();*/
+        /*String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
+        assertTrue("Product is visible", actualString.contains("View"));*/
+        Assertions.assertThat(shoppingCartPage.getTextFromViewButton()).as("View").isEqualTo("View");
+        Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders()).as("Order for Socks Colorful with  Brand has not been added").isEqualTo("Colourful");
 
 
 
