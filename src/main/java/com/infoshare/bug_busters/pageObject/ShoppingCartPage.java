@@ -18,6 +18,10 @@ import java.io.IOException;
 public class ShoppingCartPage {
 
 
+    @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")/*od KW*/
+            WebElement textShoppingCart;
+
+
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement shoppingCartConfirmatonLabel;
 
@@ -75,7 +79,7 @@ public class ShoppingCartPage {
     private WebElement labelShipped;
 
     @FindBy(xpath = "//a[@class='btn btn-primary btn-sm']")
-    private WebElement  viewButton;
+    private WebElement viewButton;
 
     private WebDriver driver;
     private Waits waits;
@@ -84,32 +88,33 @@ public class ShoppingCartPage {
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
 
-
-
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
     }
 
+
     public void clickoInscriptionCorolful() {
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
         colorfulInscriptionOnShoppingCartWebsite.click();
     }
-    public String getTextFromButtonItemsInCart() {
-            waits.waitForElementToBeRefreshed(itemsInCartButton);
-            return itemsInCartButton.getText();}
 
-            public String getTextFromViewButton() {
-            waits.waitForElementToBeRefreshed(viewButton);
-            return viewButton.getText();}
+    public String getTextFromButtonItemsInCart() {
+        waits.waitForElementToBeRefreshed(itemsInCartButton);
+        return itemsInCartButton.getText();
+    }
+
+    public String getTextFromViewButton() {
+        waits.waitForElementToBeRefreshed(viewButton);
+        return viewButton.getText();
+    }
 
     public void clickOnIteamsInCartButton() {
 
-        try { itemsInCartButton.click();
-        }
-        catch(org.openqa.selenium.StaleElementReferenceException ex)
-        {
+        try {
+            itemsInCartButton.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
             WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
             itemsInCartButton.click();
         }
@@ -119,13 +124,17 @@ public class ShoppingCartPage {
         waits.waitForElementToBeClickable(addToCartButton);
         addToCartButton.click();
 
-    }public void clickOnLabelShipped() {labelShipped.click();
-    waits.waitForElementToBeVisible(labelShipped);
     }
 
-    public void clickOnViewButton() {;
-    waits.waitForElementToBeVisible(viewButton);
-    viewButton.click();
+    public void clickOnLabelShipped() {
+        labelShipped.click();
+        waits.waitForElementToBeVisible(labelShipped);
+    }
+
+    public void clickOnViewButton() {
+        ;
+        waits.waitForElementToBeVisible(viewButton);
+        viewButton.click();
     }
 
     public void fillingShippingAddressInfowithDataGeneratorMethod(Integer houseNumber, String streetName, String city, String postCode, String country) throws IOException {
@@ -156,13 +165,18 @@ public class ShoppingCartPage {
         waits.waitForElementToBeVisible(itemsInCartButton);
         itemsInCartButton.click();
     }
+
     public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
-       waits.waitForElementToBeClickable(viewButton);
-       viewButton.click();
+        waits.waitForElementToBeClickable(viewButton);
+        viewButton.click();
     }
 
 
+    public String getTextShippingCart() { /*od KW*/
+        waits.waitForElementToBeVisible(textShoppingCart);
+        return textShoppingCart.getText();
+    }
 }
 
 
