@@ -17,7 +17,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-
 import java.io.IOException;
 
 import static org.junit.Assert.assertThat;
@@ -27,17 +26,13 @@ public class AccountFlowTest {
 
 
     private WebDriver driver;
-
     private HomePage homePage;
-
     private AccountPage accountPage;
-
     private ShoppingCartPage shoppingCartPage;
 
     private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
-
 
     @Before
     public void setUp() throws IOException {
@@ -46,17 +41,16 @@ public class AccountFlowTest {
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
-
-
     }
 
-   @After
+    @After
     public void tearDown() {
         driver.close();
     }
 
-    @Test
 
+
+    @Test
     public void testinIfOrdersAreVisibleInMyOrderPageInUserAccounAnd() throws IOException {
 
         driver.get("http://localhost:4180/");
@@ -69,7 +63,7 @@ public class AccountFlowTest {
         shoppingCartPage.clickoInscriptionCorolful();
         shoppingCartPage.clickOnAddToCartButton();
         shoppingCartPage.clickOnIteamsInCartButton();
-        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart","You currently have 1 item(s) in your cart.");
+        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
         shoppingCartPage.clickdProcedToCheckout();
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders()).as("Order for Socks Colorful with  Brand has not been added").isEqualTo("Colourful");
 
@@ -81,10 +75,12 @@ public class AccountFlowTest {
         /* Assertions.assertThat(shoppingCartPage.getTextFromViewButton()).as("View").isEqualTo("View");*/
 
 
-
-
-
-
-
     }
+
 }
+
+
+
+
+
+

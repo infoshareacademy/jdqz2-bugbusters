@@ -17,11 +17,8 @@ import java.io.IOException;
 
 public class ShoppingCartPage {
 
-
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")/*od KW*/
             WebElement textShoppingCart;
-
-
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement shoppingCartConfirmatonLabel;
 
@@ -87,55 +84,10 @@ public class ShoppingCartPage {
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
-
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(driver);
-        PageFactory.initElements(driver, this);
-    }
-
-
-    public void clickoInscriptionCorolful() {
-        waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
-        colorfulInscriptionOnShoppingCartWebsite.click();
-    }
-
-    public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(itemsInCartButton);
-        return itemsInCartButton.getText();
-    }
-
-    public String getTextFromViewButton() {
-        waits.waitForElementToBeRefreshed(viewButton);
-        return viewButton.getText();
-    }
-
-    public void clickOnIteamsInCartButton() {
-
-        try {
-            itemsInCartButton.click();
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
-            itemsInCartButton.click();
-        }
-    }
-
-    public void clickOnAddToCartButton() {
-        waits.waitForElementToBeClickable(addToCartButton);
-        addToCartButton.click();
-
-    }
-
-    public void clickOnLabelShipped() {
-        labelShipped.click();
-        waits.waitForElementToBeVisible(labelShipped);
-    }
-
-    public void clickOnViewButton() {
-        ;
-        waits.waitForElementToBeVisible(viewButton);
-        viewButton.click();
-    }
+        PageFactory.initElements(driver, this);}
 
     public void fillingShippingAddressInfowithDataGeneratorMethod(Integer houseNumber, String streetName, String city, String postCode, String country) throws IOException {
         changeButtonShippingAdress.click();
@@ -159,25 +111,76 @@ public class ShoppingCartPage {
         updateButtonPayment.click();
     }
 
+    public void addinAllNineProductsTocart(){
+
+
+    }
+
+
+
+
+
+
+
+
+
+    public void clickoInscriptionCorolful() {
+        waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
+        colorfulInscriptionOnShoppingCartWebsite.click();
+    }
+    public String getTextFromButtonItemsInCart() {
+        waits.waitForElementToBeRefreshed(itemsInCartButton);
+        return itemsInCartButton.getText();
+    }
+    public String getTextFromViewButton() {
+        waits.waitForElementToBeRefreshed(viewButton);
+        return viewButton.getText();
+    }
+    public void clickOnIteamsInCartButton() {
+
+        try {
+            itemsInCartButton.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
+            itemsInCartButton.click();
+        }
+    }
+    public void clickOnAddToCartButton() {
+        waits.waitForElementToBeClickable(addToCartButton);
+        addToCartButton.click();
+    }
+    public void clickOnLabelShipped() {
+        labelShipped.click();
+        waits.waitForElementToBeVisible(labelShipped);
+    }
+    public void clickOnViewButton() {
+        ;
+        waits.waitForElementToBeVisible(viewButton);
+        viewButton.click();
+    }
     public void addItemsToShoppingCartList() {
 
         addToCartButton.click();
         waits.waitForElementToBeVisible(itemsInCartButton);
         itemsInCartButton.click();
     }
-
     public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
         waits.waitForElementToBeClickable(viewButton);
         viewButton.click();
     }
-
-
     public String getTextShippingCart() { /*od KW*/
         waits.waitForElementToBeVisible(textShoppingCart);
         return textShoppingCart.getText();
     }
+
+
 }
+
+
+
+
+
 
 
 

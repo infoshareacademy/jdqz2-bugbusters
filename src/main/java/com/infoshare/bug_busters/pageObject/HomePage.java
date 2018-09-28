@@ -268,6 +268,29 @@ public class HomePage {
         footerLinkLogin.click();*/
     // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
 
+
+
+
+    public void addinAllNineProductsTocart(){
+
+    linkCatalogue.click();
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
