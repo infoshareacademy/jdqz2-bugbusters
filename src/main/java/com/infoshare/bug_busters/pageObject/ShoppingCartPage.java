@@ -14,6 +14,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 
 public class ShoppingCartPage {
 
@@ -111,19 +113,12 @@ public class ShoppingCartPage {
         updateButtonPayment.click();
     }
 
-    public void addinAllNineProductsTocart(){
 
 
 
 
 
 
-
-
-
-
-
-    }
     public void clickoInscriptionCorolful() {
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
         colorfulInscriptionOnShoppingCartWebsite.click();

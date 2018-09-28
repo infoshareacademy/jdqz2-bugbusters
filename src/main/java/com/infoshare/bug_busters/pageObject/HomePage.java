@@ -269,29 +269,27 @@ public class HomePage {
     // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
 
 
+    public void addinAllNineProductsTocart() {
 
-
-    public void addinAllNineProductsTocart(){
-
-    linkCatalogue.click();
-
-
-
+        linkCatalogue.click();
 
 
     }
 
 
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

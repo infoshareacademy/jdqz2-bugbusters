@@ -30,6 +30,9 @@ public class CataloguePage {
     private WebElement product9;
     @FindBy(xpath ="//div[@id='totalProducts']" )
     private WebElement showingNineOfNine;
+    @FindBy(xpath =" //a[@class='dropdown-toggle']" )
+    private WebElement cataloglink;
+
 
 
 
@@ -40,7 +43,7 @@ public class CataloguePage {
 
     }
     public void CheckingThreeElementsOnCatalogue(){
-
+        waits.waitForElementToBeClickable(cataloglink);
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
@@ -68,13 +71,13 @@ public class CataloguePage {
     }
 
     public void CheckingNineElementsOnCatalogue() {
-
-        confirmCatalogue.isDisplayed();
+        cataloglink.click();
+        /*confirmCatalogue.isDisplayed();*/
         waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
         product9.click();
 
-        assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
+        assertThat("Showing 9 of 9 products is not selected", showingNineOfNine.getText().contains("Showing 9 of 9 products"));
     }
 
 
