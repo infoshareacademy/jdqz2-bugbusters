@@ -59,7 +59,7 @@ public class HomePage {
     private WebElement linkLogin;
     @FindBy(xpath = "//div[@id='login-modal']//button[@class='btn btn-primary']")
     private WebElement buttonLogin;
-    @FindBy (xpath ="//a[contains(text(),'Register')]")
+    @FindBy(xpath = "//a[contains(text(),'Register')]")
     private WebElement linkRegister;
     @FindBy(xpath = "//div[@id='register-modal']//button[@class='btn btn-primary']")
     private WebElement buttonRegister;
@@ -102,12 +102,13 @@ public class HomePage {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+    /*private WebElement footerLinkLogin;*/
     private WebDriver driver;
     private Waits waits;
+    private Actions actions;
     private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(driver);
         actions = new Actions(driver);
@@ -134,7 +135,7 @@ public class HomePage {
         String email = userDataGenerator.prepareUserData().getEmail();
         String password = userDataGenerator.prepareUserData().getPassword();
 
-        return new UserData(userName,firstName,lastName,email,password);
+        return new UserData(userName, firstName, lastName, email, password);
 
     }
 
@@ -179,89 +180,109 @@ public class HomePage {
     }
 
 
-
     //////////////////////////////////////////////////////////////////////////////Karol Warakomski
 
 
+    public void clickOnLinkLogin() {
+        linkLogin.click();
+    }
 
-    public void clickOnLinkLogin() {linkLogin.click();}
-    public boolean checkEnableLoginButton(){
+    public boolean checkEnableLoginButton() {
         waits.waitForElementToBeVisible(buttonLogin);
         return buttonLogin.isEnabled();
     }
-    public void clickOnLinkRegister() {linkRegister.click();}
-    public boolean checkEnableRegisterButton(){
+
+    public void clickOnLinkRegister() {
+        linkRegister.click();
+    }
+
+    public boolean checkEnableRegisterButton() {
         waits.waitForElementToBeVisible(buttonRegister);
         return buttonRegister.isEnabled();
     }
+
     /*  public void clickOnLinkCatalogue(){
           linkCatalogue.click();
       }*/
-    public String getTextFromCataloguePage(){
+    public String getTextFromCataloguePage() {
         waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
         return catalogueTextOnPageCatalogue.getText();
     }
-    public void selectBlueFromDropDownMenuCatalogue(){
+
+    public void selectBlueFromDropDownMenuCatalogue() {
         waits.waitForElementToBeVisible(linkCatalogue);
         actions.moveToElement(linkCatalogue).perform();
         waits.waitForElementToBeClickable(blueFromCatalogueDropDownMenu);
         blueFromCatalogueDropDownMenu.click();
     }
-    public void clickOnButtonItemsInCart(){
+
+    public void clickOnButtonItemsInCart() {
         buttonItemsInCart.click();
     }
+
     public String getTextFromButtonItemsInCart() {
         waits.waitForElementToBeRefreshed(buttonItemsInCart);
         return buttonItemsInCart.getText();
     }
-    public void clickOnLinkHoly(){
+
+    public void clickOnLinkHoly() {
         linkOfProductHoly.click();
     }
-    public void clickOnPictureHoly(){
+
+    public void clickOnPictureHoly() {
         pictureOfProductHoly.click();
     }
-    public void clickOnLinkColorful(){
+
+    public void clickOnLinkColorful() {
         linkOfProductColorful.click();
     }
-    public void clickOnPictureColorful(){
+
+    public void clickOnPictureColorful() {
         pictureOfProductColorful.click();
     }
-    public void clickOnLinkSportXL(){
+
+    public void clickOnLinkSportXL() {
         linkOfProductSuperSportXL.click();
     }
-    public void clickOnPictureSportXL(){
+
+    public void clickOnPictureSportXL() {
         pictureOfProductSuperSportXL.click();
     }
-    public void clickOnLinkCrossed(){
+
+    public void clickOnLinkCrossed() {
         linkOfProductCrossed.click();
     }
-    public void clickOnPictureCrossed(){
+
+    public void clickOnPictureCrossed() {
         pictureOfProductCrossed.click();
     }
-    public void clickOnLinkFigueroa(){
+
+    public void clickOnLinkFigueroa() {
         linkOfProductFigueroa.click();
     }
-    public void clickOnPictureFigueroa(){
+
+    public void clickOnPictureFigueroa() {
         pictureOfProductFigueroa.click();
     }
-    public void clickOnFooterLinkLogin(){
-        footerLinkLogin.click();
-    }
+    /*public void clickOnFooterLinkLogin(){
+        footerLinkLogin.click();*/
     // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

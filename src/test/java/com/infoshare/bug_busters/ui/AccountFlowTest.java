@@ -61,6 +61,7 @@ public class AccountFlowTest {
 
         driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
+        Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
         shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod(shippingDataGenerator.prepareShippingData().getHouseNumber(), shippingDataGenerator.prepareShippingData().getStreetName(), shippingDataGenerator.prepareShippingData().getCity(), shippingDataGenerator.prepareShippingData().getPostCode(), shippingDataGenerator.prepareShippingData().getCountry());
@@ -70,15 +71,14 @@ public class AccountFlowTest {
         shoppingCartPage.clickOnIteamsInCartButton();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart","You currently have 1 item(s) in your cart.");
         shoppingCartPage.clickdProcedToCheckout();
-        /*shoppingCartPage.clickOnViewButton();*/
-        /*String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
-        assertTrue("Product is visible", actualString.contains("View"));*/
-        Assertions.assertThat(shoppingCartPage.getTextFromViewButton()).as("View").isEqualTo("View");
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders()).as("Order for Socks Colorful with  Brand has not been added").isEqualTo("Colourful");
 
 
 
-
+        /*shoppingCartPage.clickOnViewButton();*/
+        /*String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
+        assertTrue("Product is visible", actualString.contains("View"));*/
+        /* Assertions.assertThat(shoppingCartPage.getTextFromViewButton()).as("View").isEqualTo("View");*/
 
 
 
