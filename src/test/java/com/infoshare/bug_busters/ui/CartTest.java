@@ -37,6 +37,8 @@ public class CartTest {
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
+        cataloguePage = new CataloguePage(driver);
+
 
     }
 
@@ -58,7 +60,7 @@ public class CartTest {
      Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
      /*Test precondition:User is logged in and  at least on iteam added to Cart*/
     /* cataloguePage.CheckingNineElementsOnCatalogue();*/
-     cataloguePage.CheckingNineElementsOnCatalogue();
+     cataloguePage.WOJTEKCheckingNineElementsOnCatalogue();
 
 
 
