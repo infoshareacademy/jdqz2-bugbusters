@@ -100,6 +100,11 @@ public class HomePage {
     private WebElement pictureOfProductFigueroa;
     @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////Wpjtek
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*private WebElement footerLinkLogin;*/
@@ -276,7 +281,18 @@ public class HomePage {
 
     }
 
-    public void
+    public void AddIngNineProductsToCart(){
+
+        linkOfProductHoly.click();
+        linkOfProductSuperSportXL.click();
+        linkOfProductCrossed.click();
+        linkOfProductFigueroa.click();
+
+
+
+
+
+    }
 
 
 }

@@ -58,9 +58,9 @@ public class CartTest {
      shoppingCartPage.clickOnAddToCartButton();
      shoppingCartPage.clickOnIteamsInCartButton();
      Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
-     /*Test precondition:User is logged in and  at least on iteam added to Cart*/
+     /*Test precondition above:User is logged in and  at least on item added to Cart*/
     /* cataloguePage.CheckingNineElementsOnCatalogue();*/
-     cataloguePage.WOJTEKCheckingNineElementsOnCatalogue();
+     cataloguePage.CheckingNineElementsOnCatalogue();
 
 
 
