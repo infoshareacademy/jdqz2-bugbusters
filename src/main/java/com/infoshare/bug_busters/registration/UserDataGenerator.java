@@ -24,10 +24,6 @@ public class UserDataGenerator {
 
        return new UserData(userName,firstName,lastName,email,password);
     }
-
-
-
-
     public List<UserData> collectionOfUsers () throws IOException {
 
         Integer iloscDanych = 10;
@@ -39,8 +35,6 @@ public class UserDataGenerator {
         }
 
         return userData;
-
-
     }
 
 }

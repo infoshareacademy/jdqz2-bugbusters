@@ -22,55 +22,35 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
 
         when(generatorMock.prepareUserName()).thenReturn("login_ola"); //na moku wykonuje metode prepareUserName() z klasy RandomDataGenerator i mowie jej co ma zwocic
         //dzieki temu metoda prepareUserName() zwroci tylko "login_ola"
-
         when(generatorMock.prepareFirstName()).thenReturn("Tomasz");
-
         when(generatorMock.prepareLastName()).thenReturn("Nowak");
-
         when(generatorMock.prepareEmail()).thenReturn("Test@gamil.com");
-
         when(generatorMock.preparePassword()).thenReturn("Test");
-
 
         UserDataGenerator underTest = new UserDataGenerator(generatorMock); // stworzenie nowego obiektu bedacego instancja klasy UserDataGenerator ktorej metoda jest testowana
         // tworzona z konstruktora klasy UserDataGenerator ale wstrzykuje do niego zmienna mock dzieki temu obchodze wywolanie prawdziwej klasy RandomDataGenerator
-
         UserData result = underTest.prepareUserData();
 
-        Assertions.assertThat(result.getUserName()) //asercja assertJa
-                .isEqualTo("login_ola");
-
-        Assertions.assertThat(result.getFirstName()) //asercja assertJa
-                .isEqualTo("Tomasz");
-
-        Assertions.assertThat(result.getLastName()) //asercja assertJa
-                .isEqualTo("Nowak");
-
-        Assertions.assertThat(result.getEmail()) //asercja assertJa
-                .isEqualTo("Test@gamil.com");
-
-        Assertions.assertThat(result.getPassword()) //asercja assertJa
-                .isEqualTo("Test");
+        Assertions.assertThat(result.getUserName()).isEqualTo("login_ola");
+        Assertions.assertThat(result.getFirstName()).isEqualTo("Tomasz");
+        Assertions.assertThat(result.getLastName()).isEqualTo("Nowak");
+        Assertions.assertThat(result.getEmail()).isEqualTo("Test@gamil.com");
+        Assertions.assertThat(result.getPassword()).isEqualTo("Test");
     }
-
     UserDataGenerator userdataGeneratoApp = new UserDataGenerator(new RandomDataGenerator());
-
     @Test
-    public void checkifisnotnull() throws IOException {
+    public void checkifisnotnullTest() throws IOException {
         UserData checkingValuesNotNull = userdataGeneratoApp.prepareUserData();
         assertNotNull( "Username is not null",checkingValuesNotNull.getUserName());
         assertNotNull( "FirstName is not null",checkingValuesNotNull.getFirstName());
         assertNotNull( "LastName is not null",checkingValuesNotNull.getLastName());
         assertNotNull( "Email is not null",checkingValuesNotNull.getEmail());
         assertNotNull( "Password is not null",checkingValuesNotNull.getPassword());
-
     }
     @Test
-    public void addingToColection() throws Exception {
-
+    public void addingToColectionTest() throws Exception {
         int sizeTest = userdataGeneratoApp.collectionOfUsers().size();
         List<UserData> checkingTenValuesNotNullAndCorrectToPattern = userdataGeneratoApp.collectionOfUsers();
-
         assertEquals("Wielkość listy nie wynosi 10", 10, sizeTest);
     }
 }
