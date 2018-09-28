@@ -114,16 +114,16 @@ public class ShoppingCartPage {
     public void addinAllNineProductsTocart(){
 
 
+
+
+
+
+
+
+
+
+
     }
-
-
-
-
-
-
-
-
-
     public void clickoInscriptionCorolful() {
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
         colorfulInscriptionOnShoppingCartWebsite.click();

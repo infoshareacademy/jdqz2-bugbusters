@@ -1,6 +1,7 @@
 package com.infoshare.bug_busters.ui;
 
 import com.infoshare.bug_busters.pageObject.AccountPage;
+import com.infoshare.bug_busters.pageObject.CataloguePage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
@@ -23,6 +24,7 @@ public class CartTest {
     private HomePage homePage;
     private AccountPage accountPage;
     private ShoppingCartPage shoppingCartPage;
+    private CataloguePage cataloguePage;
 
     private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
@@ -35,6 +37,7 @@ public class CartTest {
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
+
     }
 
     /*@After
@@ -54,7 +57,7 @@ public class CartTest {
      shoppingCartPage.clickOnIteamsInCartButton();
      Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart");
      /*Test precondition:User is logged in and  at least on iteam added to Cart*/
-
+     cataloguePage.CheckingNineElementsOnCatalogue();
 
 
 
