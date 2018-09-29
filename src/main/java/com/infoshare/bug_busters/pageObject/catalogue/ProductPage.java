@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ProductPage {
 
@@ -18,6 +19,8 @@ public class ProductPage {
     WebElement scrollProduct;
     @FindBy(xpath = "//a[@id='buttonCart']")
     WebElement buttonAddToCart;
+    @FindBy(xpath = "//span[@id='numItemsInCart']")
+    WebElement numberOfElementsInCart;
 
 
     public ProductPage(WebDriver driver) {
@@ -25,15 +28,23 @@ public class ProductPage {
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
     }
-    public void checkProductsDetails(){
+
+    public void checkProductsDetails() {
 
         scrollProduct.click();
         productDetails.isDisplayed();
         buttonAddToCart.isDisplayed();
-        assertTrue("Product is not displayed",buttonAddToCart.isDisplayed());
+        assertTrue("Product is not displayed", buttonAddToCart.isDisplayed());
 
 
+    }
 
+    public void addingProduct() {
+//        scrollProduct.click();
+//        productDetails.isDisplayed();
+
+        buttonAddToCart.click();
+        //assertThat("Product is not added",numberOfElementsInCart.isDisplayed());
     }
 
 }

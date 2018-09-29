@@ -30,13 +30,22 @@ public class CataloguePage {
     private WebElement product6;
     @FindBy(xpath = "//div[@id='totalProducts']")
     private WebElement showingSixOfNine;
-    @FindBy (xpath = "//a[contains(text(),'9')]")
+    @FindBy(xpath = "//a[contains(text(),'9')]")
     private WebElement product9;
-    @FindBy(xpath ="//div[@id='totalProducts']" )
+    @FindBy(xpath = "//div[@id='totalProducts']")
     private WebElement showingNineOfNine;
-    @FindBy(xpath = "//a[contains(text(),'Holy')]" )
+    @FindBy(xpath = "//a[contains(text(),'Holy')]")
     private WebElement choosingHolyProducts;
-
+    @FindBy(xpath = "//a[@id='buttonCart']")
+    WebElement buttonAddToCart;
+    @FindBy(xpath = "//a[@class='btn btn-default']")
+    WebElement buttonViewDetailHolly;
+    @FindBy(xpath = "//input[@value='formal']")
+    WebElement inputFormal;
+    @FindBy(xpath = "//a[@class='btn btn-default btn-sm btn-primary']")
+    WebElement buttonAplly;
+    @FindBy(xpath = "//a[@class='btn btn-xs btn-danger pull-right']")
+    WebElement buttonClear;
 
 
     public CataloguePage(WebDriver driver) {
@@ -45,7 +54,8 @@ public class CataloguePage {
         PageFactory.initElements(driver, this);
 
     }
-    public void CheckingThreeElementsOnCatalogue(){
+
+    public void CheckingThreeElementsOnCatalogue() {
 
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(labelShow);
@@ -56,10 +66,8 @@ public class CataloguePage {
         showingThreeOfNine.getText();
 
 
-
-    assertThat("Showing 3 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 3 of 9 products"));
+        assertThat("Showing 3 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 3 of 9 products"));
     }
-
 
 
     public void CheckingSixElementsOnCatalogue() {
@@ -82,18 +90,30 @@ public class CataloguePage {
         waits.waitForElementToBeVisible(product9);
         product9.click();
 
-            assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
+        assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
     }
-    public void ChooseProducts(){
+
+    public void ChooseProducts() {
         choosingHolyProducts.click();
 
 
-
-
     }
 
 
+    public void SeeDetailsByUsingViewDetail() {
 
+        confirmCatalogue.isDisplayed();
+        waits.waitForElementToBeVisible(buttonViewDetailHolly);
+        buttonViewDetailHolly.click();
+    }
+
+    public void CheckFilters() {
+        confirmCatalogue.isDisplayed();
+        waits.waitForElementToBeVisible(inputFormal);
+        inputFormal.click();
+        buttonAplly.click();
+        buttonClear.click();
+    }
 
 
 }
