@@ -57,41 +57,30 @@ public class CataloguePage {
 
     public void CheckingThreeElementsOnCatalogue() {
 
-        confirmCatalogue.isDisplayed();
-        waits.waitForElementToBeVisible(labelShow);
-        labelShow.click();
-        waits.waitForElementToBeVisible(product3);
-
-        product3.click();
-        showingThreeOfNine.getText();
+        showElements(product3);
 
 
-        assertThat("Showing 3 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 3 of 9 products"));
     }
+
+
 
 
     public void CheckingSixElementsOnCatalogue() {
 
-        confirmCatalogue.isDisplayed();
-        waits.waitForElementToBeVisible(labelShow);
-        labelShow.click();
-        waits.waitForElementToBeVisible(product6);
-        product6.click();
-        showingSixOfNine.getText();
+        showElements(product6);
+
 
         assertThat("Showing 6 of 9 products is not selected", showingSixOfNine.getText().contains("Showing 6 of 9 products"));
     }
 
     public void CheckingNineElementsOnCatalogue() {
 
-        confirmCatalogue.isDisplayed();
-        waits.waitForElementToBeVisible(labelShow);
-        labelShow.click();
-        waits.waitForElementToBeVisible(product9);
-        product9.click();
+        showElements(product9);
+
 
         assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
     }
+
 
     public void ChooseProducts() {
         choosingHolyProducts.click();
@@ -113,6 +102,19 @@ public class CataloguePage {
         inputFormal.click();
         buttonAplly.click();
         buttonClear.click();
+    }
+    public String showingThreeOfNineGetText(){
+        return showingThreeOfNine.getText();
+
+    }
+
+
+    private void showElements(WebElement product3) {
+        confirmCatalogue.isDisplayed();
+        waits.waitForElementToBeVisible(labelShow);
+        labelShow.click();
+        waits.waitForElementToBeVisible(product3);
+        product3.click();
     }
 
 

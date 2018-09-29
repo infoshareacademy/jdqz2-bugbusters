@@ -39,6 +39,8 @@ public class PagingThreeProductsTest {
 
       cataloguePage.CheckingThreeElementsOnCatalogue();
 
+        assertThat("Showing 3 of 9 products is not selected", cataloguePage.showingThreeOfNineGetText().contains("Showing 3 of 9 products"));
+
 
 
     }
