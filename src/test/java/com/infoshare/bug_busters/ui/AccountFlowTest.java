@@ -48,11 +48,8 @@ public class AccountFlowTest {
         driver.close();
     }
 
-
-
     @Test
     public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks() throws IOException {
-
         driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
         Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
@@ -65,12 +62,10 @@ public class AccountFlowTest {
         shoppingCartPage.clickOnIteamsInCartButton();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
         shoppingCartPage.clickdProcedToCheckout();
-        Assertions.assertThat(shoppingCartPage.getTextFromViewButton()).as("View").isEqualTo("View");
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders()).as("Order for Socks Colorful with  Brand has not been added").isEqualTo("Colourful");
 
         /*shoppingCartPage.clickOnViewButton();*/
         /*shoppingCartPage.clickOnViewButton();*/
-
         /*String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
         assertTrue("Product is visible", actualString.contains("View"));*/
 

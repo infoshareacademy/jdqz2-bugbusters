@@ -29,20 +29,17 @@ public class CataloguePage {
     private WebElement showingSixOfNine;
     @FindBy(xpath = "//a[contains(text(),'9')]")
     private WebElement product9;
-    @FindBy(xpath = "//div[@id='totalProducts']")
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm']")
     private WebElement showingNineOfNine;
     @FindBy(xpath = " //a[@class='dropdown-toggle']")
     private WebElement cataloglink;
-
 
     public CataloguePage(WebDriver driver) {
         this.driver = driver;
         actions = new Actions(driver);
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
-
     }
-
     public void CheckingThreeElementsOnCatalogue() {
         waits.waitForElementToBeClickable(cataloglink);
         confirmCatalogue.isDisplayed();
@@ -51,14 +48,10 @@ public class CataloguePage {
         waits.waitForElementToBeVisible(product3);
         product3.click();
         showingThreeOfNine.getText();
-
-
         assertThat("Showing 3 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 3 of 9 products"));
     }
 
-
     public void CheckingSixElementsOnCatalogue() {
-
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(labelShow);
         labelShow.click();
@@ -68,7 +61,6 @@ public class CataloguePage {
 
         assertThat("Showing 6 of 9 products is not selected", showingSixOfNine.getText().contains("Showing 6 of 9 products"));
     }
-
     public void CheckingNineElementsOnCatalogue() {
         cataloglink.click();
         confirmCatalogue.isDisplayed();
@@ -78,18 +70,17 @@ public class CataloguePage {
 
         assertThat("Showing 9 of 9 products is not selected", showingNineOfNine.getText().contains("Showing 9 of 9 products"));
     }
-
-
     public void checkinIfNineElementIsBeingDisplayedInCatalogPage() {
         waits.waitForElementToBeVisible(cataloglink);
         actions.moveToElement(cataloglink).perform();
         cataloglink.click();
-        waits.waitForElementToBeVisible(labelShow);
-        labelShow.click();
-        waits.waitForElementToBeVisible(cataloglink);
-        actions.moveToElement(cataloglink).perform();
-        waits.waitForElementToBeRefreshed(product9);
+        waits.waitForElementToBeClickable(product9);
         product9.click();
+
+
+
+
+
         /*assertThat("Showing 9 of 9 products is not selected", showingNineOfNine.getText().contains("Showing 9 of 9 products"));*/
 
     }

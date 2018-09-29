@@ -4,6 +4,7 @@ import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.utils.Waits;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -98,9 +99,14 @@ public class HomePage {
     private WebElement linkOfProductFigueroa;
     @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b']//img[@class='img-responsive']")
     private WebElement pictureOfProductFigueroa;
-    @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")
+   /* @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")*/
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////Wpjtek
+    @FindBy(xpath = "//div[@id='products']//div[1]//div[1]//div[2]//p[2]//a[2]")
+    private WebElement addProductHollyAddToCart;
+
+    @FindBy(xpath= "//html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]")
+    private WebElement addProducSupperSport;
 
 
 
@@ -274,22 +280,22 @@ public class HomePage {
     // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
 
 
-    public void addinAllNineProductsTocart() {
-
-        linkCatalogue.click();
-
+    public void addinngAdditionalEightProducts() {
+        waits.waitForElementToBeClickable(addProductHollyAddToCart);
+        addProductHollyAddToCart.click();
+        /waits.waitForElementToBeClickable(addProducSupperSport);
+        try {
+            addProducSupperSport.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            WebElement button = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]"));
+            addProducSupperSport.click();
+        }
 
     }
 
     public void AddIngNineProductsToCart(){
 
-        linkOfProductHoly.click();
-        linkOfProductSuperSportXL.click();
-        linkOfProductCrossed.click();
-        linkOfProductFigueroa.click();
-
-
-
+        //div[@id='products']//div[2]//div[1]//div[2]//p[2]//a[2]
 
 
     }

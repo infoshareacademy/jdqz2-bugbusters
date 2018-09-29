@@ -38,8 +38,6 @@ public class CartTest {
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
         cataloguePage = new CataloguePage(driver);
-
-
     }
 
     /*@After
@@ -49,7 +47,7 @@ public class CartTest {
 
  @Test
 
-  public void addinAllNineProductsToCart () throws IOException {
+  public void addinAllNineProductsToCartWhenUserIsLoggedInAndOneItemIsAlreadyInCart () throws IOException {
      driver.get("http://localhost:4180/");
      homePage.loginUserAfterRegistration();
      accountPage.clickOnLabelAccount();
@@ -58,10 +56,11 @@ public class CartTest {
      shoppingCartPage.clickOnAddToCartButton();
      shoppingCartPage.clickOnIteamsInCartButton();
      Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
-     /*Test precondition above:User is logged in and  at least on item added to Cart*/
-    /* cataloguePage.CheckingNineElementsOnCatalogue();*/
-     cataloguePage.CheckingNineElementsOnCatalogue();
+     cataloguePage.checkinIfNineElementIsBeingDisplayedInCatalogPage();
+     homePage.addinngAdditionalEightProducts();
 
+     //cataloguePage.CheckingNineElementsOnCatalogue();
+     //homePage.addinAllNineProductsTocart();
 
 
 
@@ -69,10 +68,6 @@ public class CartTest {
 
 
  }
-
-
-
-
 
 
 

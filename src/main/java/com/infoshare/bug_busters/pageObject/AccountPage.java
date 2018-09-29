@@ -1,6 +1,3 @@
-
-
-
 package com.infoshare.bug_busters.pageObject;
 
 import com.infoshare.bug_busters.utils.Waits;
@@ -12,8 +9,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccountPage {
-
-
     private WebDriver driver;
     private Waits waits;
 
@@ -25,7 +20,6 @@ public class AccountPage {
     private WebElement viewButtonInMyOrders;
     @FindBy(xpath = "//a[contains(text(),'Colourful')]")
     private WebElement colorFullLabelInMyOrders;
-
 
     public AccountPage(WebDriver driver) {
         waits = new Waits(driver);
@@ -43,11 +37,6 @@ public class AccountPage {
     public String getTextFromColorFulLabelInMyOrders(){
         waits.waitForElementToBeVisible(colorFullLabelInMyOrders);
         return colorFullLabelInMyOrders.getText();}
-
-
-
-
-
 }
 
 
