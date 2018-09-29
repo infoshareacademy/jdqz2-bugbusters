@@ -20,7 +20,7 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
     public void createsCorrectUser() throws IOException {
         RandomDataGenerator generatorMock = mock(RandomDataGenerator.class); //tworzy moka z klasy RandomDataGenerator czyli ma dostep do pol i metod tej klasy
 
-       /* when(generatorMock.prepareUserName()).thenReturn("login_ola")*/ //na moku wykonuje metode prepareUserName() z klasy RandomDataGenerator i mowie jej co ma zwocic
+        when(generatorMock.prepareUserName()).thenReturn("login_ola"); //na moku wykonuje metode prepareUserName() z klasy RandomDataGenerator i mowie jej co ma zwocic
         //dzieki temu metoda prepareUserName() zwroci tylko "login_ola"
         when(generatorMock.prepareFirstName()).thenReturn("Tomasz");
         when(generatorMock.prepareLastName()).thenReturn("Nowak");
@@ -31,7 +31,7 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
         // tworzona z konstruktora klasy UserDataGenerator ale wstrzykuje do niego zmienna mock dzieki temu obchodze wywolanie prawdziwej klasy RandomDataGenerator
         UserData result = underTest.prepareUserData();
 
-        Assertions.assertThat(result.getUserName()).isEqualTo("login_ola");
+        Assertions.assertThat(result.getUserName().substring(0,9)).isEqualTo("login_ola");
         Assertions.assertThat(result.getFirstName()).isEqualTo("Tomasz");
         Assertions.assertThat(result.getLastName()).isEqualTo("Nowak");
         Assertions.assertThat(result.getEmail()).isEqualTo("Test@gamil.com");
