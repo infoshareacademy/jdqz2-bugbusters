@@ -3,12 +3,15 @@ package com.infoshare.bug_busters.ui.Catalogue;
 import com.infoshare.bug_busters.pageObject.catalogue.CatalogueHomePage;
 import com.infoshare.bug_busters.pageObject.catalogue.CataloguePage;
 import com.infoshare.bug_busters.pageObject.catalogue.ProductPage;
+import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AddingProductTest {
     private WebDriver driver;
@@ -28,7 +31,6 @@ public class AddingProductTest {
         productPage = new ProductPage(driver);
 
 
-
     }
 
     @Test
@@ -38,11 +40,6 @@ public class AddingProductTest {
         cataloguePage.ChooseProducts();
         productPage.addingProduct();
     }
-
-
-
-
-
 
 
     @After

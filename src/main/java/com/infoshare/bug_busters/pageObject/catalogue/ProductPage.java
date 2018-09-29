@@ -20,7 +20,7 @@ public class ProductPage {
     @FindBy(xpath = "//a[@id='buttonCart']")
     WebElement buttonAddToCart;
     @FindBy(xpath = "//span[@id='numItemsInCart']")
-    WebElement numberOfElementsInCart;
+    WebElement buttoNnumberOfElementsInCart;
 
 
     public ProductPage(WebDriver driver) {
@@ -44,7 +44,13 @@ public class ProductPage {
 //        productDetails.isDisplayed();
 
         buttonAddToCart.click();
-        //assertThat("Product is not added",numberOfElementsInCart.isDisplayed());
+        //buttoNnumberOfElementsInCart.isDisplayed();
+       // buttoNnumberOfElementsInCart.getText("1 item(s) in cart");
+       // assertThat("Product is not added",buttoNnumberOfElementsInCart.equals("1 item(s) in cart"));
+    }
+    public void textFromButtonNumberOfElementsInCart(){
+
+
     }
 
 }
