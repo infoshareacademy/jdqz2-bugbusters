@@ -28,20 +28,18 @@ public class PagingNineProductsTest {
         cataloguePage = new CataloguePage(driver);
 
 
-
     }
 
     @Test
-    public void checkSixPageProduckt() {
+    public void checkNinePageProduckt() {
         driver.get("http://localhost/");
         catalogueHomePage.chooseCatalogue();
+        cataloguePage.checkingNineElementsOnCatalogue();
 
-        cataloguePage.CheckingNineElementsOnCatalogue();
+        assertThat("Showing 9 of 9 products is not selected", cataloguePage.showingNineOfNineGetText().contains("Showing 9 of 9 products"));
 
 
     }
-
-
 
 
     @After

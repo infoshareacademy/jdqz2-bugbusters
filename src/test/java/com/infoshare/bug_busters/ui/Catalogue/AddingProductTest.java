@@ -3,14 +3,12 @@ package com.infoshare.bug_busters.ui.Catalogue;
 import com.infoshare.bug_busters.pageObject.catalogue.CatalogueHomePage;
 import com.infoshare.bug_busters.pageObject.catalogue.CataloguePage;
 import com.infoshare.bug_busters.pageObject.catalogue.ProductPage;
-import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AddingProductTest {
@@ -37,8 +35,10 @@ public class AddingProductTest {
     public void addingProductTooCart() {
         driver.get("http://localhost/");
         catalogueHomePage.chooseCatalogue();
-        cataloguePage.ChooseProducts();
+        cataloguePage.chooseProducts();
         productPage.addingProduct();
+       // assertThat("Cart is empty", productPage.productIAddedToCart().equals("1 item(s) in cart"));
+
     }
 
 

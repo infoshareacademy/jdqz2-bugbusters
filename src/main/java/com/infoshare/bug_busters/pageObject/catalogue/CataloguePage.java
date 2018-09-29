@@ -55,7 +55,7 @@ public class CataloguePage {
 
     }
 
-    public void CheckingThreeElementsOnCatalogue() {
+    public void checkingThreeElementsOnCatalogue() {
 
         showElements(product3);
 
@@ -63,49 +63,54 @@ public class CataloguePage {
     }
 
 
-
-
-    public void CheckingSixElementsOnCatalogue() {
+    public void checkingSixElementsOnCatalogue() {
 
         showElements(product6);
 
 
-        assertThat("Showing 6 of 9 products is not selected", showingSixOfNine.getText().contains("Showing 6 of 9 products"));
     }
 
-    public void CheckingNineElementsOnCatalogue() {
+    public void checkingNineElementsOnCatalogue() {
 
         showElements(product9);
 
 
-        assertThat("Showing 9 of 9 products is not selected", showingThreeOfNine.getText().contains("Showing 9 of 9 products"));
     }
 
 
-    public void ChooseProducts() {
+    public void chooseProducts() {
         choosingHolyProducts.click();
 
 
     }
 
 
-    public void SeeDetailsByUsingViewDetail() {
+    public void seeDetailsByUsingViewDetail() {
 
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(buttonViewDetailHolly);
         buttonViewDetailHolly.click();
     }
 
-    public void CheckFilters() {
+
+
+    public void checkFilters() {
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(inputFormal);
         inputFormal.click();
         buttonAplly.click();
         buttonClear.click();
     }
-    public String showingThreeOfNineGetText(){
+
+    public String showingThreeOfNineGetText() {
         return showingThreeOfNine.getText();
 
+    }
+    public String showingSixOfNineGetText(){
+        return showingSixOfNine.getText();
+    }
+    public String showingNineOfNineGetText(){
+        return showingNineOfNine.getText();
     }
 
 

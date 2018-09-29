@@ -32,23 +32,17 @@ public class ProductsTest {
         productPage = new ProductPage(driver);
 
 
-
     }
 
     @Test
     public void checkProducktUsingScroll() {
         driver.get("http://localhost/");
         catalogueHomePage.chooseCatalogue();
-        cataloguePage.ChooseProducts();
+        cataloguePage.chooseProducts();
         productPage.checkProductsDetails();
 
+        assertTrue("Product is not display", productPage.showingViewDetalis());
     }
-
-
-
-
-
-
 
     @After
     public void tearDown() {

@@ -29,24 +29,17 @@ public class PagingThreeProductsTest {
         cataloguePage = new CataloguePage(driver);
 
 
-
     }
 
     @Test
     public void checkThreePageProduckt() {
         driver.get("http://localhost/");
-       catalogueHomePage.chooseCatalogue();
-
-      cataloguePage.CheckingThreeElementsOnCatalogue();
+        catalogueHomePage.chooseCatalogue();
+        cataloguePage.checkingThreeElementsOnCatalogue();
 
         assertThat("Showing 3 of 9 products is not selected", cataloguePage.showingThreeOfNineGetText().contains("Showing 3 of 9 products"));
 
-
-
     }
-
-
-
 
     @After
     public void tearDown() {

@@ -3,6 +3,7 @@ package com.infoshare.bug_busters.pageObject.catalogue;
 import com.infoshare.bug_busters.utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -11,6 +12,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ProductPage {
 
+    private Actions actions;
     private WebDriver driver;
     private Waits waits;
     @FindBy(xpath = "//div[@id='productDetails']")
@@ -23,34 +25,40 @@ public class ProductPage {
     WebElement buttoNnumberOfElementsInCart;
 
 
+
+
     public ProductPage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(driver);
+        actions = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
 
     public void checkProductsDetails() {
 
-        scrollProduct.click();
-        productDetails.isDisplayed();
+        showProduct();
         buttonAddToCart.isDisplayed();
-        assertTrue("Product is not displayed", buttonAddToCart.isDisplayed());
-
 
     }
+
 
     public void addingProduct() {
-//        scrollProduct.click();
-//        productDetails.isDisplayed();
-
+        showProduct();
+        actions.moveToElement(buttonAddToCart).perform();
         buttonAddToCart.click();
-        //buttoNnumberOfElementsInCart.isDisplayed();
-       // buttoNnumberOfElementsInCart.getText("1 item(s) in cart");
-       // assertThat("Product is not added",buttoNnumberOfElementsInCart.equals("1 item(s) in cart"));
-    }
-    public void textFromButtonNumberOfElementsInCart(){
-
 
     }
 
+    private void showProduct() {
+        scrollProduct.click();
+        productDetails.isDisplayed();
+    }
+
+    public String productIAddedToCart() {
+       return buttoNnumberOfElementsInCart.getText();
+    }
+
+    public boolean showingViewDetalis() {
+        return productDetails.isDisplayed();
+    }
 }

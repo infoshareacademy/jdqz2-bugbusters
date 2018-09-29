@@ -9,45 +9,42 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class PagingSixProductsTest {
 
 
-        private WebDriver driver;
-        private WebDriverWait waits;
-        private CatalogueHomePage catalogueHomePage;
-        private CataloguePage cataloguePage;
+    private WebDriver driver;
+    private WebDriverWait waits;
+    private CatalogueHomePage catalogueHomePage;
+    private CataloguePage cataloguePage;
 
-        @Before
-        public void setUp() {
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver_Linux64");
-            driver = new ChromeDriver();
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver_Linux64");
+        driver = new ChromeDriver();
 
+        catalogueHomePage = new CatalogueHomePage(driver);
+        cataloguePage = new CataloguePage(driver);
 
-            catalogueHomePage = new CatalogueHomePage(driver);
-            cataloguePage = new CataloguePage(driver);
-
-
-
-        }
-
-        @Test
-        public void checkSixPageProduckt() {
-            driver.get("http://localhost/");
-            catalogueHomePage.chooseCatalogue();
-
-            cataloguePage.CheckingSixElementsOnCatalogue();
-
-
-        }
-
-
-
-
-        @After
-        public void tearDown() {
-            driver.close();
-        }
 
     }
+
+    @Test
+    public void checkSixPageProduckt() {
+        driver.get("http://localhost/");
+        catalogueHomePage.chooseCatalogue();
+        cataloguePage.checkingSixElementsOnCatalogue();
+        assertThat("Showing 6 of 9 products is not selected", cataloguePage.showingSixOfNineGetText().contains("Showing 6 of 9 products"));
+
+    }
+
+
+    @After
+    public void tearDown() {
+        driver.close();
+    }
+
+}
 
 

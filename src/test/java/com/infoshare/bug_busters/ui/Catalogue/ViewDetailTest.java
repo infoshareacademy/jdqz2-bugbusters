@@ -10,6 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class ViewDetailTest {
     private WebDriver driver;
     private WebDriverWait waits;
@@ -35,7 +38,8 @@ public class ViewDetailTest {
     public void checkViewDetailButton() {
         driver.get("http://localhost/");
         catalogueHomePage.chooseCatalogue();
-        cataloguePage.SeeDetailsByUsingViewDetail();
+        cataloguePage.seeDetailsByUsingViewDetail();
+        assertTrue("Detalis are invisible",productPage.showingViewDetalis());
 
 
     }

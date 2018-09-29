@@ -35,8 +35,7 @@ public class FiltersTest {
     public void checkFilters() {
         driver.get("http://localhost/");
         catalogueHomePage.chooseCatalogue();
-        cataloguePage.CheckFilters();
-
+        cataloguePage.checkFilters();
 
     }
     @After
