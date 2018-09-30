@@ -59,14 +59,15 @@ public class CartTest {
         cataloguePage.checkinIfNineElementIsBeingDisplayedInCatalogPage();
         homePage.addinngAdditionalEightProducts();
 
+
         //cataloguePage.CheckingNineElementsOnCatalogue();
         //homePage.addinAllNineProductsTocart();
 
-
     }
 
-   /* @Test
+    @Test
     public void deletingProductFromCart() throws IOException {
+        driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
@@ -75,12 +76,12 @@ public class CartTest {
         shoppingCartPage.clickOnIteamsInCartButton();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
         cataloguePage.checkinIfNineElementIsBeingDisplayedInCatalogPage();
-        homePage.deletinProductFromCart();*/
+        homePage.deletinProductFromCart();
 
     }
 
 
-
+}
 
 
 

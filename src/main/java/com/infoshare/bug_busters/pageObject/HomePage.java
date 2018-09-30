@@ -279,6 +279,14 @@ public class HomePage {
         footerLinkLogin.click();*/
     // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
 
+    public void deletinProductFromCart () {
+        try {
+            itemsInCartButton.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
+            itemsInCartButton.click();
+        }
+    }
 
     public void addinngAdditionalEightProducts() {
         waits.waitForElementToBeClickable(addProductHollyAddToCart);
@@ -288,14 +296,14 @@ public class HomePage {
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
             WebElement button = driver.findElement(By.xpath("//div[@id='products']//div[3]//div[1]//div[2]//p[2]//a[2]"));
             addProducSupperSport.click();
+
+            try {
+                addProductCrossed.click();
+            } catch (org.openqa.selenium.StaleElementReferenceException ex2) {
+                WebElement buttontwo = driver.findElement(By.xpath("//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]"));
+                addProductCrossed.click();
+            }
         }
-        try {
-            addProductCrossed.click();
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            WebElement button = driver.findElement(By.xpath("//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]"));
-            addProductCrossed.click();
-        }
-    }
 
         /*addToCartButton.click();
         waits.waitForElementToBeVisible(linkOfProductSuperSportXL);
@@ -314,13 +322,9 @@ public class HomePage {
             addProducSupperSport.click();*/
 
 
-    public void deletinProductFromCart() {
-        waits.waitForElementToBeClickable(addProductHollyAddToCart);
-        addProductHollyAddToCart.click();
 
-
+        }
     }
-}
 
 
 
