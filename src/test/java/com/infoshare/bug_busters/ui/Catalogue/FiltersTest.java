@@ -33,7 +33,7 @@ public class FiltersTest {
 
     @Test
     public void checkFilters() {
-        driver.get("http://localhost/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.checkFilters();
 

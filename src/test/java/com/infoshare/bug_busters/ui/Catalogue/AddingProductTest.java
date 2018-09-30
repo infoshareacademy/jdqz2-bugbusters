@@ -33,7 +33,7 @@ public class AddingProductTest {
 
     @Test
     public void addingProductTooCart() {
-        driver.get("http://localhost/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.chooseProducts();
         productPage.addingProduct();

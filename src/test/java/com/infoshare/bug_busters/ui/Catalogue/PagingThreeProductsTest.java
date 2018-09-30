@@ -33,7 +33,7 @@ public class PagingThreeProductsTest {
 
     @Test
     public void checkThreePageProduckt() {
-        driver.get("http://localhost/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingThreeElementsOnCatalogue();
 

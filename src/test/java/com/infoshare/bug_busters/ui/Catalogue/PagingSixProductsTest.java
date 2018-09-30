@@ -32,7 +32,7 @@ public class PagingSixProductsTest {
 
     @Test
     public void checkSixPageProduckt() {
-        driver.get("http://localhost/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingSixElementsOnCatalogue();
         assertThat("Showing 6 of 9 products is not selected", cataloguePage.showingSixOfNineGetText().contains("Showing 6 of 9 products"));

@@ -36,7 +36,7 @@ public class ViewDetailTest {
 
     @Test
     public void checkViewDetailButton() {
-        driver.get("http://localhost/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.seeDetailsByUsingViewDetail();
         assertTrue("Detalis are invisible",productPage.showingViewDetalis());
