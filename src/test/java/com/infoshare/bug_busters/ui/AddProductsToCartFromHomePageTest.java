@@ -69,8 +69,6 @@ public class AddProductsToCartFromHomePageTest {
                 .isEqualTo("1 item(s) in cart");
     }
 
-    // zobaczyc czy zadziala double click ?? wtedy w przycisku itesm in cart sa 2
-
 
     @Test
     public void addingToCartSportXLSocksByClickInLinkFromHomePage(){
