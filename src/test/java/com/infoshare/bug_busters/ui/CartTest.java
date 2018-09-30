@@ -50,11 +50,7 @@ public class CartTest {
     public void addinAllNineProductsToCartWhenUserIsLoggedInAndOneItemIsAlreadyInCart() throws IOException {
         driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
-        accountPage.clickOnLabelAccount();
-        shoppingCartPage.clickOnIteamsInCartButton();
-        shoppingCartPage.clickoInscriptionCorolful();
-        shoppingCartPage.clickOnAddToCartButton();
-        shoppingCartPage.clickOnIteamsInCartButton();
+        shoppingCartPage.addProductColorFulltoToCartFromShoppingCartPage();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart").isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
         cataloguePage.checkinIfNineElementIsBeingDisplayedInCatalogPage();
         homePage.addinngAdditionalEightProducts();
