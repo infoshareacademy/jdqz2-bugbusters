@@ -92,7 +92,8 @@ public class ShoppingCartPage {
         this.driver = driver;
         actions = new Actions(driver);
         waits = new Waits(driver);
-        PageFactory.initElements(driver, this);}
+        PageFactory.initElements(driver, this);
+    }
 
     public void fillingShippingAddressInfowithDataGeneratorMethod(Integer houseNumber, String streetName, String city, String postCode, String country) throws IOException {
         changeButtonShippingAdress.click();
@@ -115,18 +116,22 @@ public class ShoppingCartPage {
         ccvFieldPayment.sendKeys(CCV);
         updateButtonPayment.click();
     }
+
     public void clickoInscriptionCorolful() {
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
         colorfulInscriptionOnShoppingCartWebsite.click();
     }
+
     public String getTextFromButtonItemsInCart() {
         waits.waitForElementToBeRefreshed(itemsInCartButton);
         return itemsInCartButton.getText();
     }
+
     public String getTextFromViewButton() {
         waits.waitForElementToBeRefreshed(viewButton);
         return viewButton.getText();
     }
+
     public void clickOnIteamsInCartButton() {
 
         try {
@@ -136,31 +141,37 @@ public class ShoppingCartPage {
             itemsInCartButton.click();
         }
     }
+
     public void clickOnAddToCartButton() {
         waits.waitForElementToBeRefreshed(addToCartButton);
         addToCartButton.click();
     }
+
     public void clickOnLabelShipped() {
         labelShipped.click();
         waits.waitForElementToBeVisible(labelShipped);
     }
+
     public void clickOnViewButton() {
         waits.waitForElementToBeVisible(viewButton);
         actions.moveToElement(viewButton).perform();
         viewButton.click();
     }
+
     public void addItemsToShoppingCartList() {
 
         addToCartButton.click();
         waits.waitForElementToBeVisible(itemsInCartButton);
         itemsInCartButton.click();
     }
+
     public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
         waits.waitForElementToBeClickable(viewButton);
         actions.moveToElement(viewButton).perform();
         viewButton.click();
     }
+
     public String getTextShippingCart() { /*od KW*/
         waits.waitForElementToBeVisible(textShoppingCart);
         return textShoppingCart.getText();
@@ -168,6 +179,7 @@ public class ShoppingCartPage {
 
 
 }
+
 
 
 

@@ -192,10 +192,7 @@ public class HomePage {
         waits.waitForElementToBeVisible(logoutButton);
 
     }
-
-
     //////////////////////////////////////////////////////////////////////////////Karol Warakomski
-
 
     public void clickOnLinkLogin() {
         linkLogin.click();
@@ -286,15 +283,19 @@ public class HomePage {
     public void addinngAdditionalEightProducts() {
         waits.waitForElementToBeClickable(addProductHollyAddToCart);
         addProductHollyAddToCart.click();
-       /* waits.waitForElementToBeVisible(addProducSupperSport);*/
-        {
-            try {
-                addProducSupperSport.click();
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                WebElement button = driver.findElement(By.xpath("//div[@id='products']//div[3]//div[1]//div[2]//p[2]//a[2]"));
-                addProducSupperSport.click();
-            }
+        try {
+            addProducSupperSport.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            WebElement button = driver.findElement(By.xpath("//div[@id='products']//div[3]//div[1]//div[2]//p[2]//a[2]"));
+            addProducSupperSport.click();
         }
+        try {
+            addProductCrossed.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            WebElement button = driver.findElement(By.xpath("//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]"));
+            addProductCrossed.click();
+        }
+    }
 
         /*addToCartButton.click();
         waits.waitForElementToBeVisible(linkOfProductSuperSportXL);
@@ -313,11 +314,15 @@ public class HomePage {
             addProducSupperSport.click();*/
 
 
+    public void deletinProductFromCart() {
+        waits.waitForElementToBeClickable(addProductHollyAddToCart);
+        addProductHollyAddToCart.click();
+
 
     }
-
-
 }
+
+
 
 
 

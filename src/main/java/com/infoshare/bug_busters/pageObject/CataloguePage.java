@@ -40,6 +40,7 @@ public class CataloguePage {
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
     }
+
     public void CheckingThreeElementsOnCatalogue() {
         waits.waitForElementToBeClickable(cataloglink);
         confirmCatalogue.isDisplayed();
@@ -61,6 +62,7 @@ public class CataloguePage {
 
         assertThat("Showing 6 of 9 products is not selected", showingSixOfNine.getText().contains("Showing 6 of 9 products"));
     }
+
     public void CheckingNineElementsOnCatalogue() {
         cataloglink.click();
         confirmCatalogue.isDisplayed();
@@ -70,6 +72,7 @@ public class CataloguePage {
 
         assertThat("Showing 9 of 9 products is not selected", showingNineOfNine.getText().contains("Showing 9 of 9 products"));
     }
+
     public void checkinIfNineElementIsBeingDisplayedInCatalogPage() {
         waits.waitForElementToBeVisible(cataloglink);
         actions.moveToElement(cataloglink).perform();
@@ -77,13 +80,8 @@ public class CataloguePage {
         waits.waitForElementToBeClickable(product9);
         product9.click();
 
-
-
-
-
-        /*assertThat("Showing 9 of 9 products is not selected", showingNineOfNine.getText().contains("Showing 9 of 9 products"));*/
-
     }
 
 
 }
+
