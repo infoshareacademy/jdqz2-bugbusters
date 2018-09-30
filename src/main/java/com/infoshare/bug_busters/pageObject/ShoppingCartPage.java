@@ -21,7 +21,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ShoppingCartPage {
 
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")/*od KW*/
-            WebElement textShoppingCart;
+    private WebElement textShoppingCart;
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement shoppingCartConfirmatonLabel;
 
@@ -137,7 +137,7 @@ public class ShoppingCartPage {
         }
     }
     public void clickOnAddToCartButton() {
-        waits.waitForElementToBeClickable(addToCartButton);
+        waits.waitForElementToBeRefreshed(addToCartButton);
         addToCartButton.click();
     }
     public void clickOnLabelShipped() {

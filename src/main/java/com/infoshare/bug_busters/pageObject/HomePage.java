@@ -99,16 +99,20 @@ public class HomePage {
     private WebElement linkOfProductFigueroa;
     @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b']//img[@class='img-responsive']")
     private WebElement pictureOfProductFigueroa;
-   /* @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")*/
+    /* @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")*/
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////Wpjtek
     @FindBy(xpath = "//div[@id='products']//div[1]//div[1]//div[2]//p[2]//a[2]")
     private WebElement addProductHollyAddToCart;
 
-    @FindBy(xpath= "//html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]")
+    @FindBy(xpath = "//div[@id='products']//div[3]//div[1]//div[2]//p[2]//a[2]")
     private WebElement addProducSupperSport;
-
-
+    @FindBy(xpath = " //a[@id='buttonCart']")
+    private WebElement addToCartButton;
+    @FindBy(xpath = "//span[@id='numItemsInCart']")
+    private WebElement itemsInCartButton;
+    @FindBy(xpath = "//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]")
+    private WebElement addProductCrossed;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -179,7 +183,6 @@ public class HomePage {
         registrationSteps(userData.getUserName(), userData.getFirstName(), userData.getLastName(), userData.getEmail(), userData.getPassword());
         waits.waitForElementToBeVisible(logoutButton);
         logoutButton.click();
-
         waits.waitForElementToBeVisible(loginButton);
         loginButton.click();
         waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
@@ -283,25 +286,39 @@ public class HomePage {
     public void addinngAdditionalEightProducts() {
         waits.waitForElementToBeClickable(addProductHollyAddToCart);
         addProductHollyAddToCart.click();
-        /waits.waitForElementToBeClickable(addProducSupperSport);
-        try {
-            addProducSupperSport.click();
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            WebElement button = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]"));
-            addProducSupperSport.click();
+       /* waits.waitForElementToBeVisible(addProducSupperSport);*/
+        {
+            try {
+                addProducSupperSport.click();
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                WebElement button = driver.findElement(By.xpath("//div[@id='products']//div[3]//div[1]//div[2]//p[2]//a[2]"));
+                addProducSupperSport.click();
+            }
         }
 
-    }
+        /*addToCartButton.click();
+        waits.waitForElementToBeVisible(linkOfProductSuperSportXL);
+        itemsInCartButton.click();*/
 
-    public void AddIngNineProductsToCart(){
 
-        //div[@id='products']//div[2]//div[1]//div[2]//p[2]//a[2]
+
+        /*actions.moveToElement(addProducSupperSport).perform();
+        waits.waitForElementToBeVisible(addProducSupperSport);
+        addProducSupperSport.click();*/
+
+        /*try {
+            addProducSupperSport.click();
+        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+           WebElement button = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]"));
+            addProducSupperSport.click();*/
+
 
 
     }
 
 
 }
+
 
 
 
