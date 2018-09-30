@@ -3,7 +3,6 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.*;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -80,17 +79,21 @@ public class HomePageTest {
         //test czesto przechodzi ale czasem daje fail wydaje mi sie, ze to zalezy od tego jak strona sie zaladuje
         //czemu skoro sa waity??
         //czesciej failuje niz ten wyzej i sie czasami sie zawiesza przy przylaczaniu elementu slidera
+
+        //tez dodac fluent waita
     }
 
     @Test
-    public void transferToHolyPageByClickOnMiddlePictureOnSlider(){
-        homePage.selectRightePictureFromMainSlider();
+    public void transferToHolyPageByClickOnRightPictureOnSlider(){
+        homePage.selectRightPictureFromMainSlider();
         assertThat(holyPage.getTextConfirmationOfHolylPage())
                 .as("Page Holy was not open").isEqualTo("Holy");
         //test czesto przechodzi ale czasem daje fail wydaje mi sie, ze to zalezy od tego jak strona sie zaladuje
         //czemu skoro sa waity??
         //ani razu poprawnie sie nie wykonal, zacina sie przy przlaczaniu obrazka i go nie klika
         //jakie znaczniki z jakimi atrybutami ze strony  reaguja na metody selenium????
+
+
     }
 
 

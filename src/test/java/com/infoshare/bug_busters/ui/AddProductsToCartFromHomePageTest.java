@@ -38,6 +38,8 @@ public class AddProductsToCartFromHomePageTest {
         assertThat(homePage.getTextFromButtonItemsInCart())
                 .as("Item was not add to cart")
                 .isEqualTo("1 item(s) in cart");
+        //fluent wait czeka do momentu az wartosc nie bedzie zerem i odpytuje strone co 2 sekundy
+        //dobrze opanowac podstawy i kozystac z nich
     }
 
     @Test

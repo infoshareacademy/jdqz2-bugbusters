@@ -2,12 +2,21 @@ package com.infoshare.bug_busters.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Waits {
 
     private static final int EXPLICIT_WAIT_TIMEOUT = 10;
+    private static final int PULLING_TIMEOUT_IN_SEC = 2;
+    private static final int DEFAULT_TIMEOUT_IN_SEC = 8;
+
+
 
     private WebDriver driver;
 
@@ -28,6 +37,11 @@ public class Waits {
     public void waitForElementToBeRefreshed(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
         WebElement waitForElement = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
+    }
+
+    public void waitForItemsInCartToBeChanged(WebElement element){
+        FluentWait wait = new FluentWait(driver).withTimeout(DEFAULT_TIMEOUT_IN_SEC, TimeUnit.SECONDS).pollingEvery(PULLING_TIMEOUT_IN_SEC, TimeUnit.SECONDS);
+        wait.until((ExpectedCondition) driver -> (element.getText().equals("1 item(s) in cart")));
     }
 
 }

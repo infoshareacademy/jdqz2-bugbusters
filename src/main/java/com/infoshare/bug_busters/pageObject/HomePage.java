@@ -61,7 +61,7 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='owl-pagination']//div[3]//span[1]")
     private WebElement rightDotonOnMainSlider;
 
-    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-wrapper-outer']//div[@class='owl-wrapper']//div[@class='owl-item']//div[@class='item']//a[@href='detail.html?id=zzz4f044-b040-410d-8ead-4de0446aec7e']//img[@class='img-responsive']")
+    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-wrapper-outer']//div[@class='owl-wrapper']//div[@class='owl-item']//div[@class='item']//a[@href='detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b']//img[@class='img-responsive']")
     private WebElement rightPictureOnMainSlider;
 
 
@@ -187,7 +187,7 @@ public class HomePage {
     }
 
     public void selectLeftPictureFromMainSlider(){
-        //waits.waitForElementToBeVisible(leftDotonOnMainSlider);
+        //waits.waitForElementToBeVisible(leftDotOnMainSlider);
         waits.waitForElementToBeClickable(leftDotonOnMainSlider);
         leftDotonOnMainSlider.click();
         waits.waitForElementToBeVisible(leftPictureOnMainSlider);
@@ -201,7 +201,7 @@ public class HomePage {
         middlePictureOnMainSlider.click();
     }
 
-    public void selectRightePictureFromMainSlider(){
+    public void selectRightPictureFromMainSlider(){
         waits.waitForElementToBeClickable(rightDotonOnMainSlider);
         rightDotonOnMainSlider.click();
         waits.waitForElementToBeVisible(rightPictureOnMainSlider);
@@ -220,7 +220,7 @@ public class HomePage {
     }
 
     public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(buttonItemsInCart);
+        waits.waitForItemsInCartToBeChanged(buttonItemsInCart);
         return buttonItemsInCart.getText();
     }
 
