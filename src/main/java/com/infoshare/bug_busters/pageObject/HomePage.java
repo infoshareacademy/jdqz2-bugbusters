@@ -114,7 +114,8 @@ public class HomePage {
     @FindBy(xpath = "//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]")
     private WebElement addProductCrossed;
 
-
+    @FindBy(xpath = "//i[@class='fa fa-trash-o']")   /*do przeniesienia*/
+    private WebElement deleteRubishBinIcon;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*private WebElement footerLinkLogin;*/
@@ -231,6 +232,10 @@ public class HomePage {
         buttonItemsInCart.click();
     }
 
+    public void clickOnRubishBIn() {
+        deleteRubishBinIcon.click();
+    }
+
     public String getTextFromButtonItemsInCart() {
         waits.waitForElementToBeRefreshed(buttonItemsInCart);
         return buttonItemsInCart.getText();
@@ -287,7 +292,6 @@ public class HomePage {
             itemsInCartButton.click();
         }
     }
-
     public void addinngAdditionalEightProducts() {
         waits.waitForElementToBeClickable(addProductHollyAddToCart);
         addProductHollyAddToCart.click();

@@ -24,7 +24,6 @@ import static org.junit.Assert.assertTrue;
 
 public class AccountFlowTest {
 
-
     private WebDriver driver;
     private HomePage homePage;
     private AccountPage accountPage;
@@ -35,7 +34,7 @@ public class AccountFlowTest {
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
     @Before
-    public void setUp() throws IOException {
+    public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
@@ -54,16 +53,16 @@ public class AccountFlowTest {
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
         shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod
-                (shippingDataGenerator.prepareShippingData().getHouseNumber(),
-                shippingDataGenerator.prepareShippingData().getStreetName(),
-                shippingDataGenerator.prepareShippingData().getCity(),
-                shippingDataGenerator.prepareShippingData().getPostCode(),
-                shippingDataGenerator.prepareShippingData().getCountry());
+                (ShippingDataGenerator.prepareShippingData().getHouseNumber(),
+                ShippingDataGenerator.prepareShippingData().getStreetName(),
+                ShippingDataGenerator.prepareShippingData().getCity(),
+                ShippingDataGenerator.prepareShippingData().getCountry(),
+                ShippingDataGenerator.prepareShippingData().getPostCode());
         shoppingCartPage.fillingPaymentDatawithDataGenerator
                 (paymentDataGenerator.preparePayments().getCardNumber(),
                 paymentDataGenerator.preparePayments().getExpires(),
                 paymentDataGenerator.preparePayments().getCcv());
-        shoppingCartPage.addProductColorFulltoToCartFromShoppingCartPage();
+        shoppingCartPage.addOnlyOneProductColorFulltoToCartFromShoppingCartPage();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart())
                 .as("Item was not added to shopping cart").isBetween("0 items in cart","You currently have 1 item(s) in your cart.");
         shoppingCartPage.clickdProcedToCheckout();

@@ -60,6 +60,8 @@ public class ShoppingCartPage {
     private WebElement labelShipped;
     @FindBy(xpath = "//tbody[@id='tableOrders']//tr[1]//td[4]//a[1]")
     private WebElement viewButton;
+  @FindBy(xpath = "//i[@class='fa fa-trash-o']")
+    private WebElement deleteRubishBinIcon;
 
     private WebDriver driver;
     private Waits waits;
@@ -94,7 +96,7 @@ public class ShoppingCartPage {
         ccvFieldPayment.sendKeys(CCV);
         updateButtonPayment.click();
     }
-    public void addProductColorFulltoToCartFromShoppingCartPage() {
+    public void addOnlyOneProductColorFulltoToCartFromShoppingCartPage() {
         try {
             itemsInCartButton.click();
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
