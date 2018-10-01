@@ -8,6 +8,26 @@ public class ShippingData {
     private String postCode;
     private String country;
 
+    public Integer getHouseNumber() {
+        return houseNumber;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
     public void setHouseNumber(Integer houseNumber) {
         this.houseNumber = houseNumber;
     }
