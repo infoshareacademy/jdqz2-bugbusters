@@ -14,23 +14,23 @@ public class RandomDataGenerator {
         return randomUserName;
     }
 
-    public static String prepareFirstName() throws IOException {
+    public String prepareFirstName() throws IOException {
         String randomFirstName = choiceRandomDataFromTextFile(1);
         return randomFirstName;
     }
 
-    public static String prepareLastName() throws IOException {
+    public String prepareLastName() throws IOException {
         String randomLastName = choiceRandomDataFromTextFile(2);
         return randomLastName;
     }
 
-    public static String prepareEmail() throws IOException {
+    public String prepareEmail() throws IOException {
         String randomEmail = choiceRandomDataFromTextFile(3);
         return randomEmail;
 
     }
 
-    public static String preparePassword() throws IOException {
+    public String preparePassword() throws IOException {
         String randomPassword = choiceRandomDataFromTextFile(4);
         return randomPassword;
 

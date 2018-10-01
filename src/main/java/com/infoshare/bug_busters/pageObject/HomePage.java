@@ -54,71 +54,6 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     private WebElement alertRegistration;
 
-///////////////////////////////////////////////////////////////////////////Karol Warakomski
-
-    @FindBy(xpath = "//li[@id='login']//a[@href='#'][contains(text(),'Login')]")
-    private WebElement linkLogin;
-    @FindBy(xpath = "//div[@id='login-modal']//button[@class='btn btn-primary']")
-    private WebElement buttonLogin;
-    @FindBy(xpath = "//a[contains(text(),'Register')]")
-    private WebElement linkRegister;
-    @FindBy(xpath = "//div[@id='register-modal']//button[@class='btn btn-primary']")
-    private WebElement buttonRegister;
-    @FindBy(xpath = "//li[@id='tabCatalogue']")
-    private WebElement linkCatalogue;
-    @FindBy(xpath = "//li[contains(text(),'Catalogue')]")
-    private WebElement catalogueTextOnPageCatalogue;
-    @FindBy(xpath = "//a[contains(text(),'Blue')]")
-    private WebElement blueFromCatalogueDropDownMenu;
-    //dopisac reszte testow dla dropdown menu Catalogue
-    // sprawdzic czy slidebar przenosi w dobre miejsca bez kupowania
-    // napisac reszte testow z footera
-    // przeniesc wszystkie testy dopdown menu do odpowiedniej klasy
-    //@FindBy(css = "#numItemsInCart")
-    @FindBy(xpath = "//span[@id='numItemsInCart']")
-    private WebElement buttonItemsInCart;
-    @FindBy(xpath = "//a[contains(text(),'Holy')]")
-    private WebElement linkOfProductHoly;
-    //@FindBy(xpath = "//div[@class='back']//a[@href='detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b']//img[@class='img-responsive']")
-    // xpath znajdujacy zdjecie jak sie obroci
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b']//img[@class='img-responsive']")
-    private WebElement pictureOfProductHoly;
-    @FindBy(xpath = "//a[contains(text(),'Colourful')]")
-    private WebElement linkOfProductColorful;
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b']//img[@class='img-responsive']")
-    private WebElement pictureOfProductColorful;
-    @FindBy(xpath = "//a[contains(text(),'SuperSport XL')]")
-    private WebElement linkOfProductSuperSportXL;
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=510a0d7e-8e83-4193-b483-e27e09ddc34d']//img[@class='img-responsive']")
-    private WebElement pictureOfProductSuperSportXL;
-    @FindBy(xpath = "//a[contains(text(),'Crossed')]")
-    private WebElement linkOfProductCrossed;
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38']//img[@class='img-responsive']")
-    private WebElement pictureOfProductCrossed;
-    @FindBy(xpath = "//a[contains(text(),'Figueroa')]")
-    private WebElement linkOfProductFigueroa;
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b']//img[@class='img-responsive']")
-    private WebElement pictureOfProductFigueroa;
-    /* @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")*/
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////Wpjtek
-    @FindBy(xpath = "//div[@id='products']//div[1]//div[1]//div[2]//p[2]//a[2]")
-    private WebElement addProductHollyAddToCart;
-
-    @FindBy(xpath = "//div[@id='products']//div[3]//div[1]//div[2]//p[2]//a[2]")
-    private WebElement addProducSupperSport;
-    @FindBy(xpath = " //a[@id='buttonCart']")
-    private WebElement addToCartButton;
-    @FindBy(xpath = "//span[@id='numItemsInCart']")
-    private WebElement itemsInCartButton;
-    @FindBy(xpath = "//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]")
-    private WebElement addProductCrossed;
-
-    @FindBy(xpath = "//i[@class='fa fa-trash-o']")   /*do przeniesienia*/
-    private WebElement deleteRubishBinIcon;
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    /*private WebElement footerLinkLogin;*/
     private WebDriver driver;
     private Waits waits;
     private Actions actions;
@@ -131,35 +66,6 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void registrationSteps(String userName, String firstName, String lastName, String email, String password) {
-        registerButton.click();
-        waits.waitForElementToBeVisible(userNameFieldInRegistration);
-        userNameFieldInRegistration.sendKeys(userName);
-        firstNameFieldInRegistration.sendKeys(firstName);
-        lastNameFieldInRegistration.sendKeys(lastName);
-        emailFieldInRegistration.sendKeys(email);
-        passwordFieldInRegistration.sendKeys(password);
-        registerinPopUpWindowButton.click();
-
-    }
-
-    public UserData sameDataForRegisterAndLogin() throws IOException {
-
-        String userName = userDataGenerator.prepareUserData().getUserName();
-        String firstName = userDataGenerator.prepareUserData().getFirstName();
-        String lastName = userDataGenerator.prepareUserData().getLastName();
-        String email = userDataGenerator.prepareUserData().getEmail();
-        String password = userDataGenerator.prepareUserData().getPassword();
-
-        return new UserData(userName, firstName, lastName, email, password);
-
-    }
-
-    public void registerUserWithDataGeneratorMethod(String userName, String firstName, String lastName, String email, String password) {
-        registrationSteps(userName, firstName, lastName, email, password);
-        waits.waitForElementToBeVisible(logoutButton);
-    }
-
     public String getTextFromLogoutToConfirmLoginOrRegistration() {
         return logoutButton.getText();
     }
@@ -168,23 +74,52 @@ public class HomePage {
         return alertRegistration.getText();
     }
 
-    public void regiterUserTwiceWithTheSameData() throws IOException {
-        UserData userData = sameDataForRegisterAndLogin();
-        registrationSteps(userData.getUserName(), userData.getFirstName(), userData.getLastName(), userData.getEmail(), userData.getPassword());
+    public void waitsWhenLogout() {
         waits.waitForElementToBeVisible(logoutButton);
         logoutButton.click();
-
         waits.waitForElementToBeVisible(loginButton);
-        registrationSteps(userData.getUserName(), userData.getFirstName(), userData.getLastName(), userData.getEmail(), userData.getPassword());
+    }
+
+    public void registrationSteps(UserData userData) {
+
+        registerButton.click();
+        waits.waitForElementToBeVisible(userNameFieldInRegistration);
+        userNameFieldInRegistration.sendKeys(userData.getUserName());
+        firstNameFieldInRegistration.sendKeys(userData.getFirstName());
+        lastNameFieldInRegistration.sendKeys(userData.getLastName());
+        emailFieldInRegistration.sendKeys(userData.getEmail());
+        passwordFieldInRegistration.sendKeys(userData.getPassword());
+        registerinPopUpWindowButton.click();
+
+    }
+
+    public void registerUserWithDataGeneratorMethod() throws IOException {
+
+        UserData userData = userDataGenerator.prepareUserData();
+
+        registrationSteps(userData);
+        waits.waitForElementToBeVisible(logoutButton);
+
+    }
+
+    public void regiterUserTwiceWithTheSameData() throws IOException {
+
+        UserData userData = userDataGenerator.prepareUserData();
+
+        registrationSteps(userData);
+        waitsWhenLogout();
+        registrationSteps(userData);
 
     }
 
     public void loginUserAfterRegistration() throws IOException {
-        UserData userData = sameDataForRegisterAndLogin();
-        registrationSteps(userData.getUserName(), userData.getFirstName(), userData.getLastName(), userData.getEmail(), userData.getPassword());
-        waits.waitForElementToBeVisible(logoutButton);
-        logoutButton.click();
-        waits.waitForElementToBeVisible(loginButton);
+
+        UserData userData = userDataGenerator.prepareUserData();
+
+        registrationSteps(userData);
+
+        waitsWhenLogout();
+
         loginButton.click();
         waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
         loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
@@ -193,98 +128,8 @@ public class HomePage {
         waits.waitForElementToBeVisible(logoutButton);
 
     }
-    //////////////////////////////////////////////////////////////////////////////Karol Warakomski
 
-    public void clickOnLinkLogin() {
-        linkLogin.click();
-    }
-
-    public boolean checkEnableLoginButton() {
-        waits.waitForElementToBeVisible(buttonLogin);
-        return buttonLogin.isEnabled();
-    }
-
-    public void clickOnLinkRegister() {
-        linkRegister.click();
-    }
-
-    public boolean checkEnableRegisterButton() {
-        waits.waitForElementToBeVisible(buttonRegister);
-        return buttonRegister.isEnabled();
-    }
-
-    /*  public void clickOnLinkCatalogue(){
-          linkCatalogue.click();
-      }*/
-    public String getTextFromCataloguePage() {
-        waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
-        return catalogueTextOnPageCatalogue.getText();
-    }
-
-    public void selectBlueFromDropDownMenuCatalogue() {
-        waits.waitForElementToBeVisible(linkCatalogue);
-        actions.moveToElement(linkCatalogue).perform();
-        waits.waitForElementToBeClickable(blueFromCatalogueDropDownMenu);
-        blueFromCatalogueDropDownMenu.click();
-    }
-
-    public void clickOnButtonItemsInCart() {
-        buttonItemsInCart.click();
-    }
-
-    public void clickOnRubishBIn() {
-        deleteRubishBinIcon.click();
-    }
-
-    public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(buttonItemsInCart);
-        return buttonItemsInCart.getText();
-    }
-
-    public void clickOnLinkHoly() {
-        linkOfProductHoly.click();
-    }
-
-    public void clickOnPictureHoly() {
-        pictureOfProductHoly.click();
-    }
-
-    public void clickOnLinkColorful() {
-        linkOfProductColorful.click();
-    }
-
-    public void clickOnPictureColorful() {
-        pictureOfProductColorful.click();
-    }
-
-    public void clickOnLinkSportXL() {
-        linkOfProductSuperSportXL.click();
-    }
-
-    public void clickOnPictureSportXL() {
-        pictureOfProductSuperSportXL.click();
-    }
-
-    public void clickOnLinkCrossed() {
-        linkOfProductCrossed.click();
-    }
-
-    public void clickOnPictureCrossed() {
-        pictureOfProductCrossed.click();
-    }
-
-    public void clickOnLinkFigueroa() {
-        linkOfProductFigueroa.click();
-    }
-
-    public void clickOnPictureFigueroa() {
-        pictureOfProductFigueroa.click();
-    }
-    /*public void clickOnFooterLinkLogin(){
-        footerLinkLogin.click();*/
-    // zrobic przycisk action -> na nastepnej stronie zaznaczony checkbox Filters - action
-
-    public void deletinProductFromCart () {
+    /*public void deletinProductFromCart() {
         try {
             itemsInCartButton.click();
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
@@ -292,6 +137,7 @@ public class HomePage {
             itemsInCartButton.click();
         }
     }
+
     public void addinngAdditionalEightProducts() {
         waits.waitForElementToBeClickable(addProductHollyAddToCart);
         addProductHollyAddToCart.click();
@@ -306,58 +152,7 @@ public class HomePage {
             } catch (org.openqa.selenium.StaleElementReferenceException ex2) {
                 WebElement buttontwo = driver.findElement(By.xpath("//div[@id='products']//div[4]//div[1]//div[2]//p[2]//a[2]"));
                 addProductCrossed.click();
-            }
-        }
 
-        /*addToCartButton.click();
-        waits.waitForElementToBeVisible(linkOfProductSuperSportXL);
-        itemsInCartButton.click();*/
-
-
-
-        /*actions.moveToElement(addProducSupperSport).perform();
-        waits.waitForElementToBeVisible(addProducSupperSport);
-        addProducSupperSport.click();*/
-
-        /*try {
-            addProducSupperSport.click();
-        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-           WebElement button = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]"));
-            addProducSupperSport.click();*/
-
-
+            }*/
 
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

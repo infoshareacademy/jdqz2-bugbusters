@@ -45,6 +45,7 @@ public class AccountFlowTest {
     public void tearDown() {
         driver.close();
     }
+
     @Test
     public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks() throws IOException {
         driver.get("http://localhost:4180/");
@@ -52,19 +53,12 @@ public class AccountFlowTest {
         Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
-        shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod
-                (ShippingDataGenerator.prepareShippingData().getHouseNumber(),
-                ShippingDataGenerator.prepareShippingData().getStreetName(),
-                ShippingDataGenerator.prepareShippingData().getCity(),
-                ShippingDataGenerator.prepareShippingData().getCountry(),
-                ShippingDataGenerator.prepareShippingData().getPostCode());
-        shoppingCartPage.fillingPaymentDatawithDataGenerator
-                (paymentDataGenerator.preparePayments().getCardNumber(),
-                paymentDataGenerator.preparePayments().getExpires(),
-                paymentDataGenerator.preparePayments().getCcv());
+        shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod();
+        shoppingCartPage.fillingPaymentsInfowithDataGeneratorMethod();
         shoppingCartPage.addOnlyOneProductColorFulltoToCartFromShoppingCartPage();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart())
-                .as("Item was not added to shopping cart").isBetween("0 items in cart","You currently have 1 item(s) in your cart.");
+                .as("Item was not added to shopping cart")
+                .isBetween("0 items in cart","You currently have 1 item(s) in your cart.");
         shoppingCartPage.clickdProcedToCheckout();
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                 .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");

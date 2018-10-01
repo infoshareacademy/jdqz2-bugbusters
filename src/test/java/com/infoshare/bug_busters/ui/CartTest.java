@@ -43,7 +43,7 @@ public class CartTest {
     public void tearDown() {
         driver.close();
     }*/
-    @Test
+   /* @Test
     public void addinAllNineProductsToCartWhenUserIsLoggedInAndOneItemIsAlreadyInCart() throws IOException {
         driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
@@ -62,9 +62,8 @@ public class CartTest {
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as(" Item was not added to shopping cart")
                 .isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
         homePage.clickOnRubishBIn();
-
+*/
     }
-}
 
 
 

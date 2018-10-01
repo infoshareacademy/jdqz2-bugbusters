@@ -1,8 +1,10 @@
 package com.infoshare.bug_busters.pageObject;
 
+import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
+import com.infoshare.bug_busters.shipping.ShippingData;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import com.infoshare.bug_busters.utils.Waits;
 import org.openqa.selenium.By;
@@ -60,7 +62,7 @@ public class ShoppingCartPage {
     private WebElement labelShipped;
     @FindBy(xpath = "//tbody[@id='tableOrders']//tr[1]//td[4]//a[1]")
     private WebElement viewButton;
-  @FindBy(xpath = "//i[@class='fa fa-trash-o']")
+    @FindBy(xpath = "//i[@class='fa fa-trash-o']")
     private WebElement deleteRubishBinIcon;
 
     private WebDriver driver;
@@ -76,26 +78,39 @@ public class ShoppingCartPage {
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
     }
-    public void fillingShippingAddressInfowithDataGeneratorMethod(Integer houseNumber, String streetName, String city, String postCode, String country) throws IOException {
+
+    public void shippingAdressSteps(ShippingData shippingData) throws IOException {
         changeButtonShippingAdress.click();
         waits.waitForElementToBeVisible(houseNumberFieldShippingAddress);
-        houseNumberFieldShippingAddress.sendKeys(houseNumber.toString());
-        streetNameFieldShippingAddress.sendKeys(streetName);
-        cityFieldShippingAddress.sendKeys(city);
-        postCodeFieldShippingAddress.sendKeys(postCode);
-        countryFieldShippingAddress.sendKeys(country);
+        houseNumberFieldShippingAddress.sendKeys(shippingData.getHouseNumber().toString());
+        streetNameFieldShippingAddress.sendKeys(shippingData.getStreetName());
+        cityFieldShippingAddress.sendKeys(shippingData.getCity());
+        postCodeFieldShippingAddress.sendKeys(shippingData.getPostCode());
+        countryFieldShippingAddress.sendKeys(shippingData.getCountry());
         updateButtonShippingAddress.click();
         waits.waitForElementToBeVisible(changePaymentButton);
     }
-    public void fillingPaymentDatawithDataGenerator(String cardNumber, String expires, String CCV) {
+
+    public void fillingShippingAddressInfowithDataGeneratorMethod() throws IOException {
+        ShippingData shippingData = shippingDataGenerator.prepareShippingData();
+        shippingAdressSteps(shippingData);
+    }
+
+    public void fillingPaymentsInfowithDataGeneratorMethod() throws IOException {
+        PaymentData paymentData = paymentDataGenerator.preparePayments();
+        addinPaymentsSteps(paymentData);
+    }
+
+    public void addinPaymentsSteps(PaymentData paymentData) {
         changePaymentButton.click();
         waits.waitForElementToBeVisible(cardNumberFieldPayment);
         cardNumberFieldPayment.click();
-        cardNumberFieldPayment.sendKeys(cardNumber);
-        cardExpiresFiledPayment.sendKeys(expires);
-        ccvFieldPayment.sendKeys(CCV);
+        cardNumberFieldPayment.sendKeys(paymentData.getCardNumber());
+        cardExpiresFiledPayment.sendKeys(paymentData.getExpires());
+        ccvFieldPayment.sendKeys(paymentData.getCcv());
         updateButtonPayment.click();
     }
+
     public void addOnlyOneProductColorFulltoToCartFromShoppingCartPage() {
         try {
             itemsInCartButton.click();
@@ -114,18 +129,22 @@ public class ShoppingCartPage {
             itemsInCartButton.click();
         }
     }
+
     public void clickoInscriptionCorolful() {
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
         colorfulInscriptionOnShoppingCartWebsite.click();
     }
+
     public String getTextFromButtonItemsInCart() {
         waits.waitForElementToBeRefreshed(itemsInCartButton);
         return itemsInCartButton.getText();
     }
+
     public String getTextFromViewButton() {
         waits.waitForElementToBeRefreshed(viewButton);
         return viewButton.getText();
     }
+
     public void clickOnIteamsInCartButton() {
         try {
             itemsInCartButton.click();
@@ -134,26 +153,31 @@ public class ShoppingCartPage {
             itemsInCartButton.click();
         }
     }
+
     public void clickOnAddToCartButton() {
         waits.waitForElementToBeRefreshed(addToCartButton);
         addToCartButton.click();
     }
+
     public void clickOnViewButton() {
         waits.waitForElementToBeVisible(viewButton);
         actions.moveToElement(viewButton).perform();
         viewButton.click();
     }
+
     public void addItemsToShoppingCartList() {
         addToCartButton.click();
         waits.waitForElementToBeVisible(itemsInCartButton);
         itemsInCartButton.click();
     }
+
     public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
         waits.waitForElementToBeClickable(viewButton);
         actions.moveToElement(viewButton).perform();
         viewButton.click();
     }
+
     public String getTextShippingCart() { /*od KW*/
         waits.waitForElementToBeVisible(textShoppingCart);
         return textShoppingCart.getText();
