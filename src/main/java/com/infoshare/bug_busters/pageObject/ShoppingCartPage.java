@@ -183,11 +183,8 @@ public class ShoppingCartPage {
         viewButton.click();
     }
 
-    public String getTextShippingCart() { /*od KW*/
-        waits.waitForElementToBeVisible(textShoppingCart);
-        return textShoppingCart.getText();
     }
-}
+
 
 
 
