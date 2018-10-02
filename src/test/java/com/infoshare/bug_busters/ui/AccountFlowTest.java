@@ -58,40 +58,5 @@ public class AccountFlowTest {
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                 .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*shoppingCartPage.clickOnViewButton();*/
-        /*shoppingCartPage.clickOnViewButton();*/
-        /*String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
-        assertTrue("Product is visible", actualString.contains("View"));*/
- /*shoppingCartPage.clickoInscriptionCorolful();
-        shoppingCartPage.clickOnAddToCartButton();
-        shoppingCartPage.clickOnIteamsInCartButton();*/
     }
 }
