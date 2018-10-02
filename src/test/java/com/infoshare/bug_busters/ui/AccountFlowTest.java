@@ -49,8 +49,7 @@ public class AccountFlowTest {
         Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
-        shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethod();
-        shoppingCartPage.fillingPaymentsInfowithDataGeneratorMethod();
+        shoppingCartPage.fillinShippingAddressAndPaymentWithDataGenerator();
         shoppingCartPage.addOnlyOneProductColorFulltoToCartFromShoppingCartPage();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart())
                 .as("Item was not added to shopping cart")
@@ -58,6 +57,35 @@ public class AccountFlowTest {
         shoppingCartPage.clickdProcedToCheckout();
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                 .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*shoppingCartPage.clickOnViewButton();*/
         /*shoppingCartPage.clickOnViewButton();*/
         /*String actualString = driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm']")).getText();
