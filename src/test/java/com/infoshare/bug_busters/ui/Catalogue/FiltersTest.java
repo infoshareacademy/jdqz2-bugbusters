@@ -10,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static junit.framework.TestCase.assertTrue;
+
 public class FiltersTest {
     private WebDriver driver;
     private WebDriverWait waits;
@@ -33,11 +35,26 @@ public class FiltersTest {
 
     @Test
     public void checkFilters() {
-        driver.get("http://localhost:4180/");
-        catalogueHomePage.chooseCatalogue();
-        cataloguePage.checkFilters();
+        choosingFormalButton();
+        assertTrue("Formal is not checked",cataloguePage.filterFormalIsSelected());
 
     }
+
+    private void choosingFormalButton() {
+        //driver.get("http://localhost/index.html/");
+        driver.get("http://localhost:4180/");
+        catalogueHomePage.chooseCatalogue();
+        cataloguePage.checkFiltersFormal();
+    }
+
+    @Test
+    public void checkClearOption(){
+        choosingFormalButton();
+        cataloguePage.checkButtonClear();
+        assertTrue("Formal is checked",cataloguePage.filterFormalIsNotChecked());
+
+    }
+
     @After
     public void tearDown() {
         driver.close();

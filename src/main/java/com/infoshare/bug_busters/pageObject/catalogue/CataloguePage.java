@@ -92,24 +92,44 @@ public class CataloguePage {
         buttonViewDetailHolly.click();
     }
 
-
-
-    public void checkFilters() {
+    private void checkingFilters() {
         confirmCatalogue.isDisplayed();
         waits.waitForElementToBeVisible(inputFormal);
         inputFormal.click();
         buttonAplly.click();
+    }
+
+
+    public void checkFiltersFormal() {
+        checkingFilters();
+
+    }
+
+    public boolean filterFormalIsSelected() {
+        return inputFormal.isSelected();
+    }
+
+
+    public void checkButtonClear() {
+        checkingFilters();
         buttonClear.click();
     }
+
+    public boolean filterFormalIsNotChecked() {
+        return inputFormal.isEnabled();
+    }
+
 
     public String showingThreeOfNineGetText() {
         return showingThreeOfNine.getText();
 
     }
-    public String showingSixOfNineGetText(){
+
+    public String showingSixOfNineGetText() {
         return showingSixOfNine.getText();
     }
-    public String showingNineOfNineGetText(){
+
+    public String showingNineOfNineGetText() {
         return showingNineOfNine.getText();
     }
 

@@ -45,6 +45,7 @@ public class ProductPage {
     public void addingProduct() {
         showProduct();
         actions.moveToElement(buttonAddToCart).perform();
+        waits.waitForElementToBeVisible(buttonAddToCart);
         buttonAddToCart.click();
 
     }
@@ -54,7 +55,7 @@ public class ProductPage {
         productDetails.isDisplayed();
     }
 
-    public String productIAddedToCart() {
+    public String getTextFromButtonNumberOfElementsInCart() {
        return buttoNnumberOfElementsInCart.getText();
     }
 

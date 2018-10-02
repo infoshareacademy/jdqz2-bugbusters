@@ -9,7 +9,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.hamcrest.MatcherAssert.assertThat;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class AddingProductTest {
     private WebDriver driver;
@@ -33,12 +35,12 @@ public class AddingProductTest {
 
     @Test
     public void addingProductTooCart() {
+        //driver.get("http://localhost/index.html/");
         driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.chooseProducts();
         productPage.addingProduct();
-       // assertThat("Cart is empty", productPage.productIAddedToCart().equals("1 item(s) in cart"));
-
+       assertThat(productPage.getTextFromButtonNumberOfElementsInCart().contains("1 item(s) in cart"));
     }
 
 

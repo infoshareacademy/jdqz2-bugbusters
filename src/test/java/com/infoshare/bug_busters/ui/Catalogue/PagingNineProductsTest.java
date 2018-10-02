@@ -32,6 +32,7 @@ public class PagingNineProductsTest {
 
     @Test
     public void checkNinePageProduckt() {
+        //driver.get("http://localhost/index.html/");
         driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingNineElementsOnCatalogue();

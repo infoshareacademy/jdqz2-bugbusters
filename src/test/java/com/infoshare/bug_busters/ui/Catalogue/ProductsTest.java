@@ -36,6 +36,7 @@ public class ProductsTest {
 
     @Test
     public void checkProducktUsingScroll() {
+        //driver.get("http://localhost/index.html/");
         driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.chooseProducts();
