@@ -5,14 +5,12 @@ import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.api.UrlAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
+
 
 public class AccountFlowTest {
 

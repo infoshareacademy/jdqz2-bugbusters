@@ -10,10 +10,6 @@ public class PaymentDataGenerator {
 
     }
 
-    public PaymentDataGenerator() {
-
-    }
-
     public PaymentData preparePayments() {
 
         String CardRandomString = RandomDataGenerator.CardNumberRandom();
