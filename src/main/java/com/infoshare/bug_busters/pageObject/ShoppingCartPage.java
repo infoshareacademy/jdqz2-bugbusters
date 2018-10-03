@@ -19,19 +19,19 @@ public class ShoppingCartPage {
     private WebElement textShoppingCart;
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement shoppingCartConfirmatonLabel;
-    @FindBy(xpath = "//span[@id='numItemsInCart']")
+    @FindBy(id = "numItemsInCart")
     private WebElement itemsInCartButton;
     @FindBy(xpath = "//div[@class='row same-height-row']//div[1]//div[1]//div[1]//p[1]//a[1]")
     private WebElement changeButtonShippingAdress;
-    @FindBy(xpath = "//input[@id='form-number']")
+    @FindBy(id = "form-number")
     private WebElement houseNumberFieldShippingAddress;
-    @FindBy(xpath = "//input[@id='form-street']")
+    @FindBy(id = "form-street")
     private WebElement streetNameFieldShippingAddress;
-    @FindBy(xpath = "//input[@id='form-city']")
+    @FindBy(id = "form-city")
     private WebElement cityFieldShippingAddress;
-    @FindBy(xpath = "//input[@id='form-post-code']")
+    @FindBy(id= "form-post-code")
     private WebElement postCodeFieldShippingAddress;
-    @FindBy(xpath = " //input[@id='form-country']")
+    @FindBy(id = "form-country")
     private WebElement countryFieldShippingAddress;
     @FindBy(xpath = "//form[@id='form-address']//button[@class='btn btn-primary'] ")
     private WebElement updateButtonShippingAddress;
@@ -39,17 +39,17 @@ public class ShoppingCartPage {
     private WebElement changePaymentButton;
     @FindBy(xpath = "/html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/form[1]/div[1]/input[1]")
     private WebElement cardNumberFieldPayment;
-    @FindBy(xpath = " //input[@id='form-expires']")
+    @FindBy(id = "form-expires")
     private WebElement cardExpiresFiledPayment;
-    @FindBy(xpath = " //input[@id='form-ccv']")
+    @FindBy(id = "form-ccv")
     private WebElement ccvFieldPayment;
     @FindBy(xpath = " //p[@class='text-right']//button[@class='btn btn-primary']")
     private WebElement updateButtonPayment;
-    @FindBy(xpath = " //button[@id='orderButton']")
+    @FindBy(id= "orderButton")
     private WebElement proceedToCheckOutButton;
     @FindBy(xpath = " //a[contains(text(),'Colourful')]")
     private WebElement colorfulInscriptionOnShoppingCartWebsite;
-    @FindBy(xpath = " //a[@id='buttonCart']")
+    @FindBy(id = "buttonCart")
     private WebElement addToCartButton;
     @FindBy(xpath = "//span[@class='label-success']")
     private WebElement labelShipped;
@@ -105,7 +105,7 @@ public class ShoppingCartPage {
         try {
             itemsInCartButton.click();
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
+            WebElement button = driver.findElement(By.id("numItemsInCart]"));
             itemsInCartButton.click();
         }
         waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
@@ -115,7 +115,7 @@ public class ShoppingCartPage {
         try {
             itemsInCartButton.click();
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
+            WebElement button = driver.findElement(By.id("numItemsInCart"));
             itemsInCartButton.click();
         }
     }
@@ -129,7 +129,7 @@ public class ShoppingCartPage {
         try {
             itemsInCartButton.click();
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            WebElement button = driver.findElement(By.xpath("//span[@id='numItemsInCart']"));
+            WebElement button = driver.findElement(By.id("numItemsInCart]"));
             itemsInCartButton.click();
         }
     }
