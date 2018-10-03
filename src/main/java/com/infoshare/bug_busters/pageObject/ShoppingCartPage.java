@@ -12,8 +12,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.IOException;
-
 public class ShoppingCartPage {
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement textShoppingCart;
@@ -82,13 +80,9 @@ public class ShoppingCartPage {
         updateButtonShippingAddress.click();
         waits.waitForElementToBeVisible(changePaymentButton);
     }
-
     public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod()  {
-
         shippingAdressSteps(shippingDataGenerator.prepareShippingData());
-
         addinPaymentsSteps(paymentDataGenerator.preparePayments());
-
     }
 
     public void addinPaymentsSteps(PaymentData paymentData) {
