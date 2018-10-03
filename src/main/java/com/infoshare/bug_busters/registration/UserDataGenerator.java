@@ -17,8 +17,6 @@ public class UserDataGenerator {
 
     public UserData prepareUserData() throws IOException {
 
-
-
         String userName = dataGenerator.prepareUserName();
         String firstName = dataGenerator.prepareFirstName();
         String lastName = dataGenerator.prepareLastName() ;
