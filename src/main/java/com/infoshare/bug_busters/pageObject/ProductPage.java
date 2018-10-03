@@ -1,7 +1,6 @@
 package com.infoshare.bug_busters.pageObject;
 
 import com.infoshare.bug_busters.utils.Waits;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -27,19 +26,16 @@ public class ProductPage {
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
-
     public void checkProductsDetails() {
         showProduct();
         buttonAddToCart.isDisplayed();
     }
-
     public void addingProduct() {
         showProduct();
         actions.moveToElement(buttonAddToCart).perform();
         waits.waitForElementToBeVisible(buttonAddToCart);
         buttonAddToCart.click();
     }
-
     public String getTextFromButtonNumberOfElementsInCart() {
         return buttoNnumberOfElementsInCart.getText();
     }

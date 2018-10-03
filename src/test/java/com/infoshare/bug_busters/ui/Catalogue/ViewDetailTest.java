@@ -25,13 +25,11 @@ public class ViewDetailTest {
     }
     @Test
     public void checkViewDetailButton() {
-        driver.get("http://localhost/index.html/");
-        //driver.get("http://localhost:4180/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.seeDetailsByUsingViewDetail();
         assertThat(productPage.getTextFromElementProductDetalis().contains("Product details"));
     }
-
     @After
     public void tearDown() {
         driver.close();

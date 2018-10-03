@@ -83,7 +83,6 @@ public class CataloguePage {
         waits.waitForElementToBeVisible(product3);
         product3.click();
     }
-
 }
 
 

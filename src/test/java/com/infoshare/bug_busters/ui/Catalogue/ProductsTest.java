@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.assertj.core.api.Assertions.assertThat;
+
 public class ProductsTest {
     private WebDriver driver;
     private CatalogueHomePage catalogueHomePage;
@@ -24,8 +25,7 @@ public class ProductsTest {
     }
     @Test
     public void checkProducktUsingScroll() {
-        driver.get("http://localhost/index.html/");
-        //driver.get("http://localhost:4180/");
+        driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.chooseProducts();
         productPage.checkProductsDetails();

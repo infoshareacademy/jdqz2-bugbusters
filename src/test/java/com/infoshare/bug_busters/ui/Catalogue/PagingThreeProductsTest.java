@@ -11,10 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PagingThreeProductsTest {
     private WebDriver driver;
-    private WebDriverWait waits;
     private CatalogueHomePage catalogueHomePage;
     private CataloguePage cataloguePage;
-
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver_Linux64");
@@ -24,7 +22,6 @@ public class PagingThreeProductsTest {
     }
     @Test
     public void checkThreePageProduckt() {
-        //driver.get("http://localhost/index.html/");
         driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingThreeElementsOnCatalogue();
