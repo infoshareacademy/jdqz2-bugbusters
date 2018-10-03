@@ -5,11 +5,14 @@ import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.UrlAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 
 public class AccountFlowTest {
 
@@ -17,6 +20,7 @@ public class AccountFlowTest {
     private HomePage homePage;
     private AccountPage accountPage;
     private ShoppingCartPage shoppingCartPage;
+    private final String URL=("http://localhost:4180/");
 
     @Before
     public void setUp() {
@@ -25,7 +29,7 @@ public class AccountFlowTest {
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
-        driver.get("http://localhost:4180/");
+        driver.get(URL);
 
     }
     @After
