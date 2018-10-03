@@ -1,5 +1,4 @@
 package com.infoshare.bug_busters.ui;
-
 import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
@@ -10,17 +9,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-
 import java.io.IOException;
 
 public class AccountFlowTest {
-
 
     private WebDriver driver;
     private HomePage homePage;
     private AccountPage accountPage;
     private ShoppingCartPage shoppingCartPage;
-
 
     @Before
     public void setUp() {
@@ -29,8 +25,9 @@ public class AccountFlowTest {
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
-    }
+        driver.get("http://localhost:4180/");
 
+    }
     @After
     public void tearDown() {
         driver.close();
@@ -51,6 +48,5 @@ public class AccountFlowTest {
         shoppingCartPage.clickdProcedToCheckout();
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                 .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
-
     }
 }

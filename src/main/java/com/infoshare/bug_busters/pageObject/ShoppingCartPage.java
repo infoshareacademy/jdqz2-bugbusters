@@ -85,11 +85,9 @@ public class ShoppingCartPage {
 
     public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod() throws IOException {
 
-        ShippingData shippingData = shippingDataGenerator.prepareShippingData();
-        shippingAdressSteps(shippingData);
+        shippingAdressSteps(shippingDataGenerator.prepareShippingData());
 
-        PaymentData paymentData = paymentDataGenerator.preparePayments();
-        addinPaymentsSteps(paymentData);
+        addinPaymentsSteps(paymentDataGenerator.preparePayments());
 
     }
 
@@ -141,23 +139,4 @@ public class ShoppingCartPage {
         actions.moveToElement(viewButton).perform();
         viewButton.click();
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

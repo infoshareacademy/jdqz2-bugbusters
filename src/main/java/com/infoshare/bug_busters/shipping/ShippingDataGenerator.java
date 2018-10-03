@@ -7,6 +7,8 @@ import java.io.IOException;
 
 public class ShippingDataGenerator {
 
+
+
     public ShippingDataGenerator(RandomDataGenerator randomDataGenerator) {
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PaymentDataGenerator {
 
-    public PaymentDataGenerator(RandomDataGenerator randomDataGenerator) {
+    public PaymentDataGenerator(RandomDataGenerator paymentDataGenerator) {
 
     }
 
