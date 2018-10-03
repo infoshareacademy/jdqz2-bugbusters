@@ -1,15 +1,14 @@
 package com.infoshare.bug_busters.ui.Catalogue;
 
-import com.infoshare.bug_busters.pageObject.catalogue.CatalogueHomePage;
-import com.infoshare.bug_busters.pageObject.catalogue.CataloguePage;
+import com.infoshare.bug_busters.pageObject.CatalogueHomePage;
+import com.infoshare.bug_busters.pageObject.CataloguePage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PagingNineProductsTest {
 
@@ -32,12 +31,13 @@ public class PagingNineProductsTest {
 
     @Test
     public void checkNinePageProduckt() {
-        //driver.get("http://localhost/index.html/");
-        driver.get("http://localhost:4180/");
+        driver.get("http://localhost/index.html/");
+        //driver.get("http://localhost:4180/");
         catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingNineElementsOnCatalogue();
+        assertThat(cataloguePage.showingNineOfNineGetText().contains("Showing 9 of 9 products"));
 
-        assertThat("Showing 9 of 9 products is not selected", cataloguePage.showingNineOfNineGetText().contains("Showing 9 of 9 products"));
+        //assertThat("Showing 9 of 9 products is not selected", cataloguePage.showingNineOfNineGetText().contains("Showing 9 of 9 products"));
 
 
     }
