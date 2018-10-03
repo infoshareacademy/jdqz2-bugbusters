@@ -3,10 +3,6 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
-import com.infoshare.bug_busters.payment.PaymentDataGenerator;
-import com.infoshare.bug_busters.random.RandomDataGenerator;
-import com.infoshare.bug_busters.registration.UserDataGenerator;
-import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.assertj.core.api.Assertions;
@@ -24,9 +20,7 @@ public class AccountFlowTest {
     private HomePage homePage;
     private AccountPage accountPage;
     private ShoppingCartPage shoppingCartPage;
-    private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
-    private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
-    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
+
 
     @Before
     public void setUp() {
@@ -49,7 +43,7 @@ public class AccountFlowTest {
         Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
-        shoppingCartPage.fillinShippingAddressAndPaymentWithDataGenerator();
+        shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod();
         shoppingCartPage.addOnlyOneProductColorFulltoToCartFromShoppingCartPage();
         Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart())
                 .as("Item was not added to shopping cart")

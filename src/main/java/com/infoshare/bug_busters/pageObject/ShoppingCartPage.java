@@ -1,10 +1,7 @@
 package com.infoshare.bug_busters.pageObject;
-
-
 import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
-import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingData;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import com.infoshare.bug_busters.utils.Waits;
@@ -18,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
 
 public class ShoppingCartPage {
-    @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")/*od KW*/
+    @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement textShoppingCart;
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement shoppingCartConfirmatonLabel;
@@ -63,7 +60,7 @@ public class ShoppingCartPage {
     private WebDriver driver;
     private Waits waits;
     private Actions actions;
-    private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
+
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
@@ -86,7 +83,7 @@ public class ShoppingCartPage {
         waits.waitForElementToBeVisible(changePaymentButton);
     }
 
-    public void fillinShippingAddressAndPaymentWithDataGenerator() throws IOException {
+    public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod() throws IOException {
 
         ShippingData shippingData = shippingDataGenerator.prepareShippingData();
         shippingAdressSteps(shippingData);
@@ -94,16 +91,6 @@ public class ShoppingCartPage {
         PaymentData paymentData = paymentDataGenerator.preparePayments();
         addinPaymentsSteps(paymentData);
 
-    }
-
-    public void fillingShippingAddressInfowithDataGeneratorMethod() throws IOException {
-        ShippingData shippingData = shippingDataGenerator.prepareShippingData();
-        shippingAdressSteps(shippingData);
-    }
-
-    public void fillingPaymentsInfowithDataGeneratorMethod() throws IOException {
-        PaymentData paymentData = paymentDataGenerator.preparePayments();
-        addinPaymentsSteps(paymentData);
     }
 
     public void addinPaymentsSteps(PaymentData paymentData) {
@@ -135,19 +122,9 @@ public class ShoppingCartPage {
         }
     }
 
-    public void clickoInscriptionCorolful() {
-        waits.waitForElementToBeVisible(colorfulInscriptionOnShoppingCartWebsite);
-        colorfulInscriptionOnShoppingCartWebsite.click();
-    }
-
     public String getTextFromButtonItemsInCart() {
         waits.waitForElementToBeRefreshed(itemsInCartButton);
         return itemsInCartButton.getText();
-    }
-
-    public String getTextFromViewButton() {
-        waits.waitForElementToBeRefreshed(viewButton);
-        return viewButton.getText();
     }
 
     public void clickOnIteamsInCartButton() {
@@ -158,24 +135,6 @@ public class ShoppingCartPage {
             itemsInCartButton.click();
         }
     }
-
-    public void clickOnAddToCartButton() {
-        waits.waitForElementToBeRefreshed(addToCartButton);
-        addToCartButton.click();
-    }
-
-    public void clickOnViewButton() {
-        waits.waitForElementToBeVisible(viewButton);
-        actions.moveToElement(viewButton).perform();
-        viewButton.click();
-    }
-
-    public void addItemsToShoppingCartList() {
-        addToCartButton.click();
-        waits.waitForElementToBeVisible(itemsInCartButton);
-        itemsInCartButton.click();
-    }
-
     public void clickdProcedToCheckout() {
         proceedToCheckOutButton.click();
         waits.waitForElementToBeClickable(viewButton);
@@ -183,7 +142,7 @@ public class ShoppingCartPage {
         viewButton.click();
     }
 
-    }
+}
 
 
 

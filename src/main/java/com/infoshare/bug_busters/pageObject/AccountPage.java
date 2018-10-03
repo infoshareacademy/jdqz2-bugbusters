@@ -25,23 +25,11 @@ public class AccountPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
     public void clickOnLabelAccount() {
         labelAccount.click();
     }
 
-    public void clickOnViewButtonInMyOrders() {
-        viewButtonInMyOrders.click();
-    }
-
-    public void clickOncolorFullLabelInMyOrders() {
-        colorFullLabelInMyOrders.click();
-    }
-
     public String getTextFromColorFulLabelInMyOrders() {
         waits.waitForElementToBeVisible(colorFullLabelInMyOrders);
-        return colorFullLabelInMyOrders.getText();
-    }
-
-
+        return colorFullLabelInMyOrders.getText(); }
 }
