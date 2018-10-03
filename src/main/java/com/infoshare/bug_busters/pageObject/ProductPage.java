@@ -11,13 +11,13 @@ public class ProductPage {
     private Actions actions;
     private WebDriver driver;
     private Waits waits;
-    @FindBy(xpath = "//div[@id='productDetails']")
+    @FindBy(id="productDetails")
     WebElement productDetails;
     @FindBy(xpath = "//a[@class='scroll-to']")
     WebElement scrollProduct;
-    @FindBy(xpath = "//a[@id='buttonCart']")
+    @FindBy(id = "buttonCart")
     WebElement buttonAddToCart;
-    @FindBy(xpath = "//span[@id='numItemsInCart']")
+    @FindBy(id="numItemsInCart")
     WebElement buttoNnumberOfElementsInCart;
 
     public ProductPage(WebDriver driver) {

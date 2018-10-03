@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PagingNineProductsTest {
     private WebDriver driver;
-    private WebDriverWait waits;
     private CatalogueHomePage catalogueHomePage;
     private CataloguePage cataloguePage;
     @Before

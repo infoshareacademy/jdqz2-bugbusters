@@ -11,23 +11,23 @@ public class CataloguePage {
     private Waits waits;
     @FindBy(xpath = "//ul[@class='breadcrumb']")
     private WebElement confirmCatalogue;
-    @FindBy(xpath = "//div[@id='products-number']")
+    @FindBy(id = "products-number")
     private WebElement labelShow;
     @FindBy(xpath = "//a[contains(text(),'3')]")
     private WebElement product3;
-    @FindBy(xpath = "//div[@id='totalProducts']")
+    @FindBy(id = "totalProducts")
     private WebElement showingThreeOfNine;
     @FindBy(xpath = "//a[contains(text(),'6')]")
     private WebElement product6;
-    @FindBy(xpath = "//div[@id='totalProducts']")
+    @FindBy(id="totalProducts")
     private WebElement showingSixOfNine;
     @FindBy(xpath = "//a[contains(text(),'9')]")
     private WebElement product9;
-    @FindBy (xpath = "//div[@id='totalProducts']")
+    @FindBy (id="totalProducts")
     private WebElement showingNineOfNine;
     @FindBy(xpath = "//a[contains(text(),'Holy')]")
     private WebElement choosingHolyProducts;
-    @FindBy(xpath = "//a[@id='buttonCart']")
+    @FindBy(id = "buttonCart")
     private WebElement buttonAddToCart;
     @FindBy(xpath = "//a[@class='btn btn-default']")
     WebElement buttonViewDetailHolly;
