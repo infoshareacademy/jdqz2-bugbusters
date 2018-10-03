@@ -71,7 +71,7 @@ public class ShoppingCartPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void shippingAdressSteps(ShippingData shippingData) throws IOException {
+    public void shippingAdressSteps(ShippingData shippingData) {
         changeButtonShippingAdress.click();
         waits.waitForElementToBeVisible(houseNumberFieldShippingAddress);
         houseNumberFieldShippingAddress.sendKeys(shippingData.getHouseNumber().toString());
@@ -83,7 +83,7 @@ public class ShoppingCartPage {
         waits.waitForElementToBeVisible(changePaymentButton);
     }
 
-    public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod() throws IOException {
+    public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod()  {
 
         shippingAdressSteps(shippingDataGenerator.prepareShippingData());
 

@@ -16,6 +16,9 @@ public class UserDataGenerator {
                 // na sztywno RandomDataGenerator.prepareUserName()
 
     public UserData prepareUserData() throws IOException {
+
+
+
         String userName = dataGenerator.prepareUserName();
         String firstName = dataGenerator.prepareFirstName();
         String lastName = dataGenerator.prepareLastName() ;

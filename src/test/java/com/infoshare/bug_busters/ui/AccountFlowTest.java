@@ -28,10 +28,10 @@ public class AccountFlowTest {
         driver.get("http://localhost:4180/");
 
     }
-    @After
+    /*@After
     public void tearDown() {
         driver.close();
-    }
+    }*/
 
     @Test
     public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks() throws IOException {

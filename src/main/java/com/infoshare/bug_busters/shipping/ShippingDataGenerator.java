@@ -8,18 +8,28 @@ import java.io.IOException;
 public class ShippingDataGenerator {
 
 
-
     public ShippingDataGenerator(RandomDataGenerator randomDataGenerator) {
     }
 
-    public static ShippingData prepareShippingData() throws IOException {
+    public static ShippingData prepareShippingData() {
 
-        Integer houseNumber = RandomDataGenerator.prepareHouseNumber();
-        String streetName = RandomDataGenerator.prepareStreetName();
-        String city = RandomDataGenerator.prepareCity() ;
-        String postCode = RandomDataGenerator.preparePostCode();
-        String country = RandomDataGenerator.prepareCountry();
+        Integer houseNumber = null;
+        String streetName = null;
+        String city = null;
+        String postCode = null;
+        String country = null;
 
+
+        try {
+            houseNumber = RandomDataGenerator.prepareHouseNumber();
+            streetName = RandomDataGenerator.prepareStreetName();
+            city = RandomDataGenerator.prepareCity();
+            postCode = RandomDataGenerator.preparePostCode();
+            country = RandomDataGenerator.prepareCountry();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }
 }
