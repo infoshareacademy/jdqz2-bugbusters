@@ -7,6 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.registration.UserData;
+import com.infoshare.bug_busters.registration.UserDataGenerator;
+import java.io.IOException;
 
 public class HomePage {
 
@@ -123,22 +127,6 @@ public class HomePage {
 
     By itemInCartLocator = By.id("numItemsInCart");
 
-    private WebDriver driver;
-    private Waits waits;
-    private Actions actions;
-import com.infoshare.bug_busters.random.RandomDataGenerator;
-import com.infoshare.bug_busters.registration.UserData;
-import com.infoshare.bug_busters.registration.UserDataGenerator;
-import com.infoshare.bug_busters.utils.Waits;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.io.IOException;
-
-public class HomePage {
-
     @FindBy(xpath = "//a[contains(text(),'Register')]")
     private WebElement registerButton;
 
@@ -180,11 +168,15 @@ public class HomePage {
 
     private WebDriver driver;
     private Waits waits;
+    private Actions actions;
+
     private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
     public HomePage(WebDriver driver){
         this.driver = driver;
         waits = new Waits(driver);
+        actions = new Actions(driver);
+
         PageFactory.initElements(driver, this);
     }
 
@@ -249,11 +241,6 @@ public class HomePage {
         loginButtonInLoginWindow.click();
         waits.waitForElementToBeVisible(logoutButton);
 
-    }
-
-}
-        actions = new Actions(driver);
-        PageFactory.initElements(driver, this);
     }
 
     public void clickOnLinkLogin() {linkLogin.click();}

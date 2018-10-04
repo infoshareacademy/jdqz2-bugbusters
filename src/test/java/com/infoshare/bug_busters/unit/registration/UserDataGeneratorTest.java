@@ -49,3 +49,4 @@ public class UserDataGeneratorTest {  // napisac testy jednostkowe czyli do kazd
         assertNotNull("Email is not null", checkingValuesNotNull.getEmail());
         assertNotNull("Password is not null", checkingValuesNotNull.getPassword());
     }
+}

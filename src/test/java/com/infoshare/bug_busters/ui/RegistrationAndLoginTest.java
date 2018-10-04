@@ -24,6 +24,7 @@ public class RegistrationAndLoginTest {
         driver.manage().window().maximize();
 
         homePage = new HomePage(driver);
+        driver.get("http://localhost:4180/");
     }
 
     @After
@@ -33,21 +34,18 @@ public class RegistrationAndLoginTest {
 
     @Test
     public void registrationWithUserDataGeneratorMethodTest() throws IOException {
-        driver.get("http://localhost:4180/");
         homePage.registerUserWithDataGeneratorMethod();
         assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Registered");
     }
 
     @Test
     public void registrationTwiceWithTheSameData() throws IOException {
-        driver.get("http://localhost:4180/");
         homePage.regiterUserTwiceWithTheSameData();
         assertThat(homePage.alertRegistration().contains("There was a problem with your registration: Internal Server Error")).as("Alert is not show after creating two indentical accounts");
     }
 
     @Test
     public void loginAfterRegistration() throws IOException {
-        driver.get("http://localhost:4180/");
         homePage.loginUserAfterRegistration();
         assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
     }

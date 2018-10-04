@@ -1,4 +1,4 @@
-package java.com.infoshare.bug_busters.unit.registration;
+package com.infoshare.bug_busters.unit.registration;
 
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
