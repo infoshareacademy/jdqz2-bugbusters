@@ -27,7 +27,7 @@ public class CataloguePage {
     private WebElement showingNineOfNine;
     @FindBy(xpath = "//a[contains(text(),'Holy')]")
     private WebElement choosingHolyProducts;
-    @FindBy(id = "buttonCart")
+    @FindBy(xpath = "//a[@id='buttonCart']")
     private WebElement buttonAddToCart;
     @FindBy(xpath = "//a[@class='btn btn-default']")
     WebElement buttonViewDetailHolly;

@@ -21,6 +21,7 @@ public class CatalogueHomePage {
     }
     public void chooseCatalogue() {
         waits.waitForElementToBeVisible(labelCatalogue);
+        waits.waitForElementToBeClickable(labelCatalogue);
         labelCatalogue.click();
     }
 }
