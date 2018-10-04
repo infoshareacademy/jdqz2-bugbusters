@@ -2,6 +2,8 @@ package com.infoshare.bug_busters.registration;
 
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDataGenerator {
 
@@ -22,7 +24,17 @@ public class UserDataGenerator {
 
        return new UserData(userName,firstName,lastName,email,password);
     }
+    public List<UserData> collectionOfUsers () throws IOException {
 
+        Integer iloscDanych = 10;
 
+        List<UserData> userData = new ArrayList<>();
+
+        for (int i = 1; i <= iloscDanych; i++) {
+            userData.add(prepareUserData());
+        }
+
+        return userData;
+    }
 
 }
