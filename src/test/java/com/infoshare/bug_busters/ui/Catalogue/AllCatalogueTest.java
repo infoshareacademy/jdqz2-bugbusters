@@ -24,42 +24,37 @@ public class AllCatalogueTest {
         cataloguePage = new CataloguePage(driver);
         productPage = new ProductPage(driver);
         driver.get(URL);
+        catalogueHomePage.chooseCatalogue();
     }
     @Test
     public void addingProductTooCart() {
-        catalogueHomePage.chooseCatalogue();
         cataloguePage.chooseProducts();
         productPage.addingProduct();
         assertThat(productPage.getTextFromButtonNumberOfElementsInCart().contains("1 item(s) in cart"));
     }
     @Test
     public void checkThreePageProduckt() {
-        catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingThreeElementsOnCatalogue();
         assertThat(cataloguePage.showingThreeOfNineGetText().contains("Showing 3 of 9 products"));
     }
     @Test
     public void checkSixPageProduckt() {
-        catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingSixElementsOnCatalogue();
         assertThat(cataloguePage.showingSixOfNineGetText().contains("Showing 6 of 9 products"));
     }
     @Test
     public void checkNinePageProduckt() {
-        catalogueHomePage.chooseCatalogue();
         cataloguePage.checkingNineElementsOnCatalogue();
         assertThat(cataloguePage.showingNineOfNineGetText().contains("Showing 9 of 9 products"));
     }
     @Test
     public void checkProducktUsingScroll() {
-        catalogueHomePage.chooseCatalogue();
         cataloguePage.chooseProducts();
         productPage.checkProductsDetails();
         assertThat(productPage.getTextFromElementProductDetalis().contains("Product details"));
     }
     @Test
     public void checkViewDetailButton() {
-        catalogueHomePage.chooseCatalogue();
         cataloguePage.seeDetailsByUsingViewDetail();
         assertThat(productPage.getTextFromElementProductDetalis().contains("Product details"));
     }

@@ -15,7 +15,7 @@ public class ProductPage {
     WebElement productDetails;
     @FindBy(xpath = "//a[@class='scroll-to']")
     WebElement scrollProduct;
-    @FindBy(id = "buttonCart")
+    @FindBy(xpath = "//a[@id='buttonCart']")
     WebElement buttonAddToCart;
     @FindBy(id="numItemsInCart")
     WebElement buttoNnumberOfElementsInCart;
@@ -34,6 +34,7 @@ public class ProductPage {
         showProduct();
         actions.moveToElement(buttonAddToCart).perform();
         waits.waitForElementToBeVisible(buttonAddToCart);
+        waits.waitForElementToBeClickable(buttonAddToCart);
         buttonAddToCart.click();
     }
     public String getTextFromButtonNumberOfElementsInCart() {
