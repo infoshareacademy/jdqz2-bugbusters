@@ -60,7 +60,7 @@ public class ShoppingCartPage {
     private Actions actions;
 
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
-    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator();
+    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(dataGenerator);
 
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;

@@ -28,7 +28,7 @@ public class ShippingDataGenerator {
             country = RandomDataGenerator.prepareCountry();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }

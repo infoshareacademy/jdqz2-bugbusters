@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class PaymentDataGeneratorTest {
-    PaymentDataGenerator paymentGeneratorApp = new PaymentDataGenerator();
+    PaymentDataGenerator paymentGeneratorApp = new PaymentDataGenerator(dataGenerator);
 
     @Test
     public void preparePaymentsAndPatternMatchTest() {
