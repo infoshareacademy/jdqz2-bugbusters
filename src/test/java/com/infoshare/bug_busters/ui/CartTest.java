@@ -53,6 +53,8 @@ public class CartTest {
                 .isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
         cataloguePage.checkinIfNineElementIsBeingDisplayedInCatalogPage();
        homePage.addinngAdditionalEightProducts();
+
+
     }
 
    /* @Test

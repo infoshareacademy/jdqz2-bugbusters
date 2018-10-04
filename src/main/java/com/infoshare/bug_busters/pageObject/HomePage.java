@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage {
@@ -145,19 +146,26 @@ public class HomePage {
     public void addinngAdditionalEightProducts() {
         waits.waitForElementToBeClickable(addProductHollyAddToCart);
         addProductHollyAddToCart.click();
+        List<WebElement> sock = new ArrayList<>(9);
         try {
-            List<WebElement> socks = driver.findElements(By.xpath("//i[@class='fa fa-shopping-cart']"));
-            socks.get(0).click();
+            List<WebElement> socks = driver.findElements(By.xpath("//a[@class='btn btn-primary']"));
             socks.get(1).click();
-            socks.get(2).click();
+
 
         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-            List<WebElement> socks = driver.findElements(By.xpath("//i[@class='fa fa-shopping-cart']"));
-            socks.get(0).click();
-            socks.get(1).click();
-            socks.get(2).click();
+            List<WebElement> socks = driver.findElements(By.xpath("//a[@class='btn btn-primary']"));
 
-        }
+            socks.get(1).click();
+            try {
+                List<WebElement> socks1 = driver.findElements(By.xpath("//a[@class='btn btn-primary']"));
+                socks.get(2).click();
+
+
+            } catch (org.openqa.selenium.StaleElementReferenceException ex1) {
+                List<WebElement> socks1 = driver.findElements(By.xpath("//a[@class='btn btn-primary']"));
+                socks.get(2).click();
+
+            }
         /*try {
             List<WebElement> socks = driver.findElements(By.xpath("//i[@class='fa fa-shopping-cart']"));
             socks.get(1).click();
@@ -169,5 +177,6 @@ public class HomePage {
         }*/
 
 
+        }
     }
 }
