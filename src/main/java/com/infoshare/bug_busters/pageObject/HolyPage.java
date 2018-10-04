@@ -8,16 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HolyPage {
 
-    //gdzie umiescic przyciski i metody ktore sa wspolne dla paru klas np. HolyPage i ColorfulPage
-
-
-    @FindBy(xpath = "//a[@id='buttonCart']")
+    @FindBy(id = "buttonCart")
     WebElement buttonAddToCart;
 
-    //necessary for slider test
-    @FindBy(xpath = "//h1[@id='title']")
+    @FindBy(id = "title")
     WebElement textHolyOnProductSite;
-
 
     private WebDriver driver;
     private Waits waits;
@@ -39,5 +34,4 @@ public class HolyPage {
         waits.waitForElementToBeVisible(textHolyOnProductSite);
         return textHolyOnProductSite.getText();
     }
-
 }

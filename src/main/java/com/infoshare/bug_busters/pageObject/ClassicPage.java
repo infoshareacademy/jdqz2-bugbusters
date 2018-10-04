@@ -8,10 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ClassicPage {
 
-    //necessary for slider test
-    @FindBy(xpath = "//h1[@id='title']")
+    @FindBy(id = "title")
     private WebElement textClassicOnProductSite;
-
 
     private WebDriver driver;
     private Waits waits;

@@ -24,6 +24,6 @@ public class Main {
 
         System.out.println(userDataGenerator.prepareUserData());
 
-        System.out.println(shippingDataGenerator.createListWithObjectsWithRandomChoiceDate(5));
+        System.out.println(shippingDataGenerator.createListWithObjectsWithRandomChoiceDate(1 ));
     }
 }

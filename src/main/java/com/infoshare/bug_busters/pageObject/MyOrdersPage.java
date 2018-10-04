@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ColorfulPage {
+public class MyOrdersPage {
 
-    @FindBy(id = "title")
-    private WebElement textColorfulOnProductSite;
+    @FindBy(xpath = "//h1[text()='My orders']")
+    WebElement textFromHeadingMyOrders;
 
     private WebDriver driver;
     private Waits waits;
 
-    public ColorfulPage(WebDriver driver){
+    public MyOrdersPage(WebDriver driver){
         this.driver = driver;
         waits = new Waits(driver);
 
@@ -22,8 +22,8 @@ public class ColorfulPage {
         PageFactory.initElements(driver, this);
     }
 
-    public String getTextConfirmationOfColorfulPage(){
-        waits.waitForElementToBeVisible(textColorfulOnProductSite);
-        return textColorfulOnProductSite.getText();
+    public String getTextFromHeadingMyOrders() {
+        waits.waitForElementToBeVisible(textFromHeadingMyOrders);
+        return textFromHeadingMyOrders.getText();
     }
 }

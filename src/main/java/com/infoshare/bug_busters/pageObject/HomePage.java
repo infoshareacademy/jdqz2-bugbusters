@@ -1,6 +1,7 @@
 package com.infoshare.bug_busters.pageObject;
 
 import com.infoshare.bug_busters.utils.Waits;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -9,113 +10,122 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    @FindBy(xpath = "//li[@id='login']//a[@href='#'][contains(text(),'Login')]")
+    @FindBy(xpath = "//li[@id='login']/child::a")
     private WebElement linkLogin;
 
     @FindBy(xpath = "//div[@id='login-modal']//button[@class='btn btn-primary']")
     private WebElement buttonLogin;
 
-    @FindBy (xpath ="//a[contains(text(),'Register')]")
+    @FindBy (linkText ="Register")
     private WebElement linkRegister;
 
     @FindBy(xpath = "//div[@id='register-modal']//button[@class='btn btn-primary']")
     private WebElement buttonRegister;
 
-    @FindBy(xpath = "//li[@id='tabCatalogue']")
-    private WebElement linkCatalogue;
+    @FindBy(xpath = "//li[@id='tabIndex']/child::a")
+    private WebElement linkHomeAtTopOfPage;
 
-    @FindBy(xpath = "//li[contains(text(),'Catalogue')]")
-    private WebElement catalogueTextOnPageCatalogue;
+    @FindBy(xpath = "//a[contains(text(),'We love socks!')]")
+    private WebElement textConfirmingBeeingOnHomePage;
 
-    @FindBy(xpath = "//a[contains(text(),'Blue')]")
+    @FindBy(xpath = "//li[@id='tabCatalogue']/child::a")
+    private WebElement linkCatalogueAtTopOfPage;
+
+    @FindBy(xpath = "//a[text()='Blue']")
     private WebElement blueFromCatalogueDropDownMenu;
 
-    @FindBy (xpath = "//a[contains(text(),'Brown')]")
+    @FindBy (xpath = "//a[text()='Brown']")
     private WebElement brownFromCatalogueDropDownMenu;
 
-    @FindBy (xpath = "//a[contains(text(),'Green')]")
+    @FindBy (xpath = "//a[text()='Green']")
     private WebElement greenFromCatalogueDropDownMenu;
 
     @FindBy (xpath = "//div[@class='col-sm-3']//a[contains(text(),'Magic')]")
     private WebElement magicFromCatalogueDropDownMenu;
 
-    @FindBy (xpath = "//a[contains(text(),'Formal')]")
+    @FindBy (xpath = "//a[text()='Formal']")
     private WebElement formalFromCatalogueDropDownMenu;
 
-    //@FindBy(css = "#numItemsInCart")
-    @FindBy(xpath = "//span[@id='numItemsInCart']")
+    @FindBy(id = "numItemsInCart")
     private WebElement buttonItemsInCart;
 
-    @FindBy(xpath = "//div[@class='col-md-12']//div[@class='owl-pagination']//div[1]//span[1]")
-    private WebElement leftDotonOnMainSlider;
+    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-pagination']/child::div[1]//span")
+    private WebElement leftDotOnMainSlider;
 
-    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-wrapper-outer']//div[@class='owl-wrapper']//div[@class='owl-item']//div[@class='item']//a[@href='detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b']//img[@class='img-responsive']")
+    @FindBy(xpath = "//*[contains(@src,'img/colourful_socks_banner')]")
     private WebElement leftPictureOnMainSlider;
 
-    @FindBy(xpath = "//div[@class='owl-pagination']//div[2]//span[1]")
-    private WebElement middleDotonOnMainSlider;
+    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-pagination']/child::div[2]//span")
+    private WebElement middleDotOnMainSlider;
 
-    @FindBy(xpath = "//a[@href='detail.html?id=zzz4f044-b040-410d-8ead-4de0446aec7e']//img[@class='img-responsive']")
+    @FindBy(xpath = "//*[contains(@src,'img/rugby_socks_banner')]")
     private WebElement middlePictureOnMainSlider;
 
-    @FindBy(xpath = "//div[@class='owl-pagination']//div[3]//span[1]")
-    private WebElement rightDotonOnMainSlider;
+    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-pagination']/child::div[3]//span")
+    private WebElement rightDotOnMainSlider;
 
-    @FindBy(xpath = "//div[@id='main-slider']//div[@class='owl-wrapper-outer']//div[@class='owl-wrapper']//div[@class='owl-item']//div[@class='item']//a[@href='detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b']//img[@class='img-responsive']")
+    @FindBy(xpath = "//*[contains(@src,'img/holy_socks_banner')]")
     private WebElement rightPictureOnMainSlider;
 
-
-    // napisac reszte testow z footera
-
-
-    @FindBy(xpath = "//a[contains(text(),'Holy')]")
+    @FindBy(linkText = "Holy")
     private WebElement linkOfProductHoly;
 
-    //@FindBy(xpath = "//div[@class='back']//a[@href='detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b']//img[@class='img-responsive']")
-    // xpath znajdujacy zdjecie jak sie obroci
-
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=03fef6ac-1896-4ce8-bd69-b798f85c6e0b']//img[@class='img-responsive']")
+    @FindBy(xpath = "//img[contains(@src,'/catalogue/images/holy_1')]")
     private WebElement pictureOfProductHoly;
 
-    @FindBy(xpath = "//a[contains(text(),'Colourful')]")
+    @FindBy(linkText = "Colourful")
     private WebElement linkOfProductColorful;
 
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=3395a43e-2d88-40de-b95f-e00e1502085b']//img[@class='img-responsive']")
+    @FindBy(xpath = "//img[contains(@src,'/catalogue/images/colourful_socks')]")
     private WebElement pictureOfProductColorful;
 
-    @FindBy(xpath = "//a[contains(text(),'SuperSport XL')]")
+    @FindBy(linkText = "SuperSport XL")
     private WebElement linkOfProductSuperSportXL;
 
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=510a0d7e-8e83-4193-b483-e27e09ddc34d']//img[@class='img-responsive']")
+    @FindBy(xpath = "//img[contains(@src,'/catalogue/images/puma_1')]")
     private WebElement pictureOfProductSuperSportXL;
 
-    @FindBy(xpath = "//a[contains(text(),'Crossed')]")
+    @FindBy(linkText = "Crossed")
     private WebElement linkOfProductCrossed;
 
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=808a2de1-1aaa-4c25-a9b9-6612e8f29a38']//img[@class='img-responsive']")
+    @FindBy(xpath = "//img[contains(@src,'/catalogue/images/cross_1.jpeg')]")
     private WebElement pictureOfProductCrossed;
 
-    @FindBy(xpath = "//a[contains(text(),'Figueroa')]")
+    @FindBy(linkText = "Figueroa")
     private WebElement linkOfProductFigueroa;
 
-    @FindBy(xpath = "//div[@class='front']//a[@href='detail.html?id=819e1fbf-8b7e-4f6d-811f-693534916a8b']//img[@class='img-responsive']")
+    @FindBy(xpath = "//img[contains(@src,'/catalogue/images/WAT')]")
     private WebElement pictureOfProductFigueroa;
 
+    @FindBy(xpath = "//div[@id='footer']//a[@href='index.html']")
+    private WebElement linkHomeAtFooter;
 
+    @FindBy(linkText = "Catalogue")
+    private WebElement linkCatalogueAtFooter;
 
+    @FindBy(xpath = "//div[@id='footer']//a[contains(text(),'Login')]")
+    private WebElement linkLoginAtFooter;
 
-    @FindBy(xpath = "//div[@class='col-md-3 col-sm-6']//ul//li//a[@href='#'][contains(text(),'Login')]")
-    private WebElement footerLinkLogin;
+    @FindBy(linkText = "Cart")
+    private WebElement linkCartAtFooter;
 
+    @FindBy(linkText = "Orders")
+    private WebElement linkOrdersAtFooter;
 
+    @FindBy(xpath = "//div[@id='footer']//a[contains(text(),'Magic')]")
+    private WebElement linkMagicAtFooter;
 
+    @FindBy(linkText = "Sport")
+    private WebElement linkSportAtFooter;
 
+    @FindBy(linkText = "Action")
+    private WebElement linkActionAtFooter;
 
+    By itemInCartLocator = By.id("numItemsInCart");
 
     private WebDriver driver;
     private Waits waits;
     private Actions actions;
-
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -123,10 +133,6 @@ public class HomePage {
         actions = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
-
-
-
-
 
     public void clickOnLinkLogin() {linkLogin.click();}
 
@@ -142,18 +148,22 @@ public class HomePage {
         return buttonRegister.isEnabled();
     }
 
-    public void clickOnLinkCatalogue(){
-        linkCatalogue.click();
+    public void clickOnLinkHome(){
+        linkHomeAtTopOfPage.click();
     }
 
-    public String getTextFromCataloguePage(){
-        waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
-        return catalogueTextOnPageCatalogue.getText();
+    public String getTextFromHomePage(){
+        waits.waitForElementToBeVisible(textConfirmingBeeingOnHomePage);
+        return textConfirmingBeeingOnHomePage.getText();
+    }
+
+    public void clickOnLinkCatalogue(){
+        linkCatalogueAtTopOfPage.click();
     }
 
     public void moveMouseCursorOnCatalogue(){
-        waits.waitForElementToBeVisible(linkCatalogue);
-        actions.moveToElement(linkCatalogue).perform(); // najezdza myszka na wskazany webelement
+        waits.waitForElementToBeVisible(linkCatalogueAtTopOfPage);
+        actions.moveToElement(linkCatalogueAtTopOfPage).perform();
     }
 
     public void selectBlueFromDropDownMenuCatalogue(){
@@ -187,46 +197,34 @@ public class HomePage {
     }
 
     public void selectLeftPictureFromMainSlider(){
-        //waits.waitForElementToBeVisible(leftDotOnMainSlider);
-        waits.waitForElementToBeClickable(leftDotonOnMainSlider);
-        leftDotonOnMainSlider.click();
+        waits.waitForElementToBeClickable(leftDotOnMainSlider);
+        leftDotOnMainSlider.click();
         waits.waitForElementToBeVisible(leftPictureOnMainSlider);
         leftPictureOnMainSlider.click();
     }
 
     public void selectMiddlePictureFromMainSlider(){
-        waits.waitForElementToBeClickable(middleDotonOnMainSlider);
-        middleDotonOnMainSlider.click();
+        waits.waitForElementToBeClickable(middleDotOnMainSlider);
+        middleDotOnMainSlider.click();
         waits.waitForElementToBeVisible(middlePictureOnMainSlider);
         middlePictureOnMainSlider.click();
     }
 
     public void selectRightPictureFromMainSlider(){
-        waits.waitForElementToBeClickable(rightDotonOnMainSlider);
-        rightDotonOnMainSlider.click();
+        waits.waitForElementToBeClickable(rightDotOnMainSlider);
+        rightDotOnMainSlider.click();
         waits.waitForElementToBeVisible(rightPictureOnMainSlider);
         rightPictureOnMainSlider.click();
     }
-
-
-
-
-
-
-
 
     public void clickOnButtonItemsInCart(){
         buttonItemsInCart.click();
     }
 
     public String getTextFromButtonItemsInCart() {
-        waits.waitForItemsInCartToBeChanged(buttonItemsInCart);
+        waits.waitForItemsInCartToBeChanged(driver.findElement(itemInCartLocator));
         return buttonItemsInCart.getText();
     }
-
-
-
-
 
     public void clickOnLinkHoly(){
         linkOfProductHoly.click();
@@ -268,11 +266,35 @@ public class HomePage {
         pictureOfProductFigueroa.click();
     }
 
+    public void clickOnFooterLinkHome(){
+        linkHomeAtFooter.click();
+    }
 
-
-
+    public void clickOnFooterLinkCatalogue(){
+        linkCatalogueAtFooter.click();
+    }
 
     public void clickOnFooterLinkLogin(){
-        footerLinkLogin.click();
+        linkLoginAtFooter.click();
+    }
+
+    public void clickOnFooterLinkCart(){
+        linkCartAtFooter.click();
+    }
+
+    public void clickOnFooterLinkOrders(){
+        linkOrdersAtFooter.click();
+    }
+
+    public void clickOnFooterLinkMagic(){
+        linkMagicAtFooter.click();
+    }
+
+    public void clickOnFooterLinkSport(){
+        linkSportAtFooter.click();
+    }
+
+    public void clickOnFooterLinkAction(){
+        linkActionAtFooter.click();
     }
 }

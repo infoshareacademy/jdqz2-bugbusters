@@ -1,5 +1,6 @@
 package com.infoshare.bug_busters.utils;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -34,13 +35,15 @@ public class Waits {
         WebElement waitForElement = wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForElementToBeRefreshed(WebElement element){
+    public void waitForElementUntilCorrectTextShowUp(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
-        WebElement waitForElement = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
+        boolean waitForElement = wait.until(ExpectedConditions.textToBePresentInElement(element, "1 item(s) in cart"));
     }
 
     public void waitForItemsInCartToBeChanged(WebElement element){
-        FluentWait wait = new FluentWait(driver).withTimeout(DEFAULT_TIMEOUT_IN_SEC, TimeUnit.SECONDS).pollingEvery(PULLING_TIMEOUT_IN_SEC, TimeUnit.SECONDS);
+        FluentWait wait = new FluentWait(driver).withTimeout(DEFAULT_TIMEOUT_IN_SEC, TimeUnit.SECONDS)
+                .pollingEvery(PULLING_TIMEOUT_IN_SEC, TimeUnit.SECONDS)
+                .ignoring(StaleElementReferenceException.class);
         wait.until((ExpectedCondition) driver -> (element.getText().equals("1 item(s) in cart")));
     }
 

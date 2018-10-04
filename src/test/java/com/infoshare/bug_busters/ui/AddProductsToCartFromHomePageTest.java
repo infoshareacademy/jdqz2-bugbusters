@@ -16,7 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AddProductsToCartFromHomePageTest {
 
     private WebDriver driver;
-
     private HomePage homePage;
     private HolyPage holyPage;
 
@@ -24,13 +23,13 @@ public class AddProductsToCartFromHomePageTest {
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         driver.manage().window().maximize();
-
         homePage = new HomePage(driver);
         holyPage = new HolyPage(driver);
-
         driver.get("http://localhost:4180/");
     }
 
+    //testy napisane dobrze ale czasmi przechodza a czasami nie
+    //problem z odczytaniem textu z przycisku items in cart
     @Test
     public void addingToCartHollySocksByClickInLinkFromHomePage(){
         homePage.clickOnLinkHoly();
@@ -38,8 +37,6 @@ public class AddProductsToCartFromHomePageTest {
         assertThat(homePage.getTextFromButtonItemsInCart())
                 .as("Item was not add to cart")
                 .isEqualTo("1 item(s) in cart");
-        //fluent wait czeka do momentu az wartosc nie bedzie zerem i odpytuje strone co 2 sekundy
-        //dobrze opanowac podstawy i kozystac z nich
     }
 
     @Test
@@ -61,14 +58,13 @@ public class AddProductsToCartFromHomePageTest {
     }
 
     @Test
-    public void addingToCartColorfulSocksByClickPictureFromHomePage() { // za pierwszym razem test przeszedl , a za drugim mialem blad Actual:"0 items in cart" czemu skoro jest refresh?? , a potem 3 razy test przeszedl
+    public void addingToCartColorfulSocksByClickPictureFromHomePage() {
         homePage.clickOnPictureColorful();
         holyPage.clickOnButtonAddToCart();
         assertThat(homePage.getTextFromButtonItemsInCart())
                 .as("Item was not add to cart")
                 .isEqualTo("1 item(s) in cart");
     }
-
 
     @Test
     public void addingToCartSportXLSocksByClickInLinkFromHomePage(){

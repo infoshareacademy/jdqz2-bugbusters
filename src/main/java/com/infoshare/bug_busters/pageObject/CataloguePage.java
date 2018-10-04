@@ -8,6 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CataloguePage {
 
+    @FindBy(xpath = "//ul[@class='breadcrumb']//li[text()='Catalogue']")
+    private WebElement catalogueTextOnPageCatalogue;
+
     @FindBy(xpath = "//input[@value='blue']")
     private WebElement blueCheckboxInFiltersFromCatalogue;
 
@@ -23,6 +26,11 @@ public class CataloguePage {
     @FindBy(xpath = "//input[@value='formal']")
     private WebElement formalCheckboxInFiltersFromCatalogue;
 
+    @FindBy(xpath = "//input[@value='sport']")
+    private WebElement sportCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='action']")
+    private WebElement actionCheckboxInFiltersFromCatalogue;
 
     private WebDriver driver;
     private Waits waits;
@@ -33,6 +41,11 @@ public class CataloguePage {
 
         // Remember to use this! If you use HomePage.class you will get memory leak!
         PageFactory.initElements(driver, this);
+    }
+
+    public String getTextFromCataloguePage(){
+        waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
+        return catalogueTextOnPageCatalogue.getText();
     }
 
     public boolean checkIfBlueCheckboxIsChecked(){
@@ -58,6 +71,16 @@ public class CataloguePage {
     public boolean checkIfFormalCheckboxIsChecked(){
         waits.waitForElementToBeVisible(formalCheckboxInFiltersFromCatalogue);
         return formalCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfSportCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(sportCheckboxInFiltersFromCatalogue);
+        return sportCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfActionCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(actionCheckboxInFiltersFromCatalogue);
+        return actionCheckboxInFiltersFromCatalogue.isSelected();
     }
 
 

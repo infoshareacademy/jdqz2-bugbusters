@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ShoppingCartPage {
 
-    @FindBy (xpath = "//h1[contains(text(),'Shopping cart')]")
-    WebElement textShoppingCart;
+    @FindBy (xpath = "//h1[text()='Shopping cart']")
+    WebElement textFromHeadingShoppingCart;
 
     private WebDriver driver;
     private Waits waits;
@@ -22,8 +22,8 @@ public class ShoppingCartPage {
         PageFactory.initElements(driver, this);
     }
 
-    public String getTextShippingCart() {
-        waits.waitForElementToBeVisible(textShoppingCart);
-        return textShoppingCart.getText();
+    public String getTextFromHeadingShippingCart() {
+        waits.waitForElementToBeVisible(textFromHeadingShoppingCart);
+        return textFromHeadingShoppingCart.getText();
     }
 }
