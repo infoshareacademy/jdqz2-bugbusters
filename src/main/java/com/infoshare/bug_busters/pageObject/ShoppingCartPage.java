@@ -115,7 +115,7 @@ public class ShoppingCartPage {
     }
 
     public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(itemsInCartButton);
+        waits.waitForElementToBeRefreshedOne(itemsInCartButton.getText(), "You currently have 1 item(s) in your cart." );
         return itemsInCartButton.getText();
     }
 

@@ -29,7 +29,12 @@ public class Waits {
     public void waitForElementToBeRefreshed(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
         WebElement waitForElement = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
+
+    }  public void waitForElementToBeRefreshedOne(String element, String textToBe) {
+        WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
+        Boolean waitForElement = wait.until(ExpectedConditions.refreshed(ExpectedConditions.textToBePresentInElement(element, textToBe)));
     }
+
 
 }
 
