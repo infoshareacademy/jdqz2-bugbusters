@@ -1,5 +1,6 @@
 package com.infoshare.bug_busters.utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class Waits {
 
     private static final int EXPLICIT_WAIT_TIMEOUT = 10;
-    private static final int PULLING_TIMEOUT_IN_SEC = 2;
-    private static final int DEFAULT_TIMEOUT_IN_SEC = 8;
+    private static final int PULLING_TIMEOUT_IN_SEC = 3;
+    private static final int DEFAULT_TIMEOUT_IN_SEC = 15;
 
 
 
@@ -27,24 +28,22 @@ public class Waits {
 
     public void waitForElementToBeVisible(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
-        WebElement waitForElement = wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForElementToNotBeVisible(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     public void waitForElementToBeClickable(WebElement element){
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
-        WebElement waitForElement = wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void waitForElementUntilCorrectTextShowUp(WebElement element){
+    public void waitForElementToBeSOMETHING(By by) {
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
-        boolean waitForElement = wait.until(ExpectedConditions.textToBePresentInElement(element, "1 item(s) in cart"));
-    }
-
-    public void waitForItemsInCartToBeChanged(WebElement element){
-        FluentWait wait = new FluentWait(driver).withTimeout(DEFAULT_TIMEOUT_IN_SEC, TimeUnit.SECONDS)
-                .pollingEvery(PULLING_TIMEOUT_IN_SEC, TimeUnit.SECONDS)
-                .ignoring(StaleElementReferenceException.class);
-        wait.until((ExpectedCondition) driver -> (element.getText().equals("1 item(s) in cart")));
+        wait.until(ExpectedConditions.textToBePresentInElement(by, "1 item(s) in cart"));
     }
 
 }

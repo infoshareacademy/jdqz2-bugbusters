@@ -331,8 +331,13 @@ public class HomePage {
     }
 
     public String getTextFromButtonItemsInCart() {
-        waits.waitForItemsInCartToBeChanged(driver.findElement(itemInCartLocator));
+        waitToGetTextFromButtonItemsInCart();
         return buttonItemsInCart.getText();
+    }
+
+    private void waitToGetTextFromButtonItemsInCart() {
+
+        waits.waitForElementToBeSOMETHING(By.id("numItemsInCart"));
     }
 
     public void clickOnLinkHoly(){
