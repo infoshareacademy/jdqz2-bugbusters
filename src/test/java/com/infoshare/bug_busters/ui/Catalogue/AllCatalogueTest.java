@@ -1,7 +1,7 @@
 package com.infoshare.bug_busters.ui.Catalogue;
 
-import com.infoshare.bug_busters.pageObject.CatalogueHomePage;
 import com.infoshare.bug_busters.pageObject.CataloguePage;
+import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ProductPage;
 import org.junit.After;
 import org.junit.Before;
@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AllCatalogueTest {
     private WebDriver driver;
-    private CatalogueHomePage catalogueHomePage;
+    private HomePage homePage;
     private CataloguePage cataloguePage;
     private ProductPage productPage;
     private final String URL=("http://localhost:4180/");
@@ -20,11 +20,11 @@ public class AllCatalogueTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver_Linux64");
         driver = new ChromeDriver();
-        catalogueHomePage = new CatalogueHomePage(driver);
+        homePage = new HomePage(driver);
         cataloguePage = new CataloguePage(driver);
         productPage = new ProductPage(driver);
         driver.get(URL);
-        catalogueHomePage.chooseCatalogue();
+        homePage.chooseCatalogue();
     }
     @Test
     public void addingProductTooCart() {
