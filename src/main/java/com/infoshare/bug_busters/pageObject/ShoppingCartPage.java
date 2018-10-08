@@ -59,6 +59,7 @@ public class ShoppingCartPage {
     private Waits waits;
     private Actions actions;
 
+    private  RandomDataGenerator dataGenerator = new RandomDataGenerator();
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
     private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(dataGenerator);
 
