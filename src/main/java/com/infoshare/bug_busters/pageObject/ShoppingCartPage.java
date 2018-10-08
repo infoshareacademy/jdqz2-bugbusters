@@ -127,7 +127,7 @@ public class ShoppingCartPage {
             itemsInCartButton.click();
         }
     }
-    public void clickdProcedToCheckout() {
+    public void clickProcedToCheckoutandViewButton() {
         proceedToCheckOutButton.click();
         waits.waitForElementToBeClickable(viewButton);
         actions.moveToElement(viewButton).perform();
