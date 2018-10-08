@@ -61,7 +61,7 @@ public class ShoppingCartPage {
 
     private  RandomDataGenerator dataGenerator = new RandomDataGenerator();
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
-    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(dataGenerator);
+    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
 
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
@@ -116,7 +116,7 @@ public class ShoppingCartPage {
     }
 
     public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshed(itemsInCartButton);
+        waits.waitForElementToBeRefreshedOne(itemsInCartButton.getText(), "You currently have 1 item(s) in your cart." );
         return itemsInCartButton.getText();
     }
 
