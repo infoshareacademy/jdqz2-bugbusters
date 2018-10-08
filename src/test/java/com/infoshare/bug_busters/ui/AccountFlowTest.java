@@ -28,7 +28,6 @@ public class AccountFlowTest {
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
         driver.get(URL);
-
     }
     @After
     public void tearDown() {
