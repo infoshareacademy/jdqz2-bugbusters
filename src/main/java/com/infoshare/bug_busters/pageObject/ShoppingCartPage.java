@@ -116,9 +116,18 @@ public class ShoppingCartPage {
     }
 
     public String getTextFromButtonItemsInCart() {
-        waits.waitForElementToBeRefreshedOne(itemsInCartButton.getText(), "You currently have 1 item(s) in your cart." );
+        waits.waitForTextInElementToBePresent(By.id("numItemsInCart"));
         return itemsInCartButton.getText();
     }
+
+
+
+
+
+   /* public String getTextFromButtonItemsInCart() {
+        waits.waitForTextInElementToBePresent(itemsInCartButton.getText(), "You currently have 1 item(s) in your cart." );
+        return itemsInCartButton.getText();
+    }*/
 
     public void clickOnIteamsInCartButton() {
         try {

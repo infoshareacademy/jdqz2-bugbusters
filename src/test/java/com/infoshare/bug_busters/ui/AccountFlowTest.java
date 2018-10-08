@@ -43,9 +43,7 @@ public class AccountFlowTest {
         shoppingCartPage.clickOnIteamsInCartButton();
         shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod();
         shoppingCartPage.addOnlyOneProductColorFulltoToCartFromShoppingCartPage();
-        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item not added").isEqualTo("You currently have 1 item(s) in your cart.");
-                //.as("Item was not added to shopping cart")
-                //.isBetween("0 items in cart", "You currently have 1 item(s) in your cart.");
+        Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item not added").isEqualTo("1 item(s) in cart");
         shoppingCartPage.clickdProcedToCheckout();
         Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                 .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
