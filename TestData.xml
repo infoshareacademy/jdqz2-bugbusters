@@ -1,12 +1,33 @@
 <TestData>
-    <UserData username="tutorgatorade" firstName="Lydia" lastName="Rocha" email="lydiarocha@gmail.com" password="aDJMhJJN" houseNumber="84" streetName="Herzi Street" city="San Francisco" postCode="08537" country="Australia"/>
-    <UserData username="candidatecaviar" firstName="Madelyn" lastName="Gomez" email="madelyngomez@gmail.com" password="Ucv99JO4" houseNumber="168" streetName="Summer Place" city="Miami" postCode="54083" country="Canada"/>
-    <UserData username="travelericecream" firstName="Evelyn" lastName="Mccarthy" email="evelynmccarthy@yahoo.com" password="xz0hY5V0" houseNumber="192" streetName="Stillwell Avenue" city="Washington" postCode="86355" country="Austria"/>
-    <UserData username="examinercrackers" firstName="Anthony" lastName="Tanner" email="anthonytanner@mail.com" password="yAjSBHNK" houseNumber="12" streetName="Washington Walk" city="New York" postCode="72307" country="Poland"/>
-    <UserData username="techniciantruffle" firstName="Michael" lastName="Jordan" email="wilson@mail.com" password="oEoS5CJg" houseNumber="997" streetName="Stillwell Avenue" city="Oklahoma City" postCode="82057" country="Australia"/>
-    <UserData username="consultantmilkshakes" firstName="Gabriella" lastName="Merritt" email="gabriella.merritt@yahoo.com" password="XnKxe7fE" houseNumber="33" streetName="Ford Street" city="Clevelend" postCode="30273" country="France"/>
-    <UserData username="physiciancoconut" firstName="Avery" lastName="Frank" email="averyfrank@gmail.com" password="QDkGi1dF" houseNumber="92" streetName="Aster Court" city="Ciechocinek" postCode="88686" country="Spain"/>
-    <UserData username="plumbertacos" firstName="Kayla" lastName="Mullins" email="kayla.mullins@gmail.com" password="kYuvFtZS" houseNumber="123" streetName="Grunwaldzka" city="Oxford" postCode="35582" country="Greece"/>
-    <UserData username="policemandoughnut" firstName="Naomi" lastName="Small" email="naomismall@yahoo.com" password="HgNRWfSV" houseNumber="45" streetName="Cove Lane" city="Boston" postCode="73823" country="Argentina"/>
-    <UserData username="programmercake" firstName="Madison" lastName="Ross" email="madisonross@mail.com" password="nJwu6OjU" houseNumber="79" streetName="Highland Place" city="Chicago" postCode="02211" country="Portugal"/>
+    <UserData1 userName="tutorgatorade" firstName="Lydia" lastName="Rocha" email="lydiarocha@gmail.com" password="aDJMhJJN"/>
+    <UserData2 userName="candidatecaviar" firstName="Madelyn" lastName="Gomez" email="madelyngomez@gmail.com" password="Ucv99JO4"/>
+    <UserData3 userName="travelericecream" firstName="Evelyn" lastName="Mccarthy" email="evelynmccarthy@yahoo.com" password="xz0hY5V0"/>
+    <UserData4 userName="examinercrackers" firstName="Anthony" lastName="Tanner" email="anthonytanner@mail.com" password="yAjSBHNK"/>
+    <UserData5 userName="techniciantruffle" firstName="Michael" lastName="Jordan" email="wilson@mail.com" password="oEoS5CJg"/>
+    <UserData6 userName="consultantmilkshakes" firstName="Gabriella" lastName="Merritt" email="gabriella.merritt@yahoo.com" password="XnKxe7fE"/>
+    <UserData7 userName="physiciancoconut" firstName="Avery" lastName="Frank" email="averyfrank@gmail.com" password="QDkGi1dF"/>
+    <UserData8 userName="plumbertacos" firstName="Kayla" lastName="Mullins" email="kayla.mullins@gmail.com" password="kYuvFtZS"/>
+    <UserData9 userName="policemandoughnut" firstName="Naomi" lastName="Small" email="naomismall@yahoo.com" password="HgNRWfSV"/>
+    <UserData10 userName="programmercake" firstName="Madison" lastName="Ross" email="madisonross@mail.com" password="nJwu6OjU"/>
+    <ShippingData1 houseNumber="84" streetName="Herzi Street" city="San Francisco" postCode="08537" country="Australia"/>
+    <ShippingData2 houseNumber="168" streetName="Summer Place" city="Miami" postCode="54083" country="Canada"/>
+    <ShippingData3 houseNumber="192" streetName="Stillwell Avenue" city="Washington" postCode="86355" country="Austria"/>
+    <ShippingData4 houseNumber="12" streetName="Washington Walk" city="New York" postCode="72307" country="Poland"/>
+    <ShippingData5 houseNumber="997" streetName="Stillwell Avenue" city="Oklahoma City" postCode="82057" country="Australia"/>
+    <ShippingData6 houseNumber="33" streetName="Ford Street" city="Clevelend" postCode="30273" country="France"/>
+    <ShippingData7 houseNumber="92" streetName="Aster Court" city="Ciechocinek" postCode="88686" country="Spain"/>
+    <ShippingData8 houseNumber="123" streetName="Grunwaldzka" city="Oxford" postCode="35582" country="Greece"/>
+    <ShippingData9 houseNumber="45" streetName="Cove Lane" city="Boston" postCode="73823" country="Argentina"/>
+    <ShippingData10 houseNumber="79" streetName="Highland Place" city="Chicago" postCode="02211" country="Portugal"/>
+    <PaymentData1 cardNumber="" expires="" ccv=""/>
+    <PaymentData2 cardNumber="" expires="" ccv=""/>
+    <PaymentData3 cardNumber="" expires="" ccv=""/>
+    <PaymentData4 cardNumber="" expires="" ccv=""/>
+    <PaymentData5 cardNumber="" expires="" ccv=""/>
+    <PaymentData6 cardNumber="" expires="" ccv=""/>
+    <PaymentData7 cardNumber="" expires="" ccv=""/>
+    <PaymentData8 cardNumber="" expires="" ccv=""/>
+    <PaymentData9 cardNumber="" expires="" ccv=""/>
+    <PaymentData10 cardNumber="" expires="" ccv=""/>
+
 </TestData>
