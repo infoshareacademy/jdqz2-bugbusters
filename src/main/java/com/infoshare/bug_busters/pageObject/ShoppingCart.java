@@ -21,7 +21,7 @@ public class ShoppingCart {
     private WebElement catalogueDropDownList;
 
     @FindBy(xpath = "//tbody[@id='cart-list']//tr//td[2]")
-    private List<WebElement> listOfSocksinTheCartOnlyName;
+    private List<WebElement> listOfSockNamesInCart;
 
     @FindBy(id = "cartTotal")
     private WebElement totalAmountToPay;
@@ -58,8 +58,8 @@ public class ShoppingCart {
     public List<String> forAssertionForAll_9_ProductsAdded() {
         List<String> allProducts = new ArrayList<>();
 
-        for (int i = 0 ; i < listOfSocksinTheCartOnlyName.size() ; i++){
-            allProducts.add(listOfSocksinTheCartOnlyName.get(i).getText());
+        for (WebElement element : listOfSockNamesInCart){
+            allProducts.add(listOfSockNamesInCart.get(listOfSockNamesInCart.indexOf(element)).getText());
         }
 
         return allProducts;
@@ -89,11 +89,8 @@ public class ShoppingCart {
         itemsInCartButton.click();
         try {
             waits.waitForElementToBeClickable(itemsInCartButton);
-            if(listOfSocksinTheCartOnlyName.size()>0){
-                listOfTrashButton.forEach((it) -> {
-                    waits.waitForElementToBeVisibleByLocator(firstElementLocator);
-                    listOfTrashButton.get(0).click();
-                });
+            if(listOfSockNamesInCart.size()>0){
+                deleteAllProductsFromBasket();
             }
         }
         catch (Exception e) {
@@ -101,6 +98,6 @@ public class ShoppingCart {
         }
     }
     public int numberOfItemsInCartBasket() {
-        return listOfSocksinTheCartOnlyName.size();
+        return listOfSockNamesInCart.size();
     }
 }

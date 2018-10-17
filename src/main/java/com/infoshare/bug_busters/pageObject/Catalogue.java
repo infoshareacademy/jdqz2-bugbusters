@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Catalogue {
 
@@ -28,6 +27,7 @@ public class Catalogue {
 
     private WebDriver driver;
     private Waits waits;
+    int numberOfItemsInCart = 0 ;
 
     public Catalogue(WebDriver driver){
         this.driver = driver;
@@ -46,12 +46,10 @@ public class Catalogue {
 
     public void addingAll_9_Products() {
 
-        AtomicInteger numberOfItemsInCart = new AtomicInteger();
         listforAddSocksButton.forEach((it) -> {
-
-            listforAddSocksButton.get(numberOfItemsInCart.get()).click();
-            waits.waitForElementToContainProperString(itemsInCartButton, String.format("%s item(s) in cart", numberOfItemsInCart.get() +1));
-            numberOfItemsInCart.getAndIncrement();
+            listforAddSocksButton.get(numberOfItemsInCart).click();
+            waits.waitForElementToContainProperString(itemsInCartButton, String.format("%s item(s) in cart", numberOfItemsInCart + 1 ));
+            numberOfItemsInCart++;
         });
     }
 

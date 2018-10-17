@@ -10,6 +10,7 @@ import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -30,20 +31,21 @@ public class UpdateShopingCartTest {
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
-    private static boolean isUserCreated = false;
+    private static boolean setUserCreated = false;
 
     private static UserData userData;
 
-    static {
+    private boolean isUserCreated() {
+        return this.setUserCreated = true;
+    }
+
+    @BeforeClass
+    public static void setUpUser() throws IOException {
         try {
             userData = userDataGenerator.prepareUserData();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    private boolean isUserCreated() {
-        return this.isUserCreated = true;
     }
 
     @Before
@@ -55,13 +57,12 @@ public class UpdateShopingCartTest {
         shoppingCart = new ShoppingCart(driver);
         catalogue = new Catalogue(driver);
 
-        if(!isUserCreated){
+        if(!setUserCreated){
             driver.get(PAGE_URL);
             homePage.registrationSteps(userData);
             isUserCreated();
             homePage.waitsWhenLogout();
         }
-
 
     }
 
@@ -72,7 +73,7 @@ public class UpdateShopingCartTest {
     }
 
     @Test
-    public void addingAllpossibleproducts() {
+    public void addingAllPossibleProducts() {
         driver.get(PAGE_URL);
         homePage.loginSteps(userData);
         homePage.clickItemsInCartButton();
@@ -85,9 +86,9 @@ public class UpdateShopingCartTest {
 
     }
     @Test
-    public void changingquantityatonceinallproducts() {
+    public void changingQuantityAtOnceInAllProducts() {
         driver.get(PAGE_URL);
-        addingAllpossibleproducts();
+        addingAllPossibleProducts();
         String costBeforeChanginfQuantity = shoppingCart.costOfOrder();
         shoppingCart.changingQuantity();
         assertThat(shoppingCart.costOfOrder()).isNotEqualTo(costBeforeChanginfQuantity).as("The cart is not Updated");
@@ -95,7 +96,7 @@ public class UpdateShopingCartTest {
     @Test
     public void DeleteAll_9_products() {
         driver.get(PAGE_URL);
-        addingAllpossibleproducts();
+        addingAllPossibleProducts();
         shoppingCart.deleteAllProductsFromBasket();
         assertThat(shoppingCart.numberOfItemsInCartBasket()).isEqualTo(0).as("There are still items in basket");
     }
