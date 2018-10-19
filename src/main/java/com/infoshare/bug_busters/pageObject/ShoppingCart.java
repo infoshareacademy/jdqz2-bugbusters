@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,8 @@ public class ShoppingCart {
     private WebDriver driver;
     private Waits waits;
     private By firstElementLocator = By.xpath("//tbody[@id='cart-list']//tr//td[7]//a[1]");
+
+    private static Logger logger = LoggerFactory.getLogger(ShoppingCart.class);
 
     public ShoppingCart(WebDriver driver){
         this.driver = driver;
@@ -95,6 +99,7 @@ public class ShoppingCart {
         }
         catch (Exception e) {
             System.out.println("Cart is already empty");
+            logger.info("Cart is already empty");
         }
     }
     public int numberOfItemsInCartBasket() {
