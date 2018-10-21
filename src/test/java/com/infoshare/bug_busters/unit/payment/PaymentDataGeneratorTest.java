@@ -2,6 +2,7 @@ package com.infoshare.bug_busters.unit.payment;
 
 import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
+import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.junit.Test;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class PaymentDataGeneratorTest {
-    PaymentDataGenerator paymentGeneratorApp = new PaymentDataGenerator();
+    PaymentDataGenerator paymentGeneratorApp = new PaymentDataGenerator(new RandomDataGenerator());
 
     @Test
     public void preparePaymentsAndPatternMatchTest() {
