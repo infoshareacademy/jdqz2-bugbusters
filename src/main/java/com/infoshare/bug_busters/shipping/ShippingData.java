@@ -8,24 +8,24 @@ public class ShippingData {
     private String postCode;
     private String country;
 
-    public void setHouseNumber(Integer houseNumber) {
-        this.houseNumber = houseNumber;
+    public Integer getHouseNumber() {
+        return houseNumber;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public String getStreetName() {
+        return streetName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getCity() {
+        return city;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    public String getPostCode() {
+        return postCode;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public String getCountry() {
+        return country;
     }
 
     public ShippingData(Integer houseNumber, String streetName, String city, String postCode, String country) {

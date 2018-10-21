@@ -7,14 +7,29 @@ import java.io.IOException;
 
 public class ShippingDataGenerator {
 
-    public static ShippingData prepareShippingData() throws IOException {
 
-        Integer houseNumber = RandomDataGenerator.prepareHouseNumber();
-        String streetName = RandomDataGenerator.prepareStreetName();
-        String city = RandomDataGenerator.prepareCity() ;
-        String postCode = RandomDataGenerator.preparePostCode();
-        String country = RandomDataGenerator.prepareCountry();
+    public ShippingDataGenerator(RandomDataGenerator randomDataGenerator) {
+    }
 
+    public static ShippingData prepareShippingData() {
+
+        Integer houseNumber = null;
+        String streetName = null;
+        String city = null;
+        String postCode = null;
+        String country = null;
+
+
+        try {
+            houseNumber = RandomDataGenerator.prepareHouseNumber();
+            streetName = RandomDataGenerator.prepareStreetName();
+            city = RandomDataGenerator.prepareCity();
+            postCode = RandomDataGenerator.preparePostCode();
+            country = RandomDataGenerator.prepareCountry();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }
 }
