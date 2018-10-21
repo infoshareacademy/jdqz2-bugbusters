@@ -1,4 +1,4 @@
-package com.infoshare.bug_busters.ui.Catalogue;
+package com.infoshare.bug_busters.ui;
 
 import com.infoshare.bug_busters.pageObject.CataloguePage;
 import com.infoshare.bug_busters.pageObject.HomePage;

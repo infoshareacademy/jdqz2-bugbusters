@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console">
+            <ThresholdFilter level="INFO"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="MyFile" fileName="logs/app.log">
+            <ThresholdFilter level="INFO"/>
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="root" level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="MyFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>
