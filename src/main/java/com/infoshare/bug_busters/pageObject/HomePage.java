@@ -85,6 +85,15 @@ public class HomePage {
         waits.waitForElementToBeVisible(loginButton);
     }
 
+    public void loginSteps(UserData userData) {
+        loginButton.click();
+        waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
+        loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
+        passwordFieldInLoginWindow.sendKeys(userData.getPassword());
+        loginButtonInLoginWindow.click();
+        waits.waitForElementToBeVisible(logoutButton);
+    }
+
     public void registrationSteps(UserData userData) {
 
         registerButton.click();
