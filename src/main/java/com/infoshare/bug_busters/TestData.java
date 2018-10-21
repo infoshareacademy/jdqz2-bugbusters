@@ -20,6 +20,15 @@ public class TestData {
     List<PaymentData> paymentData;
 
 
+    public List<UserData> getUserData() {
+        return userData;
+    }
 
+    public List<ShippingData> getShippingData() {
+        return shippingData;
+    }
 
+    public List<PaymentData> getPaymentData() {
+        return paymentData;
+    }
 }

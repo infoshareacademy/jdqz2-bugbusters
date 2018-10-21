@@ -1,6 +1,12 @@
 package com.infoshare.bug_busters.payment;
 
+import com.infoshare.bug_busters.TestData;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +35,15 @@ public class PaymentDataGenerator {
         return paymentsData;
 
     }
+    public List<PaymentData> getDataFromXml() throws JAXBException {
+        JAXBContext jc = JAXBContext.newInstance(TestData.class);
+
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        TestData testData = (TestData) unmarshaller.unmarshal(new File("/jdqz2-bugbusters/TestData.xml"));
+        return testData.getPaymentData();
+    }
 
 
 
-}
+
+    }
