@@ -342,13 +342,8 @@ public class HomePage {
     }
 
     public String getTextFromButtonItemsInCart() {
-        waitToGetTextFromButtonItemsInCart();
+        waits.waitForTextInElementToBePresent(By.id("numItemsInCart"));
         return buttonItemsInCart.getText();
-    }
-
-    private void waitToGetTextFromButtonItemsInCart() {
-
-        waits.waitForElementToBeSOMETHING(By.id("numItemsInCart"));
     }
 
     public void clickOnLinkHoly(){

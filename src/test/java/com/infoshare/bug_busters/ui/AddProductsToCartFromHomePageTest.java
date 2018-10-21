@@ -28,8 +28,6 @@ public class AddProductsToCartFromHomePageTest {
         driver.get("http://localhost:4180/");
     }
 
-    //testy napisane dobrze ale czasmi przechodza a czasami nie
-    //problem z odczytaniem textu z przycisku items in cart
     @Test
     public void addingToCartHollySocksByClickInLinkFromHomePage(){
         homePage.clickOnLinkHoly();

@@ -21,14 +21,9 @@ public class Waits {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForElementToBeClickable(WebElement element){
+    public void waitForElementToBeClickable(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
         wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
-
-    public void waitForElementToBeSOMETHING(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
-        wait.until(ExpectedConditions.textToBePresentInElement(by, "1 item(s) in cart"));
     }
 
     public void waitForTextInElementToBePresent(By by) {
@@ -38,9 +33,6 @@ public class Waits {
 
     public void waitForElementToBeRefreshed(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT);
-        WebElement waitForElement = wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(element)));
     }
-
 }
-
-
