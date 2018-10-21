@@ -58,6 +58,9 @@ public class HomePage {
     @FindBy(xpath = "//img[@class='hidden-xs']")
     private WebElement logoElement;
 
+    @FindBy(xpath = "//a[@class='btn btn-primary navbar-btn']")
+    private WebElement itemsInCartButton;
+
     private WebDriver driver;
     private Waits waits;
     private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
@@ -82,6 +85,15 @@ public class HomePage {
         waits.waitForElementToBeVisible(loginButton);
     }
 
+    public void loginSteps(UserData userData) {
+        loginButton.click();
+        waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
+        loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
+        passwordFieldInLoginWindow.sendKeys(userData.getPassword());
+        loginButtonInLoginWindow.click();
+        waits.waitForElementToBeVisible(logoutButton);
+    }
+
     public void registrationSteps(UserData userData) {
 
         registerButton.click();
@@ -93,6 +105,12 @@ public class HomePage {
         passwordFieldInRegistration.sendKeys(userData.getPassword());
         registerinPopUpWindowButton.click();
 
+    }
+
+    public void clickItemsInCartButton() {
+        itemsInCartButton.click();
+        ShoppingCart shoppingCart = new ShoppingCart(driver);
+        waits.waitForElementToBeVisible(shoppingCart.shoppingCartText);
     }
 
     public void registerUserWithDataGeneratorMethod() throws IOException {
