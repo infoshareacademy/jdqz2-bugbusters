@@ -61,7 +61,7 @@ public class ShoppingCart {
 
     public List<String> forAssertionForAll_9_ProductsAdded() {
         List<String> allProducts = new ArrayList<>();
-
+        waits.waitForElementToBeClickable(updateBasketButton);
         for (WebElement element : listOfSockNamesInCart){
             allProducts.add(listOfSockNamesInCart.get(listOfSockNamesInCart.indexOf(element)).getText());
         }
