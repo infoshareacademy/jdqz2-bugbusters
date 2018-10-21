@@ -1,11 +1,18 @@
 package com.infoshare.bug_busters.shipping;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 public class ShippingData {
 
+    @XmlAttribute
     private Integer houseNumber;
+    @XmlAttribute
     private String streetName;
+    @XmlAttribute
     private String city;
+    @XmlAttribute
     private String postCode;
+    @XmlAttribute
     private String country;
 
     public void setHouseNumber(Integer houseNumber) {
