@@ -7,28 +7,36 @@ import java.util.List;
 
 public class PaymentDataGenerator {
 
-    public PaymentData preparePayments() {
+    private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
 
-        String CardRandomString = RandomDataGenerator.CardNumberRandom();
-        String CardExpiresString = RandomDataGenerator.Expires();
-        String randomCCVString = RandomDataGenerator.RandomCCV();
-
-        return new PaymentData(CardRandomString, CardExpiresString, randomCCVString);
-
+    public PaymentDataGenerator(RandomDataGenerator dataGenerator) {
+        this.dataGenerator = dataGenerator;
     }
 
-    public List<PaymentData> safeToCollection() {
 
-        Integer iloscDanych = 10;
+    public PaymentData preparePayments () {
 
-        List<PaymentData> paymentsData = new ArrayList<>();
+            String CardRandomString = RandomDataGenerator.CardNumberRandom();
+            String CardExpiresString = RandomDataGenerator.Expires();
+            String randomCCVString = RandomDataGenerator.RandomCCV();
 
-        for (int i = 1; i <= iloscDanych; i++) {
-            paymentsData.add(preparePayments());
+            return new PaymentData(CardRandomString, CardExpiresString, randomCCVString);
+
         }
 
-        return paymentsData;
+        public List<PaymentData> safeToCollection () {
+
+            Integer iloscDanych = 10;
+
+            List<PaymentData> paymentsData = new ArrayList<>();
+
+            for (int i = 1; i <= iloscDanych; i++) {
+                paymentsData.add(preparePayments());
+            }
+
+            return paymentsData;
+
+        }
 
     }
 
-}

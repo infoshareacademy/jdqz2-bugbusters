@@ -166,13 +166,19 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     private WebElement alertRegistration;
 
+    @FindBy(xpath = "//a[@class='dropdown-toggle']")
+    private WebElement labelCatalogue;
+
+    @FindBy(xpath = "//img[@class='hidden-xs']")
+    private WebElement logoElement;
+
     private WebDriver driver;
     private Waits waits;
     private Actions actions;
 
     private UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(driver);
         actions = new Actions(driver);
@@ -241,6 +247,11 @@ public class HomePage {
         loginButtonInLoginWindow.click();
         waits.waitForElementToBeVisible(logoutButton);
 
+    }
+    public void chooseCatalogue() {
+        waits.waitForElementToBeVisible(labelCatalogue);
+        waits.waitForElementToBeClickable(labelCatalogue);
+        labelCatalogue.click();
     }
 
     public void clickOnLinkLogin() {linkLogin.click();}
