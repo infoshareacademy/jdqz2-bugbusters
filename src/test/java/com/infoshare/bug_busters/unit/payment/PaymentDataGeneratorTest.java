@@ -4,10 +4,8 @@ import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.junit.Test;
-
 import java.util.List;
 import java.util.regex.Pattern;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

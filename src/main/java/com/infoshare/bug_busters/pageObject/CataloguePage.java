@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CataloguePage {
     private WebDriver driver;
     private Waits waits;
+
     @FindBy(xpath = "//ul[@class='breadcrumb']")
     private WebElement confirmCatalogue;
     @FindBy(id = "products-number")
@@ -43,6 +44,8 @@ public class CataloguePage {
         waits = new Waits(driver);
         PageFactory.initElements(driver, this);
     }
+
+
     public void checkingThreeElementsOnCatalogue() {
         showElements(product3);
     }
@@ -83,8 +86,70 @@ public class CataloguePage {
         waits.waitForElementToBeVisible(product3);
         product3.click();
     }
+
+
+    @FindBy(xpath = "//ul[@class='breadcrumb']//li[text()='Catalogue']")
+    private WebElement catalogueTextOnPageCatalogue;
+
+    @FindBy(xpath = "//input[@value='blue']")
+    private WebElement blueCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='brown']")
+    private WebElement brownCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='green']")
+    private WebElement greenCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='magic']")
+    private WebElement magicCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='formal']")
+    private WebElement formalCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='sport']")
+    private WebElement sportCheckboxInFiltersFromCatalogue;
+
+    @FindBy(xpath = "//input[@value='action']")
+    private WebElement actionCheckboxInFiltersFromCatalogue;
+
+
+    public String getTextFromCataloguePage(){
+        waits.waitForElementToBeVisible(catalogueTextOnPageCatalogue);
+        return catalogueTextOnPageCatalogue.getText();
+    }
+
+    public boolean checkIfBlueCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(blueCheckboxInFiltersFromCatalogue);
+        return blueCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfBrownCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(brownCheckboxInFiltersFromCatalogue);
+        return brownCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfGreenCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(greenCheckboxInFiltersFromCatalogue);
+        return greenCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfMagicCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(magicCheckboxInFiltersFromCatalogue);
+        return magicCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfFormalCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(formalCheckboxInFiltersFromCatalogue);
+        return formalCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfSportCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(sportCheckboxInFiltersFromCatalogue);
+        return sportCheckboxInFiltersFromCatalogue.isSelected();
+    }
+
+    public boolean checkIfActionCheckboxIsChecked(){
+        waits.waitForElementToBeVisible(actionCheckboxInFiltersFromCatalogue);
+        return actionCheckboxInFiltersFromCatalogue.isSelected();
+    }
 }
-
-
-
-

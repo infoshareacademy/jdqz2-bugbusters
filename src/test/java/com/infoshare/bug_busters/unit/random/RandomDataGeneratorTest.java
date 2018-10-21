@@ -3,9 +3,7 @@ package com.infoshare.bug_busters.unit.random;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
-
 import java.util.regex.Pattern;
-
 import static org.junit.Assert.assertTrue;
 
 public class RandomDataGeneratorTest {

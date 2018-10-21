@@ -1,4 +1,8 @@
 package com.infoshare.bug_busters.pageObject;
+
+import com.infoshare.bug_busters.utils.Waits;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
@@ -12,7 +16,34 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class ShoppingCartPage {
+
+    @FindBy (xpath = "//h1[text()='Shopping cart']")
+    WebElement textFromHeadingShoppingCart;
+
+    private WebDriver driver;
+    private Waits waits;
+    private Actions actions;
+
+    private RandomDataGenerator dataGenerator = new RandomDataGenerator();
+    private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
+    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
+
+    public ShoppingCartPage(WebDriver driver) {
+        this.driver = driver;
+        actions = new Actions(driver);
+        waits = new Waits(driver);
+        PageFactory.initElements(driver, this);
+    }
+
+    public String getTextFromHeadingShippingCart() {
+        waits.waitForElementToBeVisible(textFromHeadingShoppingCart);
+        return textFromHeadingShoppingCart.getText();
+    }
+
+
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
     private WebElement textShoppingCart;
     @FindBy(xpath = "//h1[contains(text(),'Shopping cart')]")
@@ -55,20 +86,7 @@ public class ShoppingCartPage {
     private WebElement viewButton;
     @FindBy(xpath = "//i[@class='fa fa-trash-o']")
     private WebElement deleteRubishBinIcon;
-    private WebDriver driver;
-    private Waits waits;
-    private Actions actions;
 
-    private  RandomDataGenerator dataGenerator = new RandomDataGenerator();
-    private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
-    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
-
-    public ShoppingCartPage(WebDriver driver) {
-        this.driver = driver;
-        actions = new Actions(driver);
-        waits = new Waits(driver);
-        PageFactory.initElements(driver, this);
-    }
 
     public void shippingAdressSteps(ShippingData shippingData) {
         changeButtonShippingAdress.click();
@@ -81,7 +99,7 @@ public class ShoppingCartPage {
         updateButtonShippingAddress.click();
         waits.waitForElementToBeVisible(changePaymentButton);
     }
-    public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod()  {
+    public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod() throws IOException {
         shippingAdressSteps(shippingDataGenerator.prepareShippingData());
         addinPaymentsSteps(paymentDataGenerator.preparePayments());
     }
