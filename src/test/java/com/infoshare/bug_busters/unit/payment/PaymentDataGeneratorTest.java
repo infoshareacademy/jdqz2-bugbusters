@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class PaymentDataGeneratorTest {
-    PaymentDataGenerator paymentGeneratorApp = new PaymentDataGenerator(new RandomDataGenerator());
+    PaymentDataGenerator paymentGeneratorApp = new PaymentDataGenerator();
 
     @Test
     public void preparePaymentsAndPatternMatchTest() {
