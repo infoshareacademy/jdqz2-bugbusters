@@ -2,6 +2,7 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
+import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.assertj.core.api.Assertions;
@@ -35,8 +36,8 @@ public class AccountFlowTest {
     }
 
     @Test
-    public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks() throws IOException {
-        homePage.loginUserAfterRegistration();
+    public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks(UserData userData) throws IOException {
+        homePage.loginUserAfterRegistrationWithDDT(userData);
         Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
