@@ -29,8 +29,8 @@ public class ShoppingCartPage {
 
     private RandomDataGenerator dataGenerator = new RandomDataGenerator();
     private ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
-    private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
-
+    //private PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator(new RandomDataGenerator());
+    PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator();
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
         actions = new Actions(driver);

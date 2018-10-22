@@ -7,11 +7,11 @@ import java.util.List;
 
 public class PaymentDataGenerator {
 
-    private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
+   /* private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
 
-    public PaymentDataGenerator(RandomDataGenerator dataGenerator) {
+   // public PaymentDataGenerator(RandomDataGenerator dataGenerator) {
         this.dataGenerator = dataGenerator;
-    }
+    }*/
 
 
     public PaymentData preparePayments () {
