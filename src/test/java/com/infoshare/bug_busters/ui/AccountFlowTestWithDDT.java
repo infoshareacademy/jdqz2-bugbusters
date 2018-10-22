@@ -27,6 +27,8 @@ public class AccountFlowTestWithDDT {
     private WebDriver driver;
 
     private HomePage homePage;
+    private ShoppingCartPage shoppingCartPage;
+
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
     private static ShippingDataGenerator shippingDataGenerator = new ShippingDataGenerator(new RandomDataGenerator());
@@ -53,6 +55,7 @@ public class AccountFlowTestWithDDT {
             shoppingCartPage = new ShoppingCartPage(driver);
             driver.get(URL);
         }
+
         @After
         public void tearDown () {
             driver.close();

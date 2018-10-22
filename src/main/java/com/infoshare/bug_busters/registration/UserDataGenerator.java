@@ -15,7 +15,7 @@ public class UserDataGenerator {
     //konstruktor ktory trzeba stworzyc z polem dataGenerator typu RandomDataGenerator, zeby w metodzie prepareUserData() nie bylo
                 // na sztywno wywolania RandomDataGenerator.prepareUserName()
 
-    public UserData prepareUserData() throws IOException {
+    public com.infoshare.bug_busters.ui.DDTGeneratoData[] prepareUserData() throws IOException {
 
         String userName = dataGenerator.prepareUserName();
         String firstName = dataGenerator.prepareFirstName();
