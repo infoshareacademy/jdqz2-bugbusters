@@ -35,6 +35,20 @@ public class RegistrationAndLoginWithDDT_Test {
                 new UserData[] { userDataGenerator.prepareUserData() },
         };
     }
+    @DataProvider
+    public static Object[][] testDataForRegistrationTwiceWithTheSameData() throws IOException {
+        return new UserData[][] {
+                new UserData[] { userDataGenerator.prepareUserData() },
+                new UserData[] { userDataGenerator.prepareUserData() },
+        };
+    }
+    @DataProvider
+    public static Object[][] testDataForLoginAfterRegistration() throws IOException {
+        return new UserData[][] {
+                new UserData[] { userDataGenerator.prepareUserData() },
+                new UserData[] { userDataGenerator.prepareUserData() },
+        };
+    }
 
     @Before
     public void setUp() {
@@ -58,14 +72,14 @@ public class RegistrationAndLoginWithDDT_Test {
     }
 
     @Test
-    @UseDataProvider("testDataForRegistration")
+    @UseDataProvider("testDataForRegistrationTwiceWithTheSameData")
     public void registrationTwiceWithTheSameData(UserData userData) {
         homePage.registerUserTwiceWithTheSameDataWithDDT(userData);
         assertThat(homePage.alertRegistration().contains("There was a problem with your registration: Internal Server Error")).as("Alert is not show after creating two indentical accounts");
     }
 
     @Test
-    @UseDataProvider("testDataForRegistration")
+    @UseDataProvider("testDataForLoginAfterRegistration")
     public void loginAfterRegistration(UserData userData) {
         homePage.loginUserAfterRegistrationWithDDT(userData);
         assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
