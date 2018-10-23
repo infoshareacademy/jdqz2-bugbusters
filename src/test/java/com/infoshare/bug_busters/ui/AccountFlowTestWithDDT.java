@@ -4,13 +4,16 @@ import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
+import com.infoshare.bug_busters.random.DdtDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
@@ -25,7 +28,7 @@ public class AccountFlowTestWithDDT {
     private static final String PAGE_URL = "http://localhost:4180/";
 
     private WebDriver driver;
-
+    private AccountPage accountPage;
     private HomePage homePage;
     private ShoppingCartPage shoppingCartPage;
 
@@ -35,15 +38,14 @@ public class AccountFlowTestWithDDT {
     private static PaymentDataGenerator paymentDataGenerator = new PaymentDataGenerator();
 
     @DataProvider
-    public static Object[][] DDTObject() throws IOException {
-        return new DDTGeneratoData[][]{
-                new DDTGeneratoData[][]{userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()};
+    public static Object[][]TestDataForFLowTest() throws IOException {
+        return new DdtDataGenerator[][]{
+                new DdtDataGenerator[]{userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()
 
+                }
+        };
+    }
 
-        private WebDriver driver;
-        private HomePage homePage;
-        private AccountPage accountPage;
-        private ShoppingCartPage shoppingCartPage;
         private final String URL = ("http://localhost:4180/");
 
         @Before
@@ -62,8 +64,9 @@ public class AccountFlowTestWithDDT {
         }
 
         @Test
-        public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks () throws IOException {
-            homePage.loginUserAfterRegistration();
+        @UseDataProvider("TestDataForFLowTest")
+        public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks (UserData userData) throws IOException {
+            homePage.loginUserAfterRegistrationWithDdt(userData);
             Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
             accountPage.clickOnLabelAccount();
             shoppingCartPage.clickOnIteamsInCartButton();
@@ -76,6 +79,4 @@ public class AccountFlowTestWithDDT {
         }
     }
 
-    }
-}
 

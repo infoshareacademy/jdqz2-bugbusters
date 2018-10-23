@@ -252,19 +252,22 @@ public class HomePage {
 
     public void loginUserAfterRegistration() throws IOException {
 
-        UserData userData = userDataGenerator.prepareUserData();
+     UserData userData= userDataGenerator.prepareUserData();
 
         registrationSteps(userData);
 
         waitsWhenLogout();
 
-        loginButton.click();
-        waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
-        loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
-        passwordFieldInLoginWindow.sendKeys(userData.getPassword());
-        loginButtonInLoginWindow.click();
-        waits.waitForElementToBeVisible(logoutButton);
+        loginSteps(userData);
+    }  public void loginUserAfterRegistrationWithDdt() throws IOException {
 
+     UserData userData= userDataGenerator.prepareUserData();
+
+        registrationSteps(userData);
+
+        waitsWhenLogout();
+
+        loginSteps(userData);
     }
     public void chooseCatalogue() {
         waits.waitForElementToBeVisible(labelCatalogue);

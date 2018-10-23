@@ -1,6 +1,8 @@
 package com.infoshare.bug_busters.registration;
 
+import com.infoshare.bug_busters.random.DdtDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,19 +15,31 @@ public class UserDataGenerator {
         this.dataGenerator = dataGenerator;
     }
     //konstruktor ktory trzeba stworzyc z polem dataGenerator typu RandomDataGenerator, zeby w metodzie prepareUserData() nie bylo
-                // na sztywno wywolania RandomDataGenerator.prepareUserName()
+    // na sztywno wywolania RandomDataGenerator.prepareUserName()
 
-    public com.infoshare.bug_busters.ui.DDTGeneratoData[] prepareUserData() throws IOException {
+    public DdtDataGenerator prepareUserData() {
 
-        String userName = dataGenerator.prepareUserName();
-        String firstName = dataGenerator.prepareFirstName();
-        String lastName = dataGenerator.prepareLastName() ;
-        String email = dataGenerator.prepareEmail();
-        String password = dataGenerator.preparePassword();
+        String userName = null;
+        String firstName = null;
+        String lastName = null;
+        String email = null;
+        String password = null;
 
-       return new UserData(userName,firstName,lastName,email,password);
+        try {
+            userName = dataGenerator.prepareUserName();
+            firstName = dataGenerator.prepareFirstName();
+            lastName = dataGenerator.prepareLastName();
+            email = dataGenerator.prepareEmail();
+            password = dataGenerator.preparePassword();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new UserData(userName, firstName, lastName, email, password);
     }
-    public List<UserData> collectionOfUsers () throws IOException {
+
+    public List<UserData> collectionOfUsers() throws IOException {
 
         Integer iloscDanych = 10;
 
