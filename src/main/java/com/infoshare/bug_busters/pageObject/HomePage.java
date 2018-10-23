@@ -255,6 +255,14 @@ public class HomePage {
         loginSteps(userData);
 
     }
+    public void loginUserAfterRegistrationWithDDT() throws IOException {
+
+        UserData userData = userDataGenerator.prepareUserData();
+        registrationSteps(userData);
+        waitsWhenLogout();
+        loginSteps(userData);
+
+    }
     public void chooseCatalogue() {
         waits.waitForElementToBeVisible(labelCatalogue);
         waits.waitForElementToBeClickable(labelCatalogue);

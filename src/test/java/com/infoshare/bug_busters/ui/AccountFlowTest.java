@@ -36,8 +36,8 @@ public class AccountFlowTest {
     }
 
     @Test
-    public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks(UserData userData) throws IOException {
-        homePage.loginUserAfterRegistrationWithDDT(userData);
+    public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks() throws IOException {
+        homePage.loginUserAfterRegistrationWithDDT();
         Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
         accountPage.clickOnLabelAccount();
         shoppingCartPage.clickOnIteamsInCartButton();
