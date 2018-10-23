@@ -125,8 +125,6 @@ public class HomePage {
     @FindBy(linkText = "Action")
     private WebElement linkActionAtFooter;
 
-    By itemInCartLocator = By.id("numItemsInCart");
-
     @FindBy(xpath = "//a[contains(text(),'Register')]")
     private WebElement registerButton;
 
