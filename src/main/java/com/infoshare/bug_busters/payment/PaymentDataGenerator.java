@@ -35,13 +35,7 @@ public class PaymentDataGenerator {
         return paymentsData;
 
     }
-    public List<PaymentData> getDataFromXml() throws JAXBException {
-        JAXBContext jc = JAXBContext.newInstance(TestData.class);
 
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        TestData testData = (TestData) unmarshaller.unmarshal(new File("/jdqz2-bugbusters/TestData.xml"));
-        return testData.getPaymentData();
-    }
 
 
 

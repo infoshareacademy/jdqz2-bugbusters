@@ -24,12 +24,6 @@ public class ShippingDataGenerator {
 
         return new ShippingData(houseNumber, streetName, city, postCode, country);
     }
-    public List<ShippingData> getDataFromXml() throws JAXBException {
-        JAXBContext jc = JAXBContext.newInstance(TestData.class);
 
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        TestData testData = (TestData) unmarshaller.unmarshal(new File("/jdqz2-bugbusters/TestData.xml"));
-        return testData.getShippingData();
-    }
 }
 

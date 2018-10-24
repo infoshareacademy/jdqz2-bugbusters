@@ -4,13 +4,12 @@ import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.shipping.ShippingData;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.List;
 
 @XmlRootElement
-public class TestData {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TestData  {
 
     @XmlElement
     List<UserData> userData;
@@ -30,5 +29,26 @@ public class TestData {
 
     public List<PaymentData> getPaymentData() {
         return paymentData;
+    }
+
+    public void setUserData(List<UserData> userData) {
+        this.userData = userData;
+    }
+
+    public void setShippingData(List<ShippingData> shippingData) {
+        this.shippingData = shippingData;
+    }
+
+    public void setPaymentData(List<PaymentData> paymentData) {
+        this.paymentData = paymentData;
+    }
+
+    @Override
+    public String toString() {
+        return "TestData{" +
+                "userData=" + userData +
+                ", shippingData=" + shippingData +
+                ", paymentData=" + paymentData +
+                '}';
     }
 }
