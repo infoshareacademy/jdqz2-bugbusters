@@ -1,16 +1,6 @@
 package com.infoshare.bug_busters.shipping;
-
-
-import com.infoshare.bug_busters.TestData;
-import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class ShippingDataGenerator {
 

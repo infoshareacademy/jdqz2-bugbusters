@@ -17,6 +17,7 @@ public class ShippingData {
     @XmlAttribute
     private String country;
 
+
     public void setHouseNumber(Integer houseNumber) {
         this.houseNumber = houseNumber;
     }

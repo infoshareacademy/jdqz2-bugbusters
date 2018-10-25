@@ -8,13 +8,12 @@ import javax.xml.bind.annotation.*;
 import java.util.List;
 
 @XmlRootElement(name="TestData")
-//@XmlAccessorType(XmlAccessType.FIELD)
 public class TestData  {
 
     @XmlElement(name="UserData")
     List<UserData> userData;
-    @XmlElement(name = "ShippingData")
-    List<ShippingData> shippingData;
+//    @XmlElement(name = "ShippingData")
+//    List<ShippingData> shippingData;
 //    @XmlElement
 //    List<PaymentData> paymentData;
 
@@ -22,8 +21,8 @@ public class TestData  {
         return userData;
     }
 //
-public List<ShippingData> getShippingData() {
-return shippingData;}
+//public List<ShippingData> getShippingData() {
+//return shippingData;}
 //    }
 //
 //    public List<PaymentData> getPaymentData() {
@@ -34,9 +33,9 @@ return shippingData;}
 //        this.userData = userData;
 //    }
 //
-//    public void setShippingData(List<ShippingData> shippingData) {
-//        this.shippingData = shippingData;
-//    }
+//public void setShippingData(List<ShippingData> shippingData) {
+//   this.shippingData = shippingData;
+//  }
 //
 //    public void setPaymentData(List<PaymentData> paymentData) {
 //        this.paymentData = paymentData;

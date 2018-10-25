@@ -9,13 +9,13 @@ public class UserData {
 
     @XmlAttribute(name="userName")
     String userName;
-    @XmlAttribute
+    @XmlAttribute(name="firstName")
     String firstName;
-    @XmlAttribute
+    @XmlAttribute(name="lastName")
     String lastName;
-    @XmlAttribute
+    @XmlAttribute(name="email")
     String email;
-    @XmlAttribute
+    @XmlAttribute(name="password")
     String password;
 
     public UserData() {
