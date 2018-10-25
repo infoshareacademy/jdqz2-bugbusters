@@ -1,11 +1,15 @@
 package com.infoshare.bug_busters.unit.registration;
 
+import com.infoshare.bug_busters.TestData;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import java.io.IOException;
 import java.util.List;
 

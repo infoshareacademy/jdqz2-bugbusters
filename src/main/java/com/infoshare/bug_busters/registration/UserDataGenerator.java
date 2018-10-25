@@ -3,15 +3,22 @@ import com.infoshare.bug_busters.TestData;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.xml.bind.JAXBContext.newInstance;
+
 public class UserDataGenerator {
 
+
+
     private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
+
+    private JAXBContext jaxbContext;
 
     public UserDataGenerator(RandomDataGenerator dataGenerator) {
         this.dataGenerator = dataGenerator;
@@ -43,11 +50,13 @@ public class UserDataGenerator {
     }
 
 
-
-public UserData getDataFromXml() throws JAXBException, FileNotFoundException {
-  JAXBContext context = JAXBContext.newInstance(TestData.class);
-   return (UserData) context.createUnmarshaller()
-      .unmarshal(new FileReader("./TestData.xml"));}
+    public List<UserData> getDataFromXml() throws  JAXBException, FileNotFoundException {
+        JAXBContext context = newInstance(TestData.class);
+        File file = new File("./TestData.xml");
+        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+        TestData testData = (TestData) jaxbUnmarshaller.unmarshal(file);
+                return testData.getUserData();
+    }
 }
 
 
