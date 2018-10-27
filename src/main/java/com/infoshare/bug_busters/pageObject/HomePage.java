@@ -252,16 +252,18 @@ public class HomePage {
 
     public void loginUserAfterRegistration() throws IOException {
 
-     UserData userData= userDataGenerator.prepareUserData();
+     UserData userData = userDataGenerator.prepareUserData();
 
         registrationSteps(userData);
 
         waitsWhenLogout();
 
         loginSteps(userData);
-    }  public void loginUserAfterRegistrationWithDdt() throws IOException {
+    }
 
-     UserData userData= userDataGenerator.prepareUserData();
+    public void loginUserAfterRegistrationWithDdt(UserData userData) throws IOException {
+
+
 
         registrationSteps(userData);
 

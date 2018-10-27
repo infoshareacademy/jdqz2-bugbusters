@@ -17,7 +17,7 @@ public class UserDataGenerator {
     //konstruktor ktory trzeba stworzyc z polem dataGenerator typu RandomDataGenerator, zeby w metodzie prepareUserData() nie bylo
     // na sztywno wywolania RandomDataGenerator.prepareUserName()
 
-    public DdtDataGenerator prepareUserData() {
+    public UserData prepareUserData() {
 
         String userName = null;
         String firstName = null;
