@@ -16,13 +16,20 @@ import com.infoshare.bug_busters.utils.WebDriverProvider;
 import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
+import org.apache.logging.log4j.core.util.FileUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+
+
+
+import java.io.File;
 import java.io.IOException;
 
 @RunWith(DataProviderRunner.class)
@@ -42,6 +49,16 @@ public class AccountFlowTestWithDDT1 {
     @DataProvider
     public static Object[][]TestDataForFLowTest() throws IOException {
         return new Object[][]{
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
@@ -79,6 +96,9 @@ public class AccountFlowTestWithDDT1 {
             shoppingCartPage.clickProcedToCheckoutandViewButton();
             Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                     .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
+             homePage.screenShotTest();
+
+
         }
     }
 

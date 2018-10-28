@@ -1,16 +1,18 @@
 package com.infoshare.bug_busters.pageObject;
 
 import com.infoshare.bug_busters.utils.Waits;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
+
+import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 public class HomePage {
 
@@ -187,6 +189,17 @@ public class HomePage {
         actions = new Actions(driver);
 
         PageFactory.initElements(driver, this);
+    }
+
+    public void screenShotTest() {
+        try {
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+            FileUtils.copyFile(scrFile, new File("Screenshot/" + timestamp.toString() + ".png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String getTextFromLogoutToConfirmLoginOrRegistration() {
