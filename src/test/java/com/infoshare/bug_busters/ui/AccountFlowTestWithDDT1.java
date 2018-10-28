@@ -11,6 +11,7 @@ import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingData;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
+import com.infoshare.bug_busters.utils.ScreenShotTaker;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -96,9 +97,7 @@ public class AccountFlowTestWithDDT1 {
             shoppingCartPage.clickProcedToCheckoutandViewButton();
             Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                     .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
-             homePage.screenShotTest();
-
-
+            ScreenShotTaker.screenShotTest(driver);
         }
     }
 
