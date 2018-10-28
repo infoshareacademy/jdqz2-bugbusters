@@ -1,10 +1,12 @@
 package com.infoshare.bug_busters.shipping;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "ShippingData")
 public class ShippingData {
 
-    @XmlAttribute
+    @XmlAttribute(name = "houseNumber")
     private Integer houseNumber;
     @XmlAttribute
     private String streetName;
