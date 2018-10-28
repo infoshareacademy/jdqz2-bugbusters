@@ -37,33 +37,32 @@ public class UpdateShopingCartTest {
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
-    private static int iteration;
+    private static int nextUser;
 
     private static List<Boolean> setUserCreated = new ArrayList<>();
 
     private Boolean isUserCreated() {
-        return setUserCreated.set(iteration, true);
+        return setUserCreated.set(nextUser, true);
     }
     @DataProvider
     public static Object[][] testDataForRegistration() throws IOException {
         return new Object[][] {
-                new Object[] { userDataGenerator.prepareUserData() , false},
-                new Object[] { userDataGenerator.prepareUserData() , false},
+                new Object[] { userDataGenerator.prepareUserData()},
+                new Object[] { userDataGenerator.prepareUserData()},
+
         };
     }
 
     @BeforeClass
     public static void setUpBeforeAll() {
-            iteration = 0;
-            setUserCreated.add(false);
-            setUserCreated.add(false);
-            setUserCreated.add(false);
-            setUserCreated.add(false);
-            setUserCreated.add(false);
+
+        nextUser = 0;
+
     }
 
     @Before
     public void setUp() {
+        setUserCreated.add(false);
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         driver.manage().window().maximize();
 
@@ -81,13 +80,13 @@ public class UpdateShopingCartTest {
 
     @Test
     @UseDataProvider("testDataForRegistration")
-    public void addingAllPossibleProducts(UserData userData, Boolean setUserCreated2) {
-        if(!setUserCreated2 && !setUserCreated.get(iteration).booleanValue()){
+    public void addingAllPossibleProducts(UserData userData) {
+        if(!setUserCreated.get(nextUser).booleanValue()){
             driver.get(PAGE_URL);
             homePage.registrationSteps(userData);
             isUserCreated();
             homePage.waitsWhenLogout();
-            iteration++;
+            nextUser++;
         }
         driver.get(PAGE_URL);
         homePage.loginSteps(userData);
@@ -102,20 +101,20 @@ public class UpdateShopingCartTest {
     }
     @Test
     @UseDataProvider("testDataForRegistration")
-    public void changingQuantityAtOnceInAllProducts(UserData userData, Boolean setUserCreated2) {
+    public void changingQuantityAtOnceInAllProducts(UserData userData) {
         driver.get(PAGE_URL);
-        iteration = 0;
-        addingAllPossibleProducts(userData, setUserCreated2);
+        nextUser = 0;
+        addingAllPossibleProducts(userData);
         String costBeforeChanginfQuantity = shoppingCart.costOfOrder();
         shoppingCart.changingQuantity();
         assertThat(shoppingCart.costOfOrder()).isNotEqualTo(costBeforeChanginfQuantity).as("The cart is not Updated");
     }
     @Test
     @UseDataProvider("testDataForRegistration")
-    public void deleteAll_9_products(UserData userData, Boolean setUserCreated2) {
+    public void deleteAll_9_products(UserData userData) {
         driver.get(PAGE_URL);
-        iteration = 0;
-        addingAllPossibleProducts(userData, setUserCreated2);
+        nextUser = 0;
+        addingAllPossibleProducts(userData);
         shoppingCart.deleteAllProductsFromBasket();
         assertThat(shoppingCart.numberOfItemsInCartBasket()).isEqualTo(0).as("There are still items in basket");
     }
