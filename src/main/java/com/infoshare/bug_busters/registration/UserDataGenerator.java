@@ -50,12 +50,11 @@ public class UserDataGenerator {
     }
 
 
-    public List<UserData> getDataFromXml() throws  JAXBException, FileNotFoundException {
-        JAXBContext context = newInstance(TestData.class);
-        File file = new File("./TestData.xml");
+    public TestData getDataFromXml() throws  JAXBException, FileNotFoundException {
+        JAXBContext jaxbContext = newInstance(TestData.class);
+        File file = new File("TestData.xml");
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        TestData testData = (TestData) jaxbUnmarshaller.unmarshal(file);
-                return testData.getUserData();
+        return (TestData) jaxbUnmarshaller.unmarshal(file);
     }
 }
 

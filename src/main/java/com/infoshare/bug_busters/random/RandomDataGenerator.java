@@ -4,8 +4,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
+import java.util.Random;
 
 public class RandomDataGenerator {
+    private final Random randomGenerator;
+
+    public RandomDataGenerator() {
+        this.randomGenerator = new Random();
+    }
+
+    public Integer getRandomNumber(Integer from, Integer to) {
+        return randomGenerator.nextInt(to) + from;
+    }
 
     public String prepareUserName() throws IOException {
 

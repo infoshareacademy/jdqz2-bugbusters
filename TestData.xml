@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TestData>
-    <UserData userName="tutorgatorade" firstName="Lydia" lastName="Rocha" email="lydiarocha@gmail.com" password="aDJMhJJN"/>
+<UserData userName="tutorgatorade" firstName="Lydia" lastName="Rocha" email="lydiarocha@gmail.com" password="aDJMhJJN"/>
     <UserData userName="candidatecaviar" firstName="Madelyn" lastName="Gomez" email="madelyngomez@gmail.com" password="Ucv99JO4"/>
     <UserData userName="travelericecream" firstName="Evelyn" lastName="Mccarthy" email="evelynmccarthy@yahoo.com" password="xz0hY5V0"/>
     <UserData userName="examinercrackers" firstName="Anthony" lastName="Tanner" email="anthonytanner@mail.com" password="yAjSBHNK"/>
@@ -9,25 +10,29 @@
     <UserData userName="plumbertacos" firstName="Kayla" lastName="Mullins" email="kayla.mullins@gmail.com" password="kYuvFtZS"/>
     <UserData userName="policemandoughnut" firstName="Naomi" lastName="Small" email="naomismall@yahoo.com" password="HgNRWfSV"/>
     <UserData userName="programmercake" firstName="Madison" lastName="Ross" email="madisonross@mail.com" password="nJwu6OjU"/>
-    <ShippingData houseNumber="84" streetName="Herzi Street" city="San Francisco" postCode="08537" country="Australia"/>
-    <ShippingData houseNumber="168" streetName="Summer Place" city="Miami" postCode="54083" country="Canada"/>
-    <ShippingData houseNumber="192" streetName="Stillwell Avenue" city="Washington" postCode="86355" country="Austria"/>
-    <ShippingData houseNumber="12" streetName="Washington Walk" city="New York" postCode="72307" country="Poland"/>
-    <ShippingData houseNumber="997" streetName="Stillwell Avenue" city="Oklahoma City" postCode="82057" country="Australia"/>
-    <ShippingData houseNumber="33" streetName="Ford Street" city="Clevelend" postCode="30273" country="France"/>
-    <ShippingData houseNumber="92" streetName="Aster Court" city="Ciechocinek" postCode="88686" country="Spain"/>
-    <ShippingData houseNumber="123" streetName="Grunwaldzka" city="Oxford" postCode="35582" country="Greece"/>
-    <ShippingData houseNumber="45" streetName="Cove Lane" city="Boston" postCode="73823" country="Argentina"/>
-    <ShippingData houseNumber="79" streetName="Highland Place" city="Chicago" postCode="02211" country="Portugal"/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
-    <PaymentData cardNumber="" expires="" ccv=""/>
+    <!--<ShippingData houseNumber="84" streetName="Herzi Street" city="San Francisco" postCode="08537" country="Australia"/>-->
+    <!--<ShippingData houseNumber="168" streetName="Summer Place" city="Miami" postCode="54083" country="Canada"/>-->
+    <!--<ShippingData houseNumber="192" streetName="Stillwell Avenue" city="Washington" postCode="86355" country="Austria"/>-->
+    <!--<ShippingData houseNumber="12" streetName="Washington Walk" city="New York" postCode="72307" country="Poland"/>-->
+    <!--<ShippingData houseNumber="997" streetName="Stillwell Avenue" city="Oklahoma City" postCode="82057" country="Australia"/>-->
+    <!--<ShippingData houseNumber="33" streetName="Ford Street" city="Clevelend" postCode="30273" country="France"/>-->
+    <!--<ShippingData houseNumber="92" streetName="Aster Court" city="Ciechocinek" postCode="88686" country="Spain"/>-->
+    <!--<ShippingData houseNumber="123" streetName="Grunwaldzka" city="Oxford" postCode="35582" country="Greece"/>-->
+    <!--<ShippingData houseNumber="45" streetName="Cove Lane" city="Boston" postCode="73823" country="Argentina"/>-->
+    <!--<ShippingData houseNumber="79" streetName="Highland Place" city="Chicago" postCode="02211" country="Portugal"/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>-->
+    <!--<PaymentData cardNumber="" expires="" ccv=""/>&ndash;&gt;-->
+
+
+    <ShippingData>ssss</ShippingData>
+    <PaymentData>dddd</PaymentData>
 
 </TestData>
