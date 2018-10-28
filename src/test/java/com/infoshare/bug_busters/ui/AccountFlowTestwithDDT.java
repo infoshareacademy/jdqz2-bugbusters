@@ -33,8 +33,7 @@ public class AccountFlowTestwithDDT {
         }
         @After
         public void tearDown() {
-            driver.close();
-        }
+            driver.close(); }
 
         @Test
         public void flowTestifNewOrderShowsUpInMyOrdersTabandViewButtonWorks() throws IOException {

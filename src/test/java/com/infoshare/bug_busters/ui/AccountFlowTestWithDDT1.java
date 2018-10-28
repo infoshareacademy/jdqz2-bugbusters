@@ -44,7 +44,7 @@ public class AccountFlowTestWithDDT1 {
         return new Object[][]{
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()}
+                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
 
         };
     }
@@ -73,7 +73,7 @@ public class AccountFlowTestWithDDT1 {
             Assertions.assertThat(homePage.getTextFromLogoutToConfirmLoginOrRegistration().contains("Logout")).as("User is not Logged");
             accountPage.clickOnLabelAccount();
             shoppingCartPage.clickOnIteamsInCartButton();
-            shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod();
+            shoppingCartPage.fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethodWithDdt(shippingData,paymentData);
             shoppingCartPage.addOnlyOneProductColorFulltoToCartFromShoppingCartPage();
             Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item not added").isEqualTo("1 item(s) in cart");
             shoppingCartPage.clickProcedToCheckoutandViewButton();

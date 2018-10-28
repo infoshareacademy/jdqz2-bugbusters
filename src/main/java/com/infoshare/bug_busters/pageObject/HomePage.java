@@ -263,8 +263,6 @@ public class HomePage {
 
     public void loginUserAfterRegistrationWithDdt(UserData userData) throws IOException {
 
-
-
         registrationSteps(userData);
 
         waitsWhenLogout();

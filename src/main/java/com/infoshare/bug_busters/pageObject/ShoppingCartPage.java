@@ -102,6 +102,10 @@ public class ShoppingCartPage {
     public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod() throws IOException {
         shippingAdressSteps(shippingDataGenerator.prepareShippingData());
         addinPaymentsSteps(paymentDataGenerator.preparePayments());
+
+    } public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethodWithDdt(ShippingData shippingData,PaymentData paymentData) throws IOException {
+        shippingAdressSteps(shippingDataGenerator.prepareShippingData());
+        addinPaymentsSteps(paymentDataGenerator.preparePayments());
     }
 
     public void addinPaymentsSteps(PaymentData paymentData) {
