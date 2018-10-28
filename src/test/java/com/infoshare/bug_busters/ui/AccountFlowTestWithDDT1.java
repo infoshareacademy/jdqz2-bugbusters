@@ -98,6 +98,8 @@ public class AccountFlowTestWithDDT1 {
             Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                     .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
             ScreenShotTaker.screenShotTest(driver);
+
+
         }
     }
 
