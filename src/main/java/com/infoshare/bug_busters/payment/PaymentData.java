@@ -7,11 +7,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PaymentData {
 
     @XmlAttribute(name = "cardNumber")
-    private String cardNumber;
-    @XmlAttribute
-    private String expires;
-    @XmlAttribute
-    private String ccv;
+    String cardNumber;
+    @XmlAttribute(name="expires")
+    String expires;
+    @XmlAttribute(name="ccv")
+    String ccv;
+
+    public PaymentData() {
+    }
 
     public PaymentData(String cardNumber, String expires, String CCV){
 
