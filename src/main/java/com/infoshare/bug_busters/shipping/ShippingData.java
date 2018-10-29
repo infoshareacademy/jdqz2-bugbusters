@@ -7,16 +7,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ShippingData {
 
     @XmlAttribute(name = "houseNumber")
-    private Integer houseNumber;
-    @XmlAttribute
-    private String streetName;
-    @XmlAttribute
-    private String city;
-    @XmlAttribute
-    private String postCode;
-    @XmlAttribute
-    private String country;
+    Integer houseNumber;
+    @XmlAttribute(name="streetName")
+    String streetName;
+    @XmlAttribute(name="city")
+    String city;
+    @XmlAttribute(name="postCode")
+    String postCode;
+    @XmlAttribute(name="country")
+    String country;
 
+    public ShippingData() {
+    }
 
     public void setHouseNumber(Integer houseNumber) {
         this.houseNumber = houseNumber;
