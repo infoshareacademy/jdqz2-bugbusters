@@ -25,12 +25,12 @@ public class Main {
         List<ShippingData> shippingData= testData.getShippingData();
         List<PaymentData> paymentData = testData.getPaymentData();
         RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
-        Integer randomIndex = randomDataGenerator.getRandomNumber(0, userData.size() - 1);
-        Integer randomIndex1 = randomDataGenerator.getRandomNumber(0, shippingData.size() - 1);
-        Integer randomIndex2 = randomDataGenerator.getRandomNumber(0,paymentData.size() -1);
-        UserData userData1 = userData.get(randomIndex);
-        ShippingData shippingData1 = shippingData.get(randomIndex1);
-        PaymentData paymentData1 = paymentData.get(randomIndex2);
+        Integer randomIndexUD = randomDataGenerator.getRandomNumber(0, userData.size() - 1);
+        Integer randomIndexSD = randomDataGenerator.getRandomNumber(0, shippingData.size() - 1);
+        Integer randomIndexPD = randomDataGenerator.getRandomNumber(0,paymentData.size() -1);
+        UserData userData1 = userData.get(randomIndexUD);
+        ShippingData shippingData1 = shippingData.get(randomIndexSD);
+        PaymentData paymentData1 = paymentData.get(randomIndexPD);
                 System.out.println(userData1);
                 System.out.println(shippingData1);
                 System.out.println(paymentData1);
