@@ -11,6 +11,7 @@ import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingData;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
+import com.infoshare.bug_busters.utils.ScreenShotOnFailure;
 import com.infoshare.bug_busters.utils.ScreenShotTaker;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
@@ -21,6 +22,7 @@ import org.apache.logging.log4j.core.util.FileUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.OutputType;
@@ -64,10 +66,13 @@ public class AccountFlowTestWithDDT1 {
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
 
+
         };
     }
 
         private final String URL = ("http://localhost:4180/");
+    @Rule
+    public ScreenShotOnFailure failure = new ScreenShotOnFailure(driver);
 
         @Before
         public void setUp () {
@@ -97,7 +102,8 @@ public class AccountFlowTestWithDDT1 {
             shoppingCartPage.clickProcedToCheckoutandViewButton();
             Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                     .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
-            ScreenShotTaker.screenShotTest(driver);
+            //ScreenShotTaker.screenShotTest(driver);
+
 
 
         }
