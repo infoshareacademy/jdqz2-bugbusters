@@ -48,8 +48,6 @@ public class UpdateShopingCartTest {
     public static Object[][] testDataForRegistration() throws IOException {
         return new Object[][] {
                 new Object[] { userDataGenerator.prepareUserData()},
-                new Object[] { userDataGenerator.prepareUserData()},
-
         };
     }
 
