@@ -32,20 +32,17 @@ public class RegistrationAndLoginWithDDT_Test {
     public static Object[][] testDataForRegistration() throws IOException {
         return new UserData[][] {
                 new UserData[] { userDataGenerator.prepareUserData() },
-                new UserData[] { userDataGenerator.prepareUserData() },
         };
     }
     @DataProvider
     public static Object[][] testDataForRegistrationTwiceWithTheSameData() throws IOException {
         return new UserData[][] {
                 new UserData[] { userDataGenerator.prepareUserData() },
-                new UserData[] { userDataGenerator.prepareUserData() },
         };
     }
     @DataProvider
     public static Object[][] testDataForLoginAfterRegistration() throws IOException {
         return new UserData[][] {
-                new UserData[] { userDataGenerator.prepareUserData() },
                 new UserData[] { userDataGenerator.prepareUserData() },
         };
     }
