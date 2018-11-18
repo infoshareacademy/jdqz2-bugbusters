@@ -132,7 +132,7 @@ public class HomePage {
     @FindBy(xpath = "//a[contains(text(),'Register')]")
     private WebElement registerButton;
 
-    @FindBy(xpath = "//input[@id='register-username-modal']")
+    @FindBy(xpath = "/input[@id='register-username-modal']")
     private WebElement userNameFieldInRegistration;
 
     @FindBy(xpath = "//input[@id='register-first-modal']")
