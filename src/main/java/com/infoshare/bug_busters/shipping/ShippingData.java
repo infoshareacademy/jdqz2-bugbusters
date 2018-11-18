@@ -3,7 +3,7 @@ package com.infoshare.bug_busters.shipping;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "ShippingData")
+@XmlRootElement
 public class ShippingData {
 
     @XmlAttribute(name = "houseNumber")

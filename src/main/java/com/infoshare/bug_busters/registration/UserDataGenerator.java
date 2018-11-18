@@ -1,5 +1,5 @@
 package com.infoshare.bug_busters.registration;
-import com.infoshare.bug_busters.TestData;
+import com.infoshare.bug_busters.dataFromXML.TestData;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -18,7 +18,6 @@ public class UserDataGenerator {
 
     private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
 
-    private JAXBContext jaxbContext;
 
     public UserDataGenerator(RandomDataGenerator dataGenerator) {
         this.dataGenerator = dataGenerator;
@@ -50,12 +49,6 @@ public class UserDataGenerator {
     }
 
 
-    public TestData getDataFromXml() throws  JAXBException, FileNotFoundException {
-        JAXBContext jaxbContext = newInstance(TestData.class);
-        File file = new File("TestData.xml");
-        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        return (TestData) jaxbUnmarshaller.unmarshal(file);
-    }
 }
 
 

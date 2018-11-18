@@ -1,5 +1,6 @@
 
-import com.infoshare.bug_busters.TestData;
+import com.infoshare.bug_busters.dataFromXML.TestData;
+import com.infoshare.bug_busters.dataFromXML.TestDataGenerator;
 import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
@@ -9,7 +10,6 @@ import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.PriorityBlockingQueue;
 
 public class Main {
 
@@ -20,7 +20,7 @@ public class Main {
 
         System.out.println(ShippingDataGenerator.prepareShippingData().toString());
 
-        TestData testData = userDataGenerator.getDataFromXml();
+        TestData testData = new TestDataGenerator().getDataFromXml();
         List<UserData> userData = testData.getUserData();
         List<ShippingData> shippingData= testData.getShippingData();
         List<PaymentData> paymentData = testData.getPaymentData();

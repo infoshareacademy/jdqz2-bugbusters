@@ -3,7 +3,7 @@ package com.infoshare.bug_busters.payment;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "PaymentData")
+@XmlRootElement
 public class PaymentData {
 
     @XmlAttribute(name = "cardNumber")
