@@ -21,7 +21,9 @@ import org.apache.logging.log4j.core.util.FileUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -37,6 +39,9 @@ import java.io.IOException;
 public class AccountFlowTestWithDDT1 {
     private static final String PAGE_URL = "http://localhost:4180/";
 
+    @Rule
+    public final ScreenShotTaker watchman = new ScreenShotTaker();
+
     private WebDriver driver;
     private AccountPage accountPage;
     private HomePage homePage;
@@ -51,19 +56,19 @@ public class AccountFlowTestWithDDT1 {
     public static Object[][]TestDataForFLowTest() throws IOException {
         return new Object[][]{
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
+//
         };
     }
 
@@ -76,13 +81,14 @@ public class AccountFlowTestWithDDT1 {
             homePage = new HomePage(driver);
             accountPage = new AccountPage(driver);
             shoppingCartPage = new ShoppingCartPage(driver);
+            watchman.setDriver(driver);
             driver.get(URL);
         }
 
-        @After
-        public void tearDown () {
-            driver.close();
-        }
+//        @After
+//        public void tearDown () {
+//            driver.close();
+//        }
 
         @Test
         @UseDataProvider("TestDataForFLowTest")
@@ -96,8 +102,8 @@ public class AccountFlowTestWithDDT1 {
             Assertions.assertThat(shoppingCartPage.getTextFromButtonItemsInCart()).as("Item not added").isEqualTo("1 item(s) in cart");
             shoppingCartPage.clickProcedToCheckoutandViewButton();
             Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
-                    .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
-            ScreenShotTaker.screenShotTest(driver);
+                    .as("Order for Socks Colorful has not been added").isEqualTo("Colourfuss");
+
 
 
         }
