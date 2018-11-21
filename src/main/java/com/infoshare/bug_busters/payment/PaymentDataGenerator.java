@@ -7,13 +7,6 @@ import java.util.List;
 
 public class PaymentDataGenerator {
 
-    private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
-
-    public PaymentDataGenerator(RandomDataGenerator dataGenerator) {
-        this.dataGenerator = dataGenerator;
-    }
-
-
     public PaymentData preparePayments () {
 
             String CardRandomString = RandomDataGenerator.CardNumberRandom();

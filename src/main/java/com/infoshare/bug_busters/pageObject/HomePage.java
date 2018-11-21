@@ -125,8 +125,6 @@ public class HomePage {
     @FindBy(linkText = "Action")
     private WebElement linkActionAtFooter;
 
-    By itemInCartLocator = By.id("numItemsInCart");
-
     @FindBy(xpath = "//a[contains(text(),'Register')]")
     private WebElement registerButton;
 
@@ -204,6 +202,7 @@ public class HomePage {
     }
 
     public void loginSteps(UserData userData) {
+        waits.waitForElementToBeClickable(loginButton);
         loginButton.click();
         waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
         loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
@@ -212,7 +211,7 @@ public class HomePage {
         waits.waitForElementToBeVisible(logoutButton);
     }
 
-    public void registrationSteps(UserData userData) {
+    public UserData registrationSteps(UserData userData) {
 
         registerButton.click();
         waits.waitForElementToBeVisible(userNameFieldInRegistration);
@@ -222,6 +221,7 @@ public class HomePage {
         emailFieldInRegistration.sendKeys(userData.getEmail());
         passwordFieldInRegistration.sendKeys(userData.getPassword());
         registerinPopUpWindowButton.click();
+        return userData;
 
     }
 
@@ -231,18 +231,14 @@ public class HomePage {
         waits.waitForElementToBeVisible(shoppingCart.shoppingCartText);
     }
 
-    public void registerUserWithDataGeneratorMethod() throws IOException {
-
-        UserData userData = userDataGenerator.prepareUserData();
+    public void registerUserWithDataGeneratorMethodWithDDT(UserData userData) {
 
         registrationSteps(userData);
         waits.waitForElementToBeVisible(logoutButton);
 
     }
 
-    public void regiterUserTwiceWithTheSameData() throws IOException {
-
-        UserData userData = userDataGenerator.prepareUserData();
+    public void registerUserTwiceWithTheSameDataWithDDT(UserData userData) {
 
         registrationSteps(userData);
         waitsWhenLogout();
@@ -250,20 +246,19 @@ public class HomePage {
 
     }
 
-    public void loginUserAfterRegistration() throws IOException {
-
-        UserData userData = userDataGenerator.prepareUserData();
+    public void loginUserAfterRegistrationWithDDT(UserData userData) {
 
         registrationSteps(userData);
-
         waitsWhenLogout();
+        loginSteps(userData);
 
-        loginButton.click();
-        waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
-        loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
-        passwordFieldInLoginWindow.sendKeys(userData.getPassword());
-        loginButtonInLoginWindow.click();
-        waits.waitForElementToBeVisible(logoutButton);
+    }
+    public void loginUserAfterRegistrationWithDDT() throws IOException {
+
+        UserData userData = userDataGenerator.prepareUserData();
+        registrationSteps(userData);
+        waitsWhenLogout();
+        loginSteps(userData);
 
     }
     public void chooseCatalogue() {
