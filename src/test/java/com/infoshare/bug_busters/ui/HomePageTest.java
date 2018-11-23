@@ -35,7 +35,7 @@ public class HomePageTest {
         classicPage = new ClassicPage(driver);
         myOrdersPage = new MyOrdersPage(driver);
 
-        driver.get("http://chrome:4180/");
+        driver.get("http://localhost:4180/");
     }
 
     @Test
