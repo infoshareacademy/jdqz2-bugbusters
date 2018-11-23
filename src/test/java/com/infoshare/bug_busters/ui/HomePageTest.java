@@ -25,7 +25,7 @@ public class HomePageTest {
     @Before
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
 
         shoppingCartPage = new ShoppingCartPage(driver);
         homePage = new HomePage(driver);
