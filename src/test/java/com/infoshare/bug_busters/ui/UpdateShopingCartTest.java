@@ -6,6 +6,7 @@ import com.infoshare.bug_busters.pageObject.ShoppingCart;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
+import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -19,21 +20,16 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UpdateShopingCartTest {
-    private final String PAGE_URL = "http://localhost:4180/";
-
     private WebDriver driver;
 
     private HomePage homePage;
-
     private ShoppingCart shoppingCart;
-
     private Catalogue catalogue;
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
-
     private static boolean setUserCreated = false;
-
     private static UserData userData;
+    private Jenkins_URL_Provider jenkins_url_provider;
 
     private boolean isUserCreated() {
         return this.setUserCreated = true;
@@ -51,17 +47,19 @@ public class UpdateShopingCartTest {
     @Before
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
 
         homePage = new HomePage(driver);
         shoppingCart = new ShoppingCart(driver);
         catalogue = new Catalogue(driver);
 
         if(!setUserCreated){
-            driver.get(PAGE_URL);
+            jenkins_url_provider = new Jenkins_URL_Provider(driver);
             homePage.registrationSteps(userData);
             isUserCreated();
             homePage.waitsWhenLogout();
+        }
+        else{
+            jenkins_url_provider = new Jenkins_URL_Provider(driver);
         }
 
     }
@@ -74,7 +72,6 @@ public class UpdateShopingCartTest {
 
     @Test
     public void addingAllPossibleProducts() {
-        driver.get(PAGE_URL);
         homePage.loginSteps(userData);
         homePage.clickItemsInCartButton();
         shoppingCart.clickCatalogueDropDownList();
@@ -87,7 +84,6 @@ public class UpdateShopingCartTest {
     }
     @Test
     public void changingQuantityAtOnceInAllProducts() {
-        driver.get(PAGE_URL);
         addingAllPossibleProducts();
         String costBeforeChanginfQuantity = shoppingCart.costOfOrder();
         shoppingCart.changingQuantity();
@@ -95,7 +91,6 @@ public class UpdateShopingCartTest {
     }
     @Test
     public void DeleteAll_9_products() {
-        driver.get(PAGE_URL);
         addingAllPossibleProducts();
         shoppingCart.deleteAllProductsFromBasket();
         assertThat(shoppingCart.numberOfItemsInCartBasket()).isEqualTo(0).as("There are still items in basket");

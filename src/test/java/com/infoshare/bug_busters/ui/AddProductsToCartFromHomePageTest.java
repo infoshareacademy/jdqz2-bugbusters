@@ -4,6 +4,7 @@ import com.infoshare.bug_busters.pageObject.ColorfulPage;
 import com.infoshare.bug_busters.pageObject.HolyPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
+import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -18,14 +19,14 @@ public class AddProductsToCartFromHomePageTest {
     private WebDriver driver;
     private HomePage homePage;
     private HolyPage holyPage;
+    private Jenkins_URL_Provider jenkins_url_provider;
 
     @Before
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
         homePage = new HomePage(driver);
         holyPage = new HolyPage(driver);
-        driver.get("http://localhost:4180/");
+        jenkins_url_provider = new Jenkins_URL_Provider(driver);
     }
 
     @Test
