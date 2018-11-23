@@ -8,6 +8,7 @@ class ChromeDriverExecutor extends DriverExecutor {
     private static final String CHROME_WINDOWS_PATH = "src/main/resources/drivers/chrome/chromedriver.exe";
     private static final String CHROME_MACOS_PATH = "src/main/resources/drivers/chrome/chromedriverMac";
     private static final String CHROME_LINUX_64_PATH = "src/main/resources/drivers/chrome/chromedriver_Linux64";
+    private static final String CHROME_JENKINS_URL_PATH = "http://chrome:4444/wd/hub/";
 
     static String getProperDriverExecutable() {
         String osName = System.getProperty("os.name").toLowerCase();
@@ -18,6 +19,10 @@ class ChromeDriverExecutor extends DriverExecutor {
             System.out.println("Windows detected, assigning proper executable.");
             return CHROME_WINDOWS_PATH;
         } else if (osName.contains("linux")) {
+            if (System.getenv("JENKINS_HOME") != null){
+                System.out.println("Jenkins detected, assigning proper executable.");
+                return CHROME_JENKINS_URL_PATH;
+            }
             setFullPermissionsForDriver(CHROME_LINUX_64_PATH);
             return CHROME_LINUX_64_PATH;
         }
