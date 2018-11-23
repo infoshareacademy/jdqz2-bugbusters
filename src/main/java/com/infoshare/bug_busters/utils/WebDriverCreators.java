@@ -23,7 +23,7 @@ public class WebDriverCreators {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
             try {
-                return (WebDriver) new RemoteWebDriver(new URL("http://chrome:4444/wd/hub/"), capabilities);
+                return (WebDriver) new RemoteWebDriver(new URL(ChromeDriverExecutor.getProperDriverExecutable()), capabilities);
             } catch (MalformedURLException e) {
                 System.out.println(e.getMessage());
             }

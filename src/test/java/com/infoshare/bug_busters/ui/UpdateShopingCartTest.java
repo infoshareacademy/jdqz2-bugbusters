@@ -36,7 +36,7 @@ public class UpdateShopingCartTest {
     }
 
     @BeforeClass
-    public static void setUpUser() throws IOException {
+    public static void setUpUser() {
         try {
             userData = userDataGenerator.prepareUserData();
         } catch (IOException e) {

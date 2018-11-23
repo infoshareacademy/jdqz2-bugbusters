@@ -2,7 +2,6 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
-import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
