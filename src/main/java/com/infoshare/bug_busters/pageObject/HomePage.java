@@ -1,18 +1,16 @@
 package com.infoshare.bug_busters.pageObject;
 
 import com.infoshare.bug_busters.utils.Waits;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
-
-import java.io.File;
 import java.io.IOException;
-import java.sql.Timestamp;
 
 public class HomePage {
 
@@ -40,16 +38,16 @@ public class HomePage {
     @FindBy(xpath = "//a[text()='Blue']")
     private WebElement blueFromCatalogueDropDownMenu;
 
-    @FindBy(xpath = "//a[text()='Brown']")
+    @FindBy (xpath = "//a[text()='Brown']")
     private WebElement brownFromCatalogueDropDownMenu;
 
-    @FindBy(xpath = "//a[text()='Green']")
+    @FindBy (xpath = "//a[text()='Green']")
     private WebElement greenFromCatalogueDropDownMenu;
 
-    @FindBy(xpath = "//div[@class='col-sm-3']//a[contains(text(),'Magic')]")
+    @FindBy (xpath = "//div[@class='col-sm-3']//a[contains(text(),'Magic')]")
     private WebElement magicFromCatalogueDropDownMenu;
 
-    @FindBy(xpath = "//a[text()='Formal']")
+    @FindBy (xpath = "//a[text()='Formal']")
     private WebElement formalFromCatalogueDropDownMenu;
 
     @FindBy(id = "numItemsInCart")
@@ -127,12 +125,10 @@ public class HomePage {
     @FindBy(linkText = "Action")
     private WebElement linkActionAtFooter;
 
-    By itemInCartLocator = By.id("numItemsInCart");
-
     @FindBy(xpath = "//a[contains(text(),'Register')]")
     private WebElement registerButton;
 
-    @FindBy(xpath = "/input[@id='register-username-modal']")
+    @FindBy(xpath = "//input[@id='register-username-modal']")
     private WebElement userNameFieldInRegistration;
 
     @FindBy(xpath = "//input[@id='register-first-modal']")
@@ -206,6 +202,7 @@ public class HomePage {
     }
 
     public void loginSteps(UserData userData) {
+        waits.waitForElementToBeClickable(loginButton);
         loginButton.click();
         waits.waitForElementToBeVisible(loginUserNameFieldInLoginWindow);
         loginUserNameFieldInLoginWindow.sendKeys(userData.getUserName());
@@ -214,7 +211,7 @@ public class HomePage {
         waits.waitForElementToBeVisible(logoutButton);
     }
 
-    public void registrationSteps(UserData userData) {
+    public UserData registrationSteps(UserData userData) {
 
         registerButton.click();
         waits.waitForElementToBeVisible(userNameFieldInRegistration);
@@ -224,6 +221,7 @@ public class HomePage {
         emailFieldInRegistration.sendKeys(userData.getEmail());
         passwordFieldInRegistration.sendKeys(userData.getPassword());
         registerinPopUpWindowButton.click();
+        return userData;
 
     }
 
@@ -233,18 +231,14 @@ public class HomePage {
         waits.waitForElementToBeVisible(shoppingCart.shoppingCartText);
     }
 
-    public void registerUserWithDataGeneratorMethod() throws IOException {
-
-        UserData userData = userDataGenerator.prepareUserData();
+    public void registerUserWithDataGeneratorMethodWithDDT(UserData userData) {
 
         registrationSteps(userData);
         waits.waitForElementToBeVisible(logoutButton);
 
     }
 
-    public void regiterUserTwiceWithTheSameData() throws IOException {
-
-        UserData userData = userDataGenerator.prepareUserData();
+    public void registerUserTwiceWithTheSameDataWithDDT(UserData userData) {
 
         registrationSteps(userData);
         waitsWhenLogout();
@@ -252,14 +246,18 @@ public class HomePage {
 
     }
 
-    public void loginUserAfterRegistration() throws IOException {
-
-        UserData userData = userDataGenerator.prepareUserData();
+    public void loginUserAfterRegistrationWithDDT(UserData userData) {
 
         registrationSteps(userData);
-
         waitsWhenLogout();
+        loginSteps(userData);
 
+    }
+    public void loginUserAfterRegistrationWithDDT() throws IOException {
+
+        UserData userData = userDataGenerator.prepareUserData();
+        registrationSteps(userData);
+        waitsWhenLogout();
         loginSteps(userData);
     }
 

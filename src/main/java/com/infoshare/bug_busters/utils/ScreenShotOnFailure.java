@@ -32,7 +32,7 @@ public class ScreenShotOnFailure extends TestWatcher {
     public void captureScreenShot(String fileName) throws IOException {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         fileName += UUID.randomUUID().toString();
-        File targetFile = new File("Screenshot/" + fileName + ".png");
-        FileUtils.copyFile(scrFile, targetFile);
-    }
+       File targetFile = new File("Screenshot/" + fileName + ".png");
+       FileUtils.copyFile(scrFile, targetFile);
+   }
 }

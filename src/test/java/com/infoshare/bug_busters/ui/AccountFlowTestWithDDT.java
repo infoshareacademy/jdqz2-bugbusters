@@ -36,7 +36,7 @@ import java.io.File;
 import java.io.IOException;
 
 @RunWith(DataProviderRunner.class)
-public class AccountFlowTestWithDDT1 {
+public class AccountFlowTestWithDDT {
     private static final String PAGE_URL = "http://localhost:4180/";
 
     @Rule
@@ -56,19 +56,6 @@ public class AccountFlowTestWithDDT1 {
     public static Object[][]TestDataForFLowTest() throws IOException {
         return new Object[][]{
                 { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-                { userDataGenerator.prepareUserData(), paymentDataGenerator.preparePayments(), shippingDataGenerator.prepareShippingData()},
-
         };
     }
 
@@ -103,7 +90,6 @@ public class AccountFlowTestWithDDT1 {
             shoppingCartPage.clickProcedToCheckoutandViewButton();
             Assertions.assertThat(accountPage.getTextFromColorFulLabelInMyOrders())
                     .as("Order for Socks Colorful has not been added").isEqualTo("Colourful");
-            ScreenShotTaker.screenShotTest(driver);
 
 
         }

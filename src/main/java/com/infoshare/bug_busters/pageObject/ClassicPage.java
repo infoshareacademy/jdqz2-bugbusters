@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ClassicPage {
 
-    @FindBy(id = "title")
+    @FindBy(id ="title")
     private WebElement textClassicOnProductSite;
 
     private WebDriver driver;

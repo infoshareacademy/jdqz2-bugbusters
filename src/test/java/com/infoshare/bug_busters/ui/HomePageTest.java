@@ -1,6 +1,7 @@
 package com.infoshare.bug_busters.ui;
 
 import com.infoshare.bug_busters.pageObject.*;
+import com.infoshare.bug_busters.utils.Waits;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;

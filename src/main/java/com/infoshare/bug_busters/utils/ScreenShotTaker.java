@@ -1,7 +1,6 @@
 package com.infoshare.bug_busters.utils;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.openqa.selenium.OutputType;
@@ -36,12 +35,11 @@ public class ScreenShotTaker extends TestWatcher {
     private void screenShotTest(WebDriver driver) {
         try {
             File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
-            FileUtils.copyFile(scrFile, new File("Screenshot/" + timestamp.toString() + ".png"));
-        } catch (Exception e) {
+          Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+          FileUtils.copyFile(scrFile, new File("Screenshot/" + timestamp.toString() + ".png"));
+       } catch (Exception e) {
             e.printStackTrace();
-        }
+       }
 
     }
 }
