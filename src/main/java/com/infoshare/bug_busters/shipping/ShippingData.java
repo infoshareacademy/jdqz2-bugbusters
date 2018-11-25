@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ShippingData {
 
     @XmlAttribute(name = "houseNumber")
-    Integer houseNumber;
+    String houseNumber;
     @XmlAttribute(name="streetName")
     String streetName;
     @XmlAttribute(name="city")

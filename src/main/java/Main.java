@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, JAXBException {
 
         UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
@@ -27,7 +27,7 @@ public class Main {
 
         System.out.println(paymentDataGenerator.preparePayments());
 
-        System.out.println(ShippingDataGenerator.prepareShippingData().toString());
+        System.out.println(new ShippingDataGenerator(new RandomDataGenerator()).prepareShippingData().toString());
 
         TestData testData = new TestDataGenerator().getDataFromXml();
         List<UserData> userData = testData.getUserData();
