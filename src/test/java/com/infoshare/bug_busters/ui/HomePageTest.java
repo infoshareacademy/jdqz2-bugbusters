@@ -88,6 +88,7 @@ public class HomePageTest {
 
     @Test
     public void transferToHolyPageByClickOnRightPictureOnSlider(){
+
         homePage.selectRightPictureFromMainSlider();
         assertThat(holyPage.getTextConfirmationOfHolylPage())
                 .as("Page Holy was not open").isEqualTo("Holy");

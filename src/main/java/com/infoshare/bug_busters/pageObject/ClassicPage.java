@@ -23,7 +23,7 @@ public class ClassicPage {
     }
 
     public String getTextConfirmationOfClassicPage(){
-        waits.waitForElementToBeVisible(textClassicOnProductSite);
+        waits.waitForElementToBeVisible(textClassicOnProductSite, 20);
         return textClassicOnProductSite.getText();
     }
 }
