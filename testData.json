@@ -1,162 +1,164 @@
-[
-  {
-    "user": {
-      "userName": "tutorgatorade",
-      "firstName": "Lydia",
-      "lastName": "Rocha",
-      "email": "lydiarocha@gmail.com",
-      "password": "aDJMhJJN"
+{
+  "tests": [
+    {
+      "user": {
+        "userName": "tutorgatorade",
+        "firstName": "Lydia",
+        "lastName": "Rocha",
+        "email": "lydiarocha@gmail.com",
+        "password": "aDJMhJJN"
+      },
+      "address": {
+        "houseNumber": 84,
+        "streetName": "Herzi Street",
+        "city": "San Francisco",
+        "postCode": "08537",
+        "country": "Australia"
+      }
     },
-    "address": {
-      "houseNumber": 84,
-      "streetName": "Herzi Street",
-      "city": "San Francisco",
-      "postCode": "08537",
-      "country": "Australia"
-    }
-  },
-  {
-    "user": {
-      "userName": "candidatecaviar",
-      "firstName": "Madelyn",
-      "lastName": "Gomez",
-      "email": "madelyngomez@gmail.com",
-      "password": "Ucv99JO4"
+    {
+      "user": {
+        "userName": "candidatecaviar",
+        "firstName": "Madelyn",
+        "lastName": "Gomez",
+        "email": "madelyngomez@gmail.com",
+        "password": "Ucv99JO4"
+      },
+      "address": {
+        "houseNumber": 168,
+        "streetName": "Summer Place",
+        "city": "Miami",
+        "postCode": 54083,
+        "country": "Canada"
+      }
     },
-    "address": {
-      "houseNumber": 168,
-      "streetName": "Summer Place",
-      "city": "Miami",
-      "postCode": 54083,
-      "country": "Canada"
-    }
-  },
-  {
-    "user": {
-      "userName": "travelericecream",
-      "firstName": "Evelyn",
-      "lastName": "Mccarthy",
-      "email": "evelynmccarthy@yahoo.com",
-      "password": "xz0hY5V0"
+    {
+      "user": {
+        "userName": "travelericecream",
+        "firstName": "Evelyn",
+        "lastName": "Mccarthy",
+        "email": "evelynmccarthy@yahoo.com",
+        "password": "xz0hY5V0"
+      },
+      "address": {
+        "houseNumber": 192,
+        "streetName": "Stillwell Avenue",
+        "city": "Washington",
+        "postCode": 86355,
+        "country": "Austria"
+      }
     },
-    "address": {
-      "houseNumber": 192,
-      "streetName": "Stillwell Avenue",
-      "city": "Washington",
-      "postCode": 86355,
-      "country": "Austria"
-    }
-  },
-  {
-    "user": {
-      "userName": "examinercrackers",
-      "firstName": "Anthony",
-      "lastName": "Tanner",
-      "email": "anthonytanner@mail.com",
-      "password": "yAjSBHNK"
+    {
+      "user": {
+        "userName": "examinercrackers",
+        "firstName": "Anthony",
+        "lastName": "Tanner",
+        "email": "anthonytanner@mail.com",
+        "password": "yAjSBHNK"
+      },
+      "address": {
+        "houseNumber": 12,
+        "streetName": "Washington Walk",
+        "city": "New York",
+        "postCode": 72307,
+        "country": "Poland"
+      }
     },
-    "address": {
-      "houseNumber": 12,
-      "streetName": "Washington Walk",
-      "city": "New York",
-      "postCode": 72307,
-      "country": "Poland"
-    }
-  },
-  {
-    "user": {
-      "userName": "techniciantruffle",
-      "firstName": "Michael",
-      "lastName": "Jordan",
-      "email": "wilson@mail.com",
-      "password": "oEoS5CJg"
+    {
+      "user": {
+        "userName": "techniciantruffle",
+        "firstName": "Michael",
+        "lastName": "Jordan",
+        "email": "wilson@mail.com",
+        "password": "oEoS5CJg"
+      },
+      "address": {
+        "houseNumber": 997,
+        "streetName": "Stillwell Avenue",
+        "city": "Oklahoma City",
+        "postCode": 82057,
+        "country": "France"
+      }
     },
-    "address": {
-      "houseNumber": 997,
-      "streetName": "Stillwell Avenue",
-      "city": "Oklahoma City",
-      "postCode": 82057,
-      "country": "France"
-    }
-  },
-  {
-    "user": {
-      "userName": "consultantmilkshakes",
-      "firstName": "Gabriella",
-      "lastName": "Merritt",
-      "email": "gabriella.merritt@yahoo.com",
-      "password": "XnKxe7fE"
+    {
+      "user": {
+        "userName": "consultantmilkshakes",
+        "firstName": "Gabriella",
+        "lastName": "Merritt",
+        "email": "gabriella.merritt@yahoo.com",
+        "password": "XnKxe7fE"
+      },
+      "address": {
+        "houseNumber": 33,
+        "streetName": "Ford Street",
+        "city": "Clevelend",
+        "postCode": 30273,
+        "country": "Spain"
+      }
     },
-    "address": {
-      "houseNumber": 33,
-      "streetName": "Ford Street",
-      "city": "Clevelend",
-      "postCode": 30273,
-      "country": "Spain"
-    }
-  },
-  {
-    "user": {
-      "userName": "physiciancoconut",
-      "firstName": "Avery",
-      "lastName": "Frank",
-      "email": "averyfrank@gmail.com",
-      "password": "QDkGi1dF"
+    {
+      "user": {
+        "userName": "physiciancoconut",
+        "firstName": "Avery",
+        "lastName": "Frank",
+        "email": "averyfrank@gmail.com",
+        "password": "QDkGi1dF"
+      },
+      "address": {
+        "houseNumber": 92,
+        "streetName": "Aster Court",
+        "city": "Ciechocinek",
+        "postCode": 88686,
+        "country": "Greece"
+      }
     },
-    "address": {
-      "houseNumber": 92,
-      "streetName": "Aster Court",
-      "city": "Ciechocinek",
-      "postCode": 88686,
-      "country": "Greece"
-    }
-  },
-  {
-    "user": {
-      "userName": "plumbertacos",
-      "firstName": "Kayla",
-      "lastName": "Mullins",
-      "email": "kayla.mullins@gmail.com",
-      "password": "kYuvFtZS"
+    {
+      "user": {
+        "userName": "plumbertacos",
+        "firstName": "Kayla",
+        "lastName": "Mullins",
+        "email": "kayla.mullins@gmail.com",
+        "password": "kYuvFtZS"
+      },
+      "address": {
+        "houseNumber": 123,
+        "streetName": "Grunwaldzka",
+        "city": "Oxford",
+        "postCode": 35582,
+        "country": "Brazil"
+      }
     },
-    "address": {
-      "houseNumber": 123,
-      "streetName": "Grunwaldzka",
-      "city": "Oxford",
-      "postCode": 35582,
-      "country": "Brazil"
-    }
-  },
-  {
-    "user": {
-      "userName": "policemandoughnut",
-      "firstName": "Naomi",
-      "lastName": "Small",
-      "email": "naomismall@yahoo.com",
-      "password": "HgNRWfSV"
+    {
+      "user": {
+        "userName": "policemandoughnut",
+        "firstName": "Naomi",
+        "lastName": "Small",
+        "email": "naomismall@yahoo.com",
+        "password": "HgNRWfSV"
+      },
+      "address": {
+        "houseNumber": 45,
+        "streetName": "Cove Lane",
+        "city": "Boston",
+        "postCode": 73823,
+        "country": "Argentina"
+      }
     },
-    "address": {
-      "houseNumber": 45,
-      "streetName": "Cove Lane",
-      "city": "Boston",
-      "postCode": 73823,
-      "country": "Argentina"
+    {
+      "user": {
+        "userName": "programmercake",
+        "firstName": "Madison",
+        "lastName": "Ross",
+        "email": "madisonross@mail.com",
+        "password": "nJwu6OjU"
+      },
+      "address": {
+        "houseNumber": 79,
+        "streetName": "Highland Place",
+        "city": "Chicago",
+        "postCode": "02211",
+        "country": "Portugal"
+      }
     }
-  },
-  {
-    "user": {
-      "userName": "programmercake",
-      "firstName": "Madison",
-      "lastName": "Ross",
-      "email": "madisonross@mail.com"
-    },
-    "address": {
-      "password": "nJwu6OjU",
-      "houseNumber": 79,
-      "streetName": "Highland Place",
-      "city": "Chicago",
-      "postCode": "02211",
-      "country": "Portugal"
-    }
-  }
-]
+  ]
+}

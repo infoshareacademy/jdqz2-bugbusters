@@ -1,6 +1,10 @@
 package com.infoshare.bug_busters.registration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.infoshare.bug_busters.dataFromJson.ListOfDataToTests;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,14 @@ public class UserDataGenerator {
 
        return new UserData(userName,firstName,lastName,email,password);
     }
+
+/*    public UserData prepareUserDataFromJsonByRandom() throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        ListOfDataToTests allData = mapper.readValue(new File("testData.json"), ListOfDataToTests.class);
+    }*/
+
     public List<UserData> collectionOfUsers () throws IOException {
 
         Integer iloscDanych = 10;

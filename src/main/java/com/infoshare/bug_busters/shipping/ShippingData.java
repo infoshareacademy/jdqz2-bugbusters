@@ -16,6 +16,8 @@ public class ShippingData {
         this.country = country;
     }
 
+    public ShippingData() {}
+
     public String getHouseNumber() {
         return houseNumber;
     }
