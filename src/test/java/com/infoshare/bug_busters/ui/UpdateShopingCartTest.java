@@ -8,16 +8,22 @@ import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import com.tngtech.java.junit.dataprovider.DataProvider;
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(DataProviderRunner.class)
 public class UpdateShopingCartTest {
     private final String PAGE_URL = "http://localhost:4180/";
 
@@ -31,38 +37,36 @@ public class UpdateShopingCartTest {
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
 
-    private static boolean setUserCreated = false;
+    private static int nextUser;
 
-    private static UserData userData;
+    private static List<Boolean> setUserCreated = new ArrayList<>();
 
-    private boolean isUserCreated() {
-        return this.setUserCreated = true;
+    private Boolean isUserCreated() {
+        return setUserCreated.set(nextUser, true);
+    }
+    @DataProvider
+    public static Object[][] testDataForRegistration() throws IOException {
+        return new Object[][] {
+                new Object[] { userDataGenerator.prepareUserData()},
+        };
     }
 
     @BeforeClass
-    public static void setUpUser() throws IOException {
-        try {
-            userData = userDataGenerator.prepareUserData();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+    public static void setUpBeforeAll() {
+
+        nextUser = 0;
+
     }
 
     @Before
     public void setUp() {
+        setUserCreated.add(false);
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         driver.manage().window().maximize();
 
         homePage = new HomePage(driver);
         shoppingCart = new ShoppingCart(driver);
         catalogue = new Catalogue(driver);
-
-        if(!setUserCreated){
-            driver.get(PAGE_URL);
-            homePage.registrationSteps(userData);
-            isUserCreated();
-            homePage.waitsWhenLogout();
-        }
 
     }
 
@@ -73,7 +77,15 @@ public class UpdateShopingCartTest {
     }
 
     @Test
-    public void addingAllPossibleProducts() {
+    @UseDataProvider("testDataForRegistration")
+    public void addingAllPossibleProducts(UserData userData) {
+        if(!setUserCreated.get(nextUser).booleanValue()){
+            driver.get(PAGE_URL);
+            homePage.registrationSteps(userData);
+            isUserCreated();
+            homePage.waitsWhenLogout();
+            nextUser++;
+        }
         driver.get(PAGE_URL);
         homePage.loginSteps(userData);
         homePage.clickItemsInCartButton();
@@ -86,17 +98,21 @@ public class UpdateShopingCartTest {
 
     }
     @Test
-    public void changingQuantityAtOnceInAllProducts() {
+    @UseDataProvider("testDataForRegistration")
+    public void changingQuantityAtOnceInAllProducts(UserData userData) {
         driver.get(PAGE_URL);
-        addingAllPossibleProducts();
+        nextUser = 0;
+        addingAllPossibleProducts(userData);
         String costBeforeChanginfQuantity = shoppingCart.costOfOrder();
         shoppingCart.changingQuantity();
         assertThat(shoppingCart.costOfOrder()).isNotEqualTo(costBeforeChanginfQuantity).as("The cart is not Updated");
     }
     @Test
-    public void DeleteAll_9_products() {
+    @UseDataProvider("testDataForRegistration")
+    public void deleteAll_9_products(UserData userData) {
         driver.get(PAGE_URL);
-        addingAllPossibleProducts();
+        nextUser = 0;
+        addingAllPossibleProducts(userData);
         shoppingCart.deleteAllProductsFromBasket();
         assertThat(shoppingCart.numberOfItemsInCartBasket()).isEqualTo(0).as("There are still items in basket");
     }
