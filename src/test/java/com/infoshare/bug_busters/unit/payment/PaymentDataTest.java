@@ -2,9 +2,7 @@ package com.infoshare.bug_busters.unit.payment;
 
 import com.infoshare.bug_busters.payment.PaymentData;
 import org.junit.Test;
-
 import java.util.regex.Pattern;
-
 import static junit.framework.TestCase.assertTrue;
 
 public class PaymentDataTest {

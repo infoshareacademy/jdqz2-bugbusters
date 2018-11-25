@@ -11,9 +11,12 @@
         <version.junit>4.12</version.junit>
         <version.assertj>3.11.1</version.assertj>
         <version.selenium>3.14.0</version.selenium>
+        <version.log4J>2.11.1</version.log4J>
+        <version.common-lang3>3.7</version.common-lang3>
+        <version.mockito>2.10.0</version.mockito>
+        <version.slf4j-api>1.7.25</version.slf4j-api>
+        <version.log4j-slf4j-impl>2.11.1</version.log4j-slf4j-impl>
     </properties>
-
-
     <build>
         <plugins>
             <plugin>
@@ -29,9 +32,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
-
             </plugin>
-
         </plugins>
     </build>
     <dependencies>
@@ -40,7 +41,6 @@
             <artifactId>junit</artifactId>
             <version>${version.junit}</version>
         </dependency>
-
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -56,13 +56,42 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.10.0</version>
+            <version>${version.mockito}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
+            <version>${version.common-lang3}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${version.log4J}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${version.log4J}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${version.slf4j-api}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${version.log4j-slf4j-impl}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.tngtech.java/junit-dataprovider -->
+        <dependency>
+            <groupId>com.tngtech.java</groupId>
+            <artifactId>junit-dataprovider</artifactId>
+            <version>1.13.1</version>
+            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/javax.xml/jaxb-api -->
         <dependency>
@@ -71,7 +100,4 @@
             <version>2.1</version>
         </dependency>
     </dependencies>
-
-
-
 </project>

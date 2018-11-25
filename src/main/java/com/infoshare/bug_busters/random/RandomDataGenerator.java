@@ -46,27 +46,27 @@ public class RandomDataGenerator {
 
     }
 
-    public static Integer prepareHouseNumber() throws IOException {
+    public String prepareHouseNumber() throws IOException {
         String randomHouseNumber = choiceRandomDataFromTextFile(5);
-        return Integer.valueOf(randomHouseNumber);
+        return randomHouseNumber;
     }
 
-    public static String prepareStreetName() throws IOException {
+    public String prepareStreetName() throws IOException {
         String randomStreetName = choiceRandomDataFromTextFile(6);
         return randomStreetName;
     }
 
-    public static String prepareCity() throws IOException {
+    public String prepareCity() throws IOException {
         String randomCity = choiceRandomDataFromTextFile(7);
         return randomCity;
     }
 
-    public static String preparePostCode() throws IOException {
+    public String preparePostCode() throws IOException {
         String randomPostCode = choiceRandomDataFromTextFile(8);
         return randomPostCode;
     }
 
-    public static String prepareCountry() throws IOException {
+    public String prepareCountry() throws IOException {
         String randomCountry = choiceRandomDataFromTextFile(9);
         return randomCountry;
     }
