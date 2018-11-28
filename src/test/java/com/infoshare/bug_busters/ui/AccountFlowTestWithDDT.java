@@ -72,10 +72,6 @@ public class AccountFlowTestWithDDT {
             driver.get(URL);
         }
 
-        @After
-        public void tearDown () {
-            driver.close();
-        }
 
         @Test
         @UseDataProvider("TestDataForFLowTest")
