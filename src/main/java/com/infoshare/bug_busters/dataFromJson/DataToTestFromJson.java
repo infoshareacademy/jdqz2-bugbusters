@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.shipping.ShippingData;
 
-public class DataToTestCaseEntry {
+public class DataToTestFromJson {
 
     private UserData  user;
     private ShippingData address;

@@ -1,20 +1,29 @@
 package com.infoshare.bug_busters.shipping;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.infoshare.bug_busters.dataFromJson.ListOfDataToTests;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+import com.infoshare.bug_busters.registration.UserData;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Random;
 
 public class ShippingDataGenerator {
 
-    private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
+    private final RandomDataGenerator dataGenerator;
 
-    public ShippingDataGenerator(RandomDataGenerator dataGenerator) { // konstruktor z wstrzyknieta klasa RandomDataGenerator
+    public ShippingDataGenerator(RandomDataGenerator dataGenerator) {
         this.dataGenerator = dataGenerator;
-        //dependency enjection
     }
+
+    ShippingData oneShippingAddress;
+    Random random = new Random();
+    ObjectMapper mapper = new ObjectMapper();
 
     public ShippingData prepareShippingData() throws IOException {
 
@@ -35,6 +44,27 @@ public class ShippingDataGenerator {
             shippingData.add(prepareShippingData());
         }
         return shippingData;
+    }
+
+    public ShippingData randomOneShippingAddressFromJson() {
+
+        try {
+
+            ListOfDataToTests allData = mapper.readValue(new File("testData.json"), ListOfDataToTests.class);
+
+            oneShippingAddress = allData.getTestsData()
+                    .get(random.nextInt(allData.getTestsData().size()))
+                    .getAddress();
+
+        } catch (JsonGenerationException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return oneShippingAddress;
     }
 }
 

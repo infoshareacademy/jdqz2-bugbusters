@@ -2,10 +2,14 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infoshare.bug_busters.dataFromJson.ListOfDataToTests;
-import com.infoshare.bug_busters.dataFromJson.DataToTestCaseEntry;
+import com.infoshare.bug_busters.dataFromJson.DataToTestFromJson;
+import com.infoshare.bug_busters.registration.UserData;
+import com.infoshare.bug_busters.shipping.ShippingData;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -26,19 +30,6 @@ public class Main {
         System.out.println(shippingDataGenerator.createListWithObjectsWithRandomChoiceDate(1 ));*/
 
         // https://www.baeldung.com/jackson-object-mapper-tutorial
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        ListOfDataToTests allData = mapper.readValue(new File("testData.json"), ListOfDataToTests.class);
-
-        //System.out.println(allData);
-
-        for (DataToTestCaseEntry data : allData.getTests()) {
-            System.out.println(data.getUser());
-        }
-
-
-
 
 
        /* ObjectMapper mapper = new ObjectMapper();

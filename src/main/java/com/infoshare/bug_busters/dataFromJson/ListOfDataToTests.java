@@ -4,18 +4,18 @@ import java.util.List;
 
 public class ListOfDataToTests {
 
-    List<DataToTestCaseEntry> tests;
+    private List<DataToTestFromJson> testsData;
 
-    public List<DataToTestCaseEntry> getTests() {
-        return tests;
+    public List<DataToTestFromJson> getTestsData() {
+        return testsData;
     }
 
-    public void setTests(List<DataToTestCaseEntry> tests) {
-        this.tests = tests;
+    public void setTestsData(List<DataToTestFromJson> testsData) {
+        this.testsData = testsData;
     }
 
     @Override
     public String toString() {
-        return "tests=" + tests;
+        return "testsData=" + testsData;
     }
 }
