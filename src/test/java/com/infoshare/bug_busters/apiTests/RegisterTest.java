@@ -1,14 +1,18 @@
 package com.infoshare.bug_busters.apiTests;
-
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
 
 public class RegisterTest {
+
 
     @Test
     public void checkingWeb(){
@@ -18,23 +22,26 @@ public class RegisterTest {
                 .statusCode(200);
     }
     @Test
-    public void checkingRegistration(){
+    public void checkingRegistration() {
+        RestAssured.registerParser("text/plain", Parser.JSON);
+        Map<String, Object> project = new HashMap<>();
+        project.put("username", "John");
+        project.put("password", "12345");
+        project.put("email", "john2@gmail.com");
         given()
-             .param("username", "John2")
-             .param("firstName", "John2")
-             .param("lastName","Doe")
-             .param("email", "john2@gmail.com")
-             .param("password","12345")
-             .auth()
-             .preemptive();
-        when()
+                .body(project).when()
                 .post("http://localhost:4180/register").
-        then()
-             .log().all()
-             .statusCode(200)
-             .contentType("application/json")
-             .body("username",containsString("John2"))
-             .contentType("application/json");
+                then()
+                .log().all().contentType("text/plain").body("username", equalTo("John"));
+
+             //.statusCode(200)
+    }
+    @Test
+            public void checkingLogin() {
+        given()
+                .param("username", "John")
+                .param("password","12345");
+                when().get("http://localhost:4180/login").then().statusCode(200);
 
     }
 
