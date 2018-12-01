@@ -1,11 +1,19 @@
 package com.infoshare.bug_busters.registration;
+import com.infoshare.bug_busters.dataFromXML.TestData;
 
 import com.infoshare.bug_busters.random.DdtDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static javax.xml.bind.JAXBContext.newInstance;
 
 public class UserDataGenerator {
 
@@ -15,7 +23,7 @@ public class UserDataGenerator {
         this.dataGenerator = dataGenerator;
     }
     //konstruktor ktory trzeba stworzyc z polem dataGenerator typu RandomDataGenerator, zeby w metodzie prepareUserData() nie bylo
-    // na sztywno wywolania RandomDataGenerator.prepareUserName()
+                // na sztywno RandomDataGenerator.prepareUserName()
 
     public UserData prepareUserData() {
 

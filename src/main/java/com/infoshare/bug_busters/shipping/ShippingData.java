@@ -1,12 +1,24 @@
 package com.infoshare.bug_busters.shipping;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ShippingData {
 
-    private String houseNumber;
-    private String streetName;
-    private String city;
-    private String postCode;
-    private String country;
+    @XmlAttribute(name = "houseNumber")
+    String houseNumber;
+    @XmlAttribute(name="streetName")
+    String streetName;
+    @XmlAttribute(name="city")
+    String city;
+    @XmlAttribute(name="postCode")
+    String postCode;
+    @XmlAttribute(name="country")
+    String country;
+
+    public ShippingData() {
+    }
 
     public ShippingData(String houseNumber, String streetName, String city, String postCode, String country) {
         this.houseNumber = houseNumber;

@@ -1,10 +1,20 @@
 package com.infoshare.bug_busters.payment;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class PaymentData {
 
-    private String cardNumber;
-    private String expires;
-    private String ccv;
+    @XmlAttribute(name = "cardNumber")
+    String cardNumber;
+    @XmlAttribute(name="expires")
+    String expires;
+    @XmlAttribute(name="ccv")
+    String ccv;
+
+    public PaymentData() {
+    }
 
     public PaymentData(String cardNumber, String expires, String CCV){
 
