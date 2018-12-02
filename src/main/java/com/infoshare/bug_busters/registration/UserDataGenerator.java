@@ -3,6 +3,9 @@ import com.infoshare.bug_busters.dataFromXML.TestData;
 
 import com.infoshare.bug_busters.random.DdtDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -17,6 +20,8 @@ import static javax.xml.bind.JAXBContext.newInstance;
 
 public class UserDataGenerator {
 
+
+    private static Logger logger = LoggerFactory.getLogger(UserDataGenerator.class);
     private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
 
     public UserDataGenerator(RandomDataGenerator dataGenerator) {
@@ -41,7 +46,7 @@ public class UserDataGenerator {
             password = dataGenerator.preparePassword();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
         return new UserData(userName, firstName, lastName, email, password);
