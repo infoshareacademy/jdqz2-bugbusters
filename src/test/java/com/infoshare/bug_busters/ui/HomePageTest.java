@@ -1,7 +1,7 @@
 package com.infoshare.bug_busters.ui;
 
 import com.infoshare.bug_busters.pageObject.*;
-import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -22,7 +22,7 @@ public class HomePageTest {
     private ColorfulPage colorfulPage;
     private ClassicPage classicPage;
     private MyOrdersPage myOrdersPage;
-    private Jenkins_URL_Provider jenkins_url_provider;
+    private URLProvider urlProvider;
 
     @Before
     public void setUp() {
@@ -37,7 +37,7 @@ public class HomePageTest {
         classicPage = new ClassicPage(driver);
         myOrdersPage = new MyOrdersPage(driver);
 
-        jenkins_url_provider = new Jenkins_URL_Provider(driver);
+        urlProvider = new URLProvider(driver);
 
     }
 

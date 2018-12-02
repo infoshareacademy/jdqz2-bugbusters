@@ -4,7 +4,7 @@ import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
-import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -28,7 +28,7 @@ public class RegistrationAndLoginWithDDT_Test {
     private HomePage homePage;
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
-    private Jenkins_URL_Provider jenkins_url_provider;
+    private URLProvider urlProvider;
 
     @DataProvider
     public static Object[][] testDataForRegistration() throws IOException {
@@ -54,7 +54,7 @@ public class RegistrationAndLoginWithDDT_Test {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
 
         homePage = new HomePage(driver);
-        jenkins_url_provider = new Jenkins_URL_Provider(driver);
+        urlProvider = new URLProvider(driver);
     }
 
     @After

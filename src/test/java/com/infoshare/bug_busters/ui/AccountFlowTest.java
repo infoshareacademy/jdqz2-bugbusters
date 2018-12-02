@@ -2,7 +2,7 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
-import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.assertj.core.api.Assertions;
@@ -19,7 +19,7 @@ public class AccountFlowTest {
     private HomePage homePage;
     private AccountPage accountPage;
     private ShoppingCartPage shoppingCartPage;
-    private Jenkins_URL_Provider jenkins_url_provider;
+    private URLProvider urlProvider;
 
     @Before
     public void setUp() {
@@ -27,7 +27,7 @@ public class AccountFlowTest {
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
-        jenkins_url_provider = new Jenkins_URL_Provider(driver);
+        urlProvider = new URLProvider(driver);
     }
     @After
     public void tearDown() {

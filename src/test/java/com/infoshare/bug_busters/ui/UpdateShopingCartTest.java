@@ -6,7 +6,7 @@ import com.infoshare.bug_busters.pageObject.ShoppingCart;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
-import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -29,7 +29,7 @@ public class UpdateShopingCartTest {
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
     private static boolean setUserCreated = false;
     private static UserData userData;
-    private Jenkins_URL_Provider jenkins_url_provider;
+    private URLProvider urlProvider;
 
     private boolean isUserCreated() {
         return this.setUserCreated = true;
@@ -53,13 +53,13 @@ public class UpdateShopingCartTest {
         catalogue = new Catalogue(driver);
 
         if(!setUserCreated){
-            jenkins_url_provider = new Jenkins_URL_Provider(driver);
+            urlProvider = new URLProvider(driver);
             homePage.registrationSteps(userData);
             isUserCreated();
             homePage.waitsWhenLogout();
         }
         else{
-            jenkins_url_provider = new Jenkins_URL_Provider(driver);
+            urlProvider = new URLProvider(driver);
         }
 
     }

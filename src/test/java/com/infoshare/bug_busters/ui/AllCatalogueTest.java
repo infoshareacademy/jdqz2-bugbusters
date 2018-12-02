@@ -3,7 +3,7 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.CataloguePage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ProductPage;
-import com.infoshare.bug_busters.utils.Jenkins_URL_Provider;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -17,7 +17,7 @@ public class AllCatalogueTest {
     private HomePage homePage;
     private CataloguePage cataloguePage;
     private ProductPage productPage;
-    private Jenkins_URL_Provider jenkins_url_provider;
+    private URLProvider urlProvider;
 
     @Before
     public void setUp() {
@@ -25,7 +25,7 @@ public class AllCatalogueTest {
         homePage = new HomePage(driver);
         cataloguePage = new CataloguePage(driver);
         productPage = new ProductPage(driver);
-        jenkins_url_provider = new Jenkins_URL_Provider(driver);
+        urlProvider = new URLProvider(driver);
         homePage.chooseCatalogue();
     }
     @Test
