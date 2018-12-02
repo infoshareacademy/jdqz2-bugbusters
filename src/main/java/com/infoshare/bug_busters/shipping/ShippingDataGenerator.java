@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infoshare.bug_busters.dataFromJson.ListOfDataToTests;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
-import com.infoshare.bug_busters.registration.UserData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,9 @@ public class ShippingDataGenerator {
     ShippingData oneShippingAddress;
     Random random = new Random();
     ObjectMapper mapper = new ObjectMapper();
+
+    private static Logger logger = LoggerFactory.getLogger(ShippingDataGenerator.class);
+
 
     public ShippingData prepareShippingData() throws IOException {
 
@@ -57,11 +61,11 @@ public class ShippingDataGenerator {
                     .getAddress();
 
         } catch (JsonGenerationException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (JsonMappingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
         return oneShippingAddress;

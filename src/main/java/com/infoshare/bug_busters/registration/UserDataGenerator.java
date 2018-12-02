@@ -4,7 +4,10 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infoshare.bug_busters.dataFromJson.ListOfDataToTests;
+import com.infoshare.bug_busters.pageObject.ShoppingCart;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +26,9 @@ public class UserDataGenerator {
     UserData oneUser;
     Random random = new Random();
     ObjectMapper mapper = new ObjectMapper();
+
+    private static Logger logger = LoggerFactory.getLogger(UserDataGenerator.class);
+
 
     public UserData prepareUserData() throws IOException {
 
@@ -59,11 +65,11 @@ public class UserDataGenerator {
                     .getUser();
 
         } catch (JsonGenerationException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (JsonMappingException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
         return oneUser;
