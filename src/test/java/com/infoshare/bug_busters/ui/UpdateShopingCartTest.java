@@ -70,14 +70,7 @@ public class UpdateShopingCartTest {
         homePage = new HomePage(driver);
         shoppingCart = new ShoppingCart(driver);
         catalogue = new Catalogue(driver);
-
-        if(!setUserCreated){
-            urlProvider = new URLProvider(driver);
-        }
-        else{
-            urlProvider = new URLProvider(driver);
-        }
-
+        urlProvider = new URLProvider(driver);
     }
 
     @After
