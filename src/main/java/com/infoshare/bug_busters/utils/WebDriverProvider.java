@@ -6,7 +6,7 @@ public class WebDriverProvider {
 
     private final WebDriver driver;
 
-    public WebDriverProvider(WebDriverCreator creator) {
+    public  WebDriverProvider(WebDriverCreator creator) {
         driver = creator.create();
     }
 
