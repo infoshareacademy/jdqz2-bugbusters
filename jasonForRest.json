@@ -1,0 +1,53 @@
+{
+  "id": "string",
+  "customerId": "string",
+  "customer": {
+    "firstName": "string",
+    "lastName": "string",
+    "username": "string",
+    "addresses": [
+      {
+        "id": "string",
+        "number": "string",
+        "street": "string",
+        "city": "string",
+        "postcode": "string",
+        "country": "string"
+      }
+    ],
+    "cards": [
+      {
+        "id": "string",
+        "longNum": "string",
+        "expires": "string",
+        "ccv": "string"
+      }
+    ]
+  },
+  "address": {
+    "number": "string",
+    "street": "string",
+    "city": "string",
+    "postcode": "string",
+    "country": "string"
+  },
+  "card": {
+    "longNum": "string",
+    "expires": "string",
+    "ccv": "string"
+  },
+  "items": [
+    {
+      "id": "string",
+      "itemId": "string",
+      "quantity": 0,
+      "unitPrice": 0
+    }
+  ],
+  "shipment": {
+    "id": "string",
+    "name": "string"
+  },
+  "date": "string",
+  "total": 0
+}         }
