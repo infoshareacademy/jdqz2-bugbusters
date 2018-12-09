@@ -70,7 +70,6 @@ public class Catalogue {
                 statusCode(200).log().all().
                 body("tags", hasSize(11)).
                 extract().jsonPath().getList("tags");
-//                body("tags".contentEquals(tagi);
         Assert.assertEquals(tagi, tagsFromResponse);
     }
 
