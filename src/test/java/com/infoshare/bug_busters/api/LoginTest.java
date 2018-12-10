@@ -1,4 +1,4 @@
-package com.infoshare.bug_busters.apiTests;
+package com.infoshare.bug_busters.api;
 
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
