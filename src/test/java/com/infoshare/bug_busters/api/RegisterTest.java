@@ -20,8 +20,8 @@ public class RegisterTest {
     public void checkingRegistration() {
         RestAssured.registerParser("text/plain", Parser.JSON);
         Map<String, Object> project = new HashMap<>();
-        project.put("username", "John10");
-        project.put("firstName", "John3");
+        project.put("username", "John101");
+        project.put("firstName", "John");
         project.put("lastName", "Doe");
         project.put("password", "12345");
         project.put("email", "john10@gmail.com");
