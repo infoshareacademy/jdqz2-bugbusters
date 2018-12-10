@@ -6,6 +6,7 @@ import com.infoshare.bug_busters.pageObject.ShoppingCart;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.registration.UserData;
 import com.infoshare.bug_busters.registration.UserDataGenerator;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -41,6 +42,8 @@ public class UpdateShopingCartTest {
 
     private static List<Boolean> setUserCreated = new ArrayList<>();
 
+    private URLProvider urlProvider;
+
     private Boolean isUserCreated() {
         return setUserCreated.set(nextUser, true);
     }
@@ -67,7 +70,7 @@ public class UpdateShopingCartTest {
         homePage = new HomePage(driver);
         shoppingCart = new ShoppingCart(driver);
         catalogue = new Catalogue(driver);
-
+        urlProvider = new URLProvider(driver);
     }
 
     @After
@@ -80,7 +83,6 @@ public class UpdateShopingCartTest {
     @UseDataProvider("testDataForRegistration")
     public void addingAllPossibleProducts(UserData userData) {
         if(!setUserCreated.get(nextUser).booleanValue()){
-            driver.get(PAGE_URL);
             homePage.registrationSteps(userData);
             isUserCreated();
             homePage.waitsWhenLogout();
@@ -100,7 +102,6 @@ public class UpdateShopingCartTest {
     @Test
     @UseDataProvider("testDataForRegistration")
     public void changingQuantityAtOnceInAllProducts(UserData userData) {
-        driver.get(PAGE_URL);
         nextUser = 0;
         addingAllPossibleProducts(userData);
         String costBeforeChanginfQuantity = shoppingCart.costOfOrder();
@@ -110,7 +111,6 @@ public class UpdateShopingCartTest {
     @Test
     @UseDataProvider("testDataForRegistration")
     public void deleteAll_9_products(UserData userData) {
-        driver.get(PAGE_URL);
         nextUser = 0;
         addingAllPossibleProducts(userData);
         shoppingCart.deleteAllProductsFromBasket();

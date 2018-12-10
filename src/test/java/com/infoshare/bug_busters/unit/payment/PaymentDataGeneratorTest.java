@@ -2,7 +2,6 @@ package com.infoshare.bug_busters.unit.payment;
 
 import com.infoshare.bug_busters.payment.PaymentData;
 import com.infoshare.bug_busters.payment.PaymentDataGenerator;
-import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.junit.Test;
 import java.util.List;
 import java.util.regex.Pattern;

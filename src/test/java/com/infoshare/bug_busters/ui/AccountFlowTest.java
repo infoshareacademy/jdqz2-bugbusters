@@ -2,7 +2,7 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.AccountPage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ShoppingCartPage;
-import com.infoshare.bug_busters.registration.UserData;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.assertj.core.api.Assertions;
@@ -19,16 +19,15 @@ public class AccountFlowTest {
     private HomePage homePage;
     private AccountPage accountPage;
     private ShoppingCartPage shoppingCartPage;
-    private final String URL=("http://localhost:4180/");
+    private URLProvider urlProvider;
 
     @Before
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
         homePage = new HomePage(driver);
         accountPage = new AccountPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
-        driver.get(URL);
+        urlProvider = new URLProvider(driver);
     }
     @After
     public void tearDown() {
