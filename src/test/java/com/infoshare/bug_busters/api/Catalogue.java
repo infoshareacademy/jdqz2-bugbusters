@@ -4,16 +4,14 @@ import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.core.IsNull.notNullValue;
+
 
 public class Catalogue {
 
