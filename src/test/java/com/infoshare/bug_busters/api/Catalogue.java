@@ -32,23 +32,7 @@ public class Catalogue {
                 statusCode(200).log().all().
                 body("size", equalTo(9));
     }
-//
-//    @Test
-//    public void checkingCatalogueSizeResponse1() {
-//
-//        RestAssured.registerParser("text/plain", Parser.JSON);
-//        given().
-//                queryParam("page",2).queryParam("size",3).
-//                when().
-//                get("http://localhost:4180/").
-//                then().
-//                statusCode(200).
-//                body("")
-//
-//
-//                log().all();
-////                body("size", equalTo(9));
-//    }
+
 
     @Test
     public void testingProductResponseById() {
