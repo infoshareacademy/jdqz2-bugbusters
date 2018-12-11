@@ -1,15 +1,19 @@
 package com.infoshare.bug_busters.api;
+
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNull.notNullValue;
 
 public class Catalogue {
 
@@ -19,7 +23,6 @@ public class Catalogue {
         given().when().get("http://localhost:4180").then().statusCode(200);
 
     }
-
 
     @Test
     public void checkingCatalogueSizeResponse() {
@@ -32,7 +35,6 @@ public class Catalogue {
                 statusCode(200).log().all().
                 body("size", equalTo(9));
     }
-
 
     @Test
     public void testingProductResponseById() {
@@ -59,6 +61,7 @@ public class Catalogue {
                 body("error", equalTo("Do: not found"));
 
     }
+
     @Test
     public void testingTags() {
         RestAssured.registerParser("text/plain", Parser.JSON);
@@ -76,3 +79,37 @@ public class Catalogue {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
