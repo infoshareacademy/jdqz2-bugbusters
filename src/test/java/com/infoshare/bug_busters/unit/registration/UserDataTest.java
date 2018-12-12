@@ -18,7 +18,7 @@ public class UserDataTest {  // napisac testy jednostkowe czyli do kazdej metody
         assertTrue("Letter are not from A-Z", Pattern.matches("[a-zA-Z]+", userinfo.prepareUserData().getFirstName()));
         assertTrue("Letter are not from A-Z", Pattern.matches("[a-zA-Z]+", userinfo.prepareUserData().getLastName()));
         assertTrue("Email is not valid", Pattern.matches("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$", userinfo.prepareUserData().getEmail()));
-        assertTrue("Letter are not from A-Z", Pattern.matches("[a-zA-Z]+", userinfo.prepareUserData().getPassword()));
+        assertTrue("Letter are not from A-Z", Pattern.matches("[a-zA-Z0-9]+", userinfo.prepareUserData().getPassword()));
     }
 
 }

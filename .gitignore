@@ -50,6 +50,9 @@ out/
 # Log file
 *.log
 
+#Screenshot files
+*.png
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
