@@ -12,6 +12,7 @@ import com.infoshare.bug_busters.registration.UserDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingData;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
 import com.infoshare.bug_busters.utils.ScreenShotTaker;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import com.tngtech.java.junit.dataprovider.DataProvider;
@@ -46,6 +47,8 @@ public class AccountFlowTestWithDDT {
     private AccountPage accountPage;
     private HomePage homePage;
     private ShoppingCartPage shoppingCartPage;
+    private URLProvider urlProvider;
+
 
 
     private static UserDataGenerator userDataGenerator = new UserDataGenerator(new RandomDataGenerator());
@@ -69,7 +72,8 @@ public class AccountFlowTestWithDDT {
             accountPage = new AccountPage(driver);
             shoppingCartPage = new ShoppingCartPage(driver);
             watchman.setDriver(driver);
-            driver.get(URL);
+            urlProvider = new URLProvider(driver);
+
         }
 
 
