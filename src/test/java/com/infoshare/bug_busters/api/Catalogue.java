@@ -15,12 +15,22 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class Catalogue {
 
+        @Test
+        public void checkingCatalogue(){
+            given()
+                    .contentType("application/json").
+                    when()
+                    .get("http://localhost:4180/cart").
+                    then()
+                    .log().all().statusCode(200);
+        }
 
     @Test
     public void makeSureThatJasonPlaceHolderIsUp() {
         given().when().get("http://localhost:4180").then().statusCode(200);
 
     }
+
 
     @Test
     public void checkingCatalogueSizeResponse() {
@@ -77,37 +87,4 @@ public class Catalogue {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
