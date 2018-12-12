@@ -16,6 +16,7 @@
         <version.mockito>2.10.0</version.mockito>
         <version.slf4j-api>1.7.25</version.slf4j-api>
         <version.log4j-slf4j-impl>2.11.1</version.log4j-slf4j-impl>
+        <rest.assured.version>3.0.7</rest.assured.version>
     </properties>
     <build>
         <plugins>
@@ -86,6 +87,19 @@
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>${version.log4j-slf4j-impl}</version>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${rest.assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest.assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/com.tngtech.java/junit-dataprovider -->
         <dependency>
             <groupId>com.tngtech.java</groupId>
