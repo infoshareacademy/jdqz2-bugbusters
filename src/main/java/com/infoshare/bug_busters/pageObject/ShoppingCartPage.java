@@ -8,10 +8,7 @@ import com.infoshare.bug_busters.payment.PaymentDataGenerator;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import com.infoshare.bug_busters.shipping.ShippingData;
 import com.infoshare.bug_busters.shipping.ShippingDataGenerator;
-import com.infoshare.bug_busters.utils.Waits;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -100,6 +97,10 @@ public class ShoppingCartPage {
         waits.waitForElementToBeVisible(changePaymentButton);
     }
     public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethod() throws IOException {
+        shippingAdressSteps(shippingDataGenerator.prepareShippingData());
+        addinPaymentsSteps(paymentDataGenerator.preparePayments());
+
+    } public void fillingShippingAddressInfowithDataGeneratorMethodFillingPaymentsInfowithDataGeneratorMethodWithDdt(ShippingData shippingData,PaymentData paymentData) throws IOException {
         shippingAdressSteps(shippingDataGenerator.prepareShippingData());
         addinPaymentsSteps(paymentDataGenerator.preparePayments());
     }

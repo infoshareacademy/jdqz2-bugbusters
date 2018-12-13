@@ -20,7 +20,7 @@ public class HomePage {
     @FindBy(xpath = "//div[@id='login-modal']//button[@class='btn btn-primary']")
     private WebElement buttonLogin;
 
-    @FindBy (linkText ="Register")
+    @FindBy(linkText = "Register")
     private WebElement linkRegister;
 
     @FindBy(xpath = "//div[@id='register-modal']//button[@class='btn btn-primary']")
@@ -259,98 +259,111 @@ public class HomePage {
         registrationSteps(userData);
         waitsWhenLogout();
         loginSteps(userData);
-
     }
+
+    public void loginUserAfterRegistrationWithDdt(UserData userData) throws IOException {
+
+        registrationSteps(userData);
+
+        waitsWhenLogout();
+
+        loginSteps(userData);
+    }
+
     public void chooseCatalogue() {
         waits.waitForElementToBeVisible(labelCatalogue);
         waits.waitForElementToBeClickable(labelCatalogue);
         labelCatalogue.click();
     }
 
-    public void clickOnLinkLogin() {linkLogin.click();}
+    public void clickOnLinkLogin() {
+        linkLogin.click();
+    }
 
-    public boolean checkEnableLoginButton(){
+    public boolean checkEnableLoginButton() {
         waits.waitForElementToBeVisible(buttonLogin);
         return buttonLogin.isEnabled();
     }
 
-    public void clickOnLinkRegister() {linkRegister.click();}
+    public void clickOnLinkRegister() {
+        linkRegister.click();
+    }
 
-    public boolean checkEnableRegisterButton(){
+    public boolean checkEnableRegisterButton() {
         waits.waitForElementToBeVisible(buttonRegister);
         return buttonRegister.isEnabled();
     }
 
-    public void clickOnLinkHome(){
+    public void clickOnLinkHome() {
         linkHomeAtTopOfPage.click();
     }
 
-    public String getTextFromHomePage(){
+    public String getTextFromHomePage() {
         waits.waitForElementToBeVisible(textConfirmingBeeingOnHomePage);
         return textConfirmingBeeingOnHomePage.getText();
     }
 
-    public void clickOnLinkCatalogue(){
+    public void clickOnLinkCatalogue() {
         linkCatalogueAtTopOfPage.click();
     }
 
-    public void moveMouseCursorOnCatalogue(){
+    public void moveMouseCursorOnCatalogue() {
         waits.waitForElementToBeVisible(linkCatalogueAtTopOfPage);
         actions.moveToElement(linkCatalogueAtTopOfPage).perform();
     }
 
-    public void selectBlueFromDropDownMenuCatalogue(){
+    public void selectBlueFromDropDownMenuCatalogue() {
         moveMouseCursorOnCatalogue();
         waits.waitForElementToBeClickable(blueFromCatalogueDropDownMenu);
         blueFromCatalogueDropDownMenu.click();
     }
 
-    public void selectBrownFromDropDownMenuCatalogue(){
+    public void selectBrownFromDropDownMenuCatalogue() {
         moveMouseCursorOnCatalogue();
         waits.waitForElementToBeClickable(brownFromCatalogueDropDownMenu);
         brownFromCatalogueDropDownMenu.click();
     }
 
-    public void selectGreenFromDropDownMenuCatalogue(){
+    public void selectGreenFromDropDownMenuCatalogue() {
         moveMouseCursorOnCatalogue();
         waits.waitForElementToBeClickable(greenFromCatalogueDropDownMenu);
         greenFromCatalogueDropDownMenu.click();
     }
 
-    public void selectMagicFromDropDownMenuCatalogue(){
+    public void selectMagicFromDropDownMenuCatalogue() {
         moveMouseCursorOnCatalogue();
         waits.waitForElementToBeClickable(magicFromCatalogueDropDownMenu);
         magicFromCatalogueDropDownMenu.click();
     }
 
-    public void selectFormalFromDropDownMenuCatalogue(){
+    public void selectFormalFromDropDownMenuCatalogue() {
         moveMouseCursorOnCatalogue();
         waits.waitForElementToBeClickable(formalFromCatalogueDropDownMenu);
         formalFromCatalogueDropDownMenu.click();
     }
 
-    public void selectLeftPictureFromMainSlider(){
+    public void selectLeftPictureFromMainSlider() {
         waits.waitForElementToBeClickable(leftDotOnMainSlider);
         leftDotOnMainSlider.click();
         waits.waitForElementToBeVisible(leftPictureOnMainSlider);
         leftPictureOnMainSlider.click();
     }
 
-    public void selectMiddlePictureFromMainSlider(){
+    public void selectMiddlePictureFromMainSlider() {
         waits.waitForElementToBeClickable(middleDotOnMainSlider);
         middleDotOnMainSlider.click();
         waits.waitForElementToBeVisible(middlePictureOnMainSlider);
         middlePictureOnMainSlider.click();
     }
 
-    public void selectRightPictureFromMainSlider(){
+    public void selectRightPictureFromMainSlider() {
         waits.waitForElementToBeClickable(rightDotOnMainSlider);
         rightDotOnMainSlider.click();
         waits.waitForElementToBeVisible(rightPictureOnMainSlider);
         rightPictureOnMainSlider.click();
     }
 
-    public void clickOnButtonItemsInCart(){
+    public void clickOnButtonItemsInCart() {
         buttonItemsInCart.click();
     }
 
@@ -359,75 +372,75 @@ public class HomePage {
         return buttonItemsInCart.getText();
     }
 
-    public void clickOnLinkHoly(){
+    public void clickOnLinkHoly() {
         linkOfProductHoly.click();
     }
 
-    public void clickOnPictureHoly(){
+    public void clickOnPictureHoly() {
         pictureOfProductHoly.click();
     }
 
-    public void clickOnLinkColorful(){
+    public void clickOnLinkColorful() {
         linkOfProductColorful.click();
     }
 
-    public void clickOnPictureColorful(){
+    public void clickOnPictureColorful() {
         pictureOfProductColorful.click();
     }
 
-    public void clickOnLinkSportXL(){
+    public void clickOnLinkSportXL() {
         linkOfProductSuperSportXL.click();
     }
 
-    public void clickOnPictureSportXL(){
+    public void clickOnPictureSportXL() {
         pictureOfProductSuperSportXL.click();
     }
 
-    public void clickOnLinkCrossed(){
+    public void clickOnLinkCrossed() {
         linkOfProductCrossed.click();
     }
 
-    public void clickOnPictureCrossed(){
+    public void clickOnPictureCrossed() {
         pictureOfProductCrossed.click();
     }
 
-    public void clickOnLinkFigueroa(){
+    public void clickOnLinkFigueroa() {
         linkOfProductFigueroa.click();
     }
 
-    public void clickOnPictureFigueroa(){
+    public void clickOnPictureFigueroa() {
         pictureOfProductFigueroa.click();
     }
 
-    public void clickOnFooterLinkHome(){
+    public void clickOnFooterLinkHome() {
         linkHomeAtFooter.click();
     }
 
-    public void clickOnFooterLinkCatalogue(){
+    public void clickOnFooterLinkCatalogue() {
         linkCatalogueAtFooter.click();
     }
 
-    public void clickOnFooterLinkLogin(){
+    public void clickOnFooterLinkLogin() {
         linkLoginAtFooter.click();
     }
 
-    public void clickOnFooterLinkCart(){
+    public void clickOnFooterLinkCart() {
         linkCartAtFooter.click();
     }
 
-    public void clickOnFooterLinkOrders(){
+    public void clickOnFooterLinkOrders() {
         linkOrdersAtFooter.click();
     }
 
-    public void clickOnFooterLinkMagic(){
+    public void clickOnFooterLinkMagic() {
         linkMagicAtFooter.click();
     }
 
-    public void clickOnFooterLinkSport(){
+    public void clickOnFooterLinkSport() {
         linkSportAtFooter.click();
     }
 
-    public void clickOnFooterLinkAction(){
+    public void clickOnFooterLinkAction() {
         linkActionAtFooter.click();
     }
 }

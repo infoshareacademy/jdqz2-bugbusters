@@ -3,11 +3,13 @@ package com.infoshare.bug_busters.ui;
 import com.infoshare.bug_busters.pageObject.CataloguePage;
 import com.infoshare.bug_busters.pageObject.HomePage;
 import com.infoshare.bug_busters.pageObject.ProductPage;
+import com.infoshare.bug_busters.utils.URLProvider;
+import com.infoshare.bug_busters.utils.WebDriverCreators;
+import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AllCatalogueTest {
@@ -15,15 +17,15 @@ public class AllCatalogueTest {
     private HomePage homePage;
     private CataloguePage cataloguePage;
     private ProductPage productPage;
-    private final String URL=("http://localhost:4180/");
+    private URLProvider urlProvider;
+
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver_Linux64");
-        driver = new ChromeDriver();
+        driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
         homePage = new HomePage(driver);
         cataloguePage = new CataloguePage(driver);
         productPage = new ProductPage(driver);
-        driver.get(URL);
+        urlProvider = new URLProvider(driver);
         homePage.chooseCatalogue();
     }
     @Test

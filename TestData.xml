@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testData>
+    <userData userName="tutorgatorade" firstName="Lydia" lastName="Rocha" email="lydiarocha@gmail.com"
+              password="aDJMhJJN"/>
+    <userData userName="candidatecaviar" firstName="Madelyn" lastName="Gomez" email="madelyngomez@gmail.com"
+              password="Ucv99JO4"/>
+    <userData userName="travelericecream" firstName="Evelyn" lastName="Mccarthy" email="evelynmccarthy@yahoo.com"
+              password="xz0hY5V0"/>
+    <userData userName="examinercrackers" firstName="Anthony" lastName="Tanner" email="anthonytanner@mail.com"
+              password="yAjSBHNK"/>
+    <userData userName="techniciantruffle" firstName="Michael" lastName="Jordan" email="wilson@mail.com"
+              password="oEoS5CJg"/>
+    <userData userName="consultantmilkshakes" firstName="Gabriella" lastName="Merritt"
+              email="gabriella.merritt@yahoo.com" password="XnKxe7fE"/>
+    <userData userName="physiciancoconut" firstName="Avery" lastName="Frank" email="averyfrank@gmail.com"
+              password="QDkGi1dF"/>
+    <userData userName="plumbertacos" firstName="Kayla" lastName="Mullins" email="kayla.mullins@gmail.com"
+              password="kYuvFtZS"/>
+    <userData userName="policemandoughnut" firstName="Naomi" lastName="Small" email="naomismall@yahoo.com"
+              password="HgNRWfSV"/>
+    <userData userName="programmercake" firstName="Madison" lastName="Ross" email="madisonross@mail.com"
+              password="nJwu6OjU"/>
+    <shippingData houseNumber="84" streetName="Herzi Street" city="San Francisco" postCode="08537" country="Australia"/>
+    <shippingData houseNumber="168" streetName="Summer Place" city="Miami" postCode="54083" country="Canada"/>
+    <shippingData houseNumber="192" streetName="Stillwell Avenue" city="Washington" postCode="86355" country="Austria"/>
+    <shippingData houseNumber="12" streetName="Washington Walk" city="New York" postCode="72307" country="Poland"/>
+    <shippingData houseNumber="997" streetName="Stillwell Avenue" city="Oklahoma City" postCode="82057"
+                  country="Australia"/>
+    <shippingData houseNumber="33" streetName="Ford Street" city="Clevelend" postCode="30273" country="France"/>
+    <shippingData houseNumber="92" streetName="Aster Court" city="Ciechocinek" postCode="88686" country="Spain"/>
+    <shippingData houseNumber="123" streetName="Grunwaldzka" city="Oxford" postCode="35582" country="Greece"/>
+    <shippingData houseNumber="45" streetName="Cove Lane" city="Boston" postCode="73823" country="Argentina"/>
+    <shippingData houseNumber="79" streetName="Highland Place" city="Chicago" postCode="02211" country="Portugal"/>
+    <paymentData cardNumber="1234567890123456" expires="10/20" ccv="123"/>
+    <paymentData cardNumber="2345678901234567" expires="12/22" ccv="234"/>
+    <paymentData cardNumber="3456789012345678" expires="01/21" ccv="345"/>
+    <paymentData cardNumber="4567890123456789" expires="02/23" ccv="456"/>
+    <paymentData cardNumber="5678901234567890" expires="03/20" ccv="567"/>
+    <paymentData cardNumber="6789012345678901" expires="04/22" ccv="678"/>
+    <paymentData cardNumber="7890123456789012" expires="05/21" ccv="789"/>
+    <paymentData cardNumber="8901234567890123" expires="06/19" ccv="890"/>
+    <paymentData cardNumber="9012345678901234" expires="07/21" ccv="901"/>
+    <paymentData cardNumber="0123456789012345" expires="08/19" ccv="902"/>
+
+</testData>

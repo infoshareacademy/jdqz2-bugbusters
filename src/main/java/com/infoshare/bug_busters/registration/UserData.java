@@ -1,14 +1,26 @@
 package com.infoshare.bug_busters.registration;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.UUID;
 
+@XmlRootElement
 public class UserData {
 
-    private String userName;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
+    @XmlAttribute(name="userName")
+    String userName;
+    @XmlAttribute(name="firstName")
+    String firstName;
+    @XmlAttribute(name="lastName")
+    String lastName;
+    @XmlAttribute(name="email")
+    String email;
+    @XmlAttribute(name="password")
+    String password;
+
+    public UserData() {
+
+    }
 
     public UserData(String userName, String firstName, String lastName, String email, String password) {
         this.userName = userName;

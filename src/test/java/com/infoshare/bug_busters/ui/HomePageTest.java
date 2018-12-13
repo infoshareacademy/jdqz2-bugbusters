@@ -1,6 +1,8 @@
 package com.infoshare.bug_busters.ui;
 
 import com.infoshare.bug_busters.pageObject.*;
+import com.infoshare.bug_busters.utils.Waits;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -21,11 +23,12 @@ public class HomePageTest {
     private ColorfulPage colorfulPage;
     private ClassicPage classicPage;
     private MyOrdersPage myOrdersPage;
+    private URLProvider urlProvider;
 
     @Before
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
+
 
         shoppingCartPage = new ShoppingCartPage(driver);
         homePage = new HomePage(driver);
@@ -35,7 +38,8 @@ public class HomePageTest {
         classicPage = new ClassicPage(driver);
         myOrdersPage = new MyOrdersPage(driver);
 
-        driver.get("http://localhost:4180/");
+        urlProvider = new URLProvider(driver);
+
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.infoshare.bug_busters.ui;
 
 import com.infoshare.bug_busters.pageObject.CataloguePage;
 import com.infoshare.bug_busters.pageObject.HomePage;
+import com.infoshare.bug_busters.utils.URLProvider;
 import com.infoshare.bug_busters.utils.WebDriverCreators;
 import com.infoshare.bug_busters.utils.WebDriverProvider;
 import org.junit.After;
@@ -16,16 +17,16 @@ public class CatalogueDropDownMenuTest {
     private WebDriver driver;
     private HomePage homePage;
     private CataloguePage cataloguePage;
+    private URLProvider urlProvider;
 
     @Before
     public void setUp() {
         driver = new WebDriverProvider(WebDriverCreators.CHROME).getDriver();
-        driver.manage().window().maximize();
 
         homePage = new HomePage(driver);
         cataloguePage = new CataloguePage(driver);
 
-        driver.get("http://localhost:4180/");
+        urlProvider = new URLProvider(driver);
     }
 
     @Test
