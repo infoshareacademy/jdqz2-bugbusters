@@ -28,6 +28,7 @@ public class Main {
         System.out.println(paymentDataGenerator.preparePayments());
 
         System.out.println(new ShippingDataGenerator(new RandomDataGenerator()).prepareShippingData().toString());
+        System.out.println(new UserDataGenerator(new RandomDataGenerator()).prepareUserData().toString());
 
         TestData testData = new TestDataGenerator().getDataFromXml();
         List<UserData> userData = testData.getUserData();
