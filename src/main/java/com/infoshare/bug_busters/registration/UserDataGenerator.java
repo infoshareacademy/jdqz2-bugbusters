@@ -1,34 +1,28 @@
 package com.infoshare.bug_busters.registration;
-import com.infoshare.bug_busters.dataFromXML.TestData;
-
-import com.infoshare.bug_busters.random.DdtDataGenerator;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.infoshare.bug_busters.dataFromJson.ListOfDataToTests;
 import com.infoshare.bug_busters.random.RandomDataGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.FileNotFoundException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static javax.xml.bind.JAXBContext.newInstance;
+import java.util.Random;
 
 public class UserDataGenerator {
 
-
     private static Logger logger = LoggerFactory.getLogger(UserDataGenerator.class);
-    private final RandomDataGenerator dataGenerator; // wyciagniety RandomDataGenerator na potrzeby mocka
+    private final RandomDataGenerator dataGenerator;
+    UserData oneUser;
+    Random random = new Random();
+    ObjectMapper mapper = new ObjectMapper();
 
     public UserDataGenerator(RandomDataGenerator dataGenerator) {
         this.dataGenerator = dataGenerator;
     }
-    //konstruktor ktory trzeba stworzyc z polem dataGenerator typu RandomDataGenerator, zeby w metodzie prepareUserData() nie bylo
-                // na sztywno RandomDataGenerator.prepareUserName()
 
     public UserData prepareUserData() {
 
@@ -65,4 +59,24 @@ public class UserDataGenerator {
         return userData;
     }
 
+    public UserData randomOneUserFromJson() {
+
+        try {
+
+            ListOfDataToTests allData = mapper.readValue(new File("testData.json"), ListOfDataToTests.class);
+
+            oneUser = allData.getTestsData()
+                    .get(random.nextInt(allData.getTestsData().size()))
+                    .getUser();
+
+        } catch (JsonGenerationException e) {
+            logger.error(e.getMessage());
+        } catch (JsonMappingException e) {
+            logger.error(e.getMessage());
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+        }
+
+        return oneUser;
+    }
 }
