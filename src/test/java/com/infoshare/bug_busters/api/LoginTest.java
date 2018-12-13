@@ -20,7 +20,7 @@ public class LoginTest {
             .body(login).log().all()
             .auth()
             .preemptive()
-            .basic("John2", "12345").
+            .basic("John102", "12345").
         when()
             .get("http://localhost:4180/login").
         then()
@@ -41,7 +41,7 @@ public class LoginTest {
         when()
            .get("http://localhost:4180/login").
         then()
-           .statusCode(200);
+           .statusCode(401);
     }
     @Test
     public void checkingLoginWithWrongPassword() {
