@@ -30,7 +30,7 @@ public class UserData {
         this.password = password;
     }
 
-    public UserData(){}
+
 
     public String getUserName() {
         return userName ;
