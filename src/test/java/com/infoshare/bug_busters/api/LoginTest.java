@@ -13,20 +13,37 @@ public class LoginTest {
     public void checkingCorectLogin() {
         RestAssured.registerParser("text/plain", Parser.JSON);
         Map<String, Object> login = new HashMap<>();
-        login.put("username", "John2");
+        login.put("username", "John3");
         login.put("password", "12345");
         given()
             .contentType("application/json")
             .body(login).log().all()
             .auth()
             .preemptive()
-            .basic("John2", "12345").
+            .basic("John102", "12345").
         when()
             .get("http://localhost:4180/login").
         then()
             .statusCode(200);
     }
-           @Test
+    @Test
+    public void checkingLoginWithOutData() {
+        RestAssured.registerParser("text/plain", Parser.JSON);
+        Map<String, Object> login = new HashMap<>();
+        login.put("username", " ");
+        login.put("password", " ");
+        given()
+            .contentType("application/json")
+            .body(login).log().all()
+            .auth()
+            .preemptive()
+            .basic(" ", " ").
+        when()
+           .get("http://localhost:4180/login").
+        then()
+           .statusCode(401);
+    }
+    @Test
     public void checkingLoginWithWrongPassword() {
         RestAssured.registerParser("text/plain", Parser.JSON);
         Map<String, Object> login = new HashMap<>();
@@ -76,22 +93,5 @@ public class LoginTest {
            .get("http://localhost:4180/login").
         then()
            .statusCode(401);
-    }
-    @Test
-    public void checkingLoginWithOutData() {
-        RestAssured.registerParser("text/plain", Parser.JSON);
-        Map<String, Object> login = new HashMap<>();
-        login.put("username", " ");
-        login.put("password", " ");
-        given()
-                .contentType("application/json")
-                .body(login).log().all()
-                .auth()
-                .preemptive()
-                .basic(" ", " ").
-                when()
-                .get("http://localhost:4180/login").
-                then()
-                .statusCode(200);
     }
 }

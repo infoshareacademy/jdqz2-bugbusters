@@ -20,12 +20,11 @@ public class RegisterTest {
     public void checkingRegistration() {
         RestAssured.registerParser("text/plain", Parser.JSON);
         Map<String, Object> project = new HashMap<>();
-        project.put("username", "John105");
+        project.put("username", "John104");
         project.put("firstName", "John");
         project.put("lastName", "Doe");
         project.put("password", "12345");
-        project.put("email", "john105@gmail.com");
-
+        project.put("email", "john10@gmail.com");
         given().contentType("application/json")
             .body(project).log().all().
         when()
