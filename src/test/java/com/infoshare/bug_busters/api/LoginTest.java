@@ -30,14 +30,14 @@ public class LoginTest {
     public void checkingLoginWithOutData() {
         RestAssured.registerParser("text/plain", Parser.JSON);
         Map<String, Object> login = new HashMap<>();
-        login.put("username", " ");
-        login.put("password", " ");
+        login.put("username", "");
+        login.put("password", "");
         given()
             .contentType("application/json")
             .body(login).log().all()
             .auth()
             .preemptive()
-            .basic(" ", " ").
+            .basic("", "").
         when()
            .get("http://localhost:4180/login").
         then()
